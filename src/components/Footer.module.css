@@ -1,0 +1,167 @@
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logoTitle {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.subscriptionInput {
+  background-color: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 0.875rem 1rem;
+  border-radius: var(--border-radius-lg);
+  width: 100%;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.subscriptionInput:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+.subscriptionButton {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-text);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  border-radius: var(--border-radius-lg);
+  transition: all 0.3s ease;
+  border: none;
+  margin-top: 0.5rem;
+}
+
+.subscriptionButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+}
+
+.footer {
+  padding: var(--space-16) 0 var(--space-8);
+  border-top: 1px solid rgba(71, 85, 105, 0.3);
+  margin-top: var(--space-16);
+  background-color: var(--color-background-secondary);
+}
+
+.footerContent {
+  margin-bottom: var(--space-12);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .footerContent {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerDescription {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+
+.socialLinks {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.socialIcon {
+  color: var(--color-text-muted);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.socialIcon:hover {
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  text-decoration: none;
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.footerNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerHeading {
+  color: var(--color-text);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footerLink {
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+  font-size: 0.9375rem;
+}
+
+.footerLink:hover {
+  color: var(--color-text);
+  text-decoration: none;
+  transform: translateX(4px);
+}
+
+.footerSubscriptionText {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+  font-size: 0.9375rem;
+}
+
+.subscriptionForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footerCopyright {
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(71, 85, 105, 0.3);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}

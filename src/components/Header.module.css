@@ -1,0 +1,132 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--border-radius-lg);
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  box-shadow: var(--shadow-glow);
+}
+
+.logoText {
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.brandName {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.mainNav {
+  margin-left: var(--space-6);
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius-md);
+}
+
+.navLink:hover, .active {
+  color: var(--color-text);
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.walletButton {
+  margin-left: var(--space-4);
+  transition: all 0.3s ease;
+}
+
+.mobileMenuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  color: var(--color-text);
+  border-radius: var(--border-radius-md);
+  background-color: transparent;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.mobileMenuButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menuIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .mobileMenuButton {
+    display: none;
+  }
+
+  .mainNav {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .mainNav {
+    display: none;
+  }
+}
