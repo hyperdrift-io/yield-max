@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useState, useMemo, useEffect } from 'react'
 import { getProtocols } from '../api/protocols'
+import React from 'react'
 
 export type FilterState = {
   minApy: number
@@ -24,15 +25,38 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
     minSafetyScore: initialFilters?.minSafetyScore ?? 0
   })
 
-  // Update filters when initialFilters change
+  // Update filters when initialFilters change - using a ref to prevent infinite loops
+  const prevInitialFiltersRef = React.useRef(initialFilters);
+
   useEffect(() => {
-    if (initialFilters) {
+    // Deep comparison function for filter objects
+    const haveFiltersChanged = () => {
+      const prev = prevInitialFiltersRef.current;
+
+      // If both are undefined or null, no change
+      if (!prev && !initialFilters) return false;
+
+      // If one is undefined/null but not the other, they've changed
+      if (!prev || !initialFilters) return true;
+
+      // Check each property that might exist
+      return (
+        (initialFilters.minApy !== undefined && prev.minApy !== initialFilters.minApy) ||
+        (initialFilters.maxUnbondingPeriod !== undefined && prev.maxUnbondingPeriod !== initialFilters.maxUnbondingPeriod) ||
+        (initialFilters.minSafetyScore !== undefined && prev.minSafetyScore !== initialFilters.minSafetyScore)
+      );
+    };
+
+    if (initialFilters && haveFiltersChanged()) {
       setFilters(prevFilters => ({
         ...prevFilters,
         ...initialFilters
-      }))
+      }));
+
+      // Update ref to current value
+      prevInitialFiltersRef.current = initialFilters;
     }
-  }, [initialFilters])
+  }, [initialFilters]);
 
   const [sortConfig, setSortConfig] = useState<SortConfig>({
     field: 'apy',
