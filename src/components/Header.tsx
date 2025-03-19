@@ -30,10 +30,11 @@ const Header = () => {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.headerContainer}`}>
         <Link to="/" className={styles.brand}>
-          <div className={styles.logoIcon}>
-            <span className={styles.logoText}>Y</span>
-          </div>
-          <span className={`${styles.brandName} gradient-text`}>YieldMax</span>
+          <img
+            src="/logos/yieldmax-logo-dark-simple.svg"
+            alt="YieldMax Logo"
+            className={styles.logo}
+          />
         </Link>
 
         <nav className={styles.mainNav}>

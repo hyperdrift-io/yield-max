@@ -7,9 +7,10 @@ export type FilterState = {
   minApy: number
   maxUnbondingPeriod: number
   minSafetyScore: number
+  chains: string[]
 }
 
-export type SortField = 'apy' | 'tvl' | 'safetyScore' | 'easeOfUseScore' | 'unbondingPeriod' | 'audits' | 'liquidity'
+export type SortField = 'apy' | 'tvl' | 'safetyScore' | 'easeOfUseScore' | 'unbondingPeriod' | 'audits' | 'liquidity' | 'chains'
 export type SortOrder = 'asc' | 'desc'
 
 export type SortConfig = {
@@ -22,7 +23,8 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
   const [filters, setFilters] = useState<FilterState>({
     minApy: initialFilters?.minApy ?? 0,
     maxUnbondingPeriod: initialFilters?.maxUnbondingPeriod ?? 100,
-    minSafetyScore: initialFilters?.minSafetyScore ?? 0
+    minSafetyScore: initialFilters?.minSafetyScore ?? 0,
+    chains: initialFilters?.chains ?? []
   })
 
   // Update filters when initialFilters change - using a ref to prevent infinite loops
@@ -43,7 +45,11 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
       return (
         (initialFilters.minApy !== undefined && prev.minApy !== initialFilters.minApy) ||
         (initialFilters.maxUnbondingPeriod !== undefined && prev.maxUnbondingPeriod !== initialFilters.maxUnbondingPeriod) ||
-        (initialFilters.minSafetyScore !== undefined && prev.minSafetyScore !== initialFilters.minSafetyScore)
+        (initialFilters.minSafetyScore !== undefined && prev.minSafetyScore !== initialFilters.minSafetyScore) ||
+        (initialFilters.chains !== undefined &&
+         (prev.chains !== initialFilters.chains ||
+          !prev.chains?.every((chain, i) => initialFilters.chains?.[i] === chain) ||
+          prev.chains?.length !== initialFilters.chains?.length))
       );
     };
 
@@ -83,6 +89,14 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
       if (filters.minSafetyScore !== undefined && protocol.safetyScore < filters.minSafetyScore) {
         return false
       }
+      if (filters.chains && filters.chains.length > 0) {
+        // Check if protocol has at least one of the specified chains
+        const protocolChains = protocol.metadata?.chains || []
+        return filters.chains.some(chain =>
+          protocolChains.includes(chain) ||
+          (chain === 'BSC' && protocolChains.includes('Binance Smart Chain'))
+        )
+      }
       return true
     })
 
@@ -95,6 +109,15 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
           : b[sortConfig.field] - a[sortConfig.field]
       }
 
+      // Handle chains sorting (count of chains)
+      if (sortConfig.field === 'chains') {
+        const aChainsCount = a.metadata?.chains?.length || 0
+        const bChainsCount = b.metadata?.chains?.length || 0
+        return sortConfig.order === 'desc'
+          ? bChainsCount - aChainsCount
+          : aChainsCount - bChainsCount
+      }
+
       // Regular sorting (higher is better for most metrics)
       return sortConfig.order === 'desc'
         ? b[sortConfig.field] - a[sortConfig.field]
@@ -103,6 +126,16 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
 
     return result
   }, [protocols, filters, sortConfig])
+
+  // Get all available chains from protocols
+  const availableChains = useMemo(() => {
+    const chainSet = new Set<string>()
+    protocols.forEach(protocol => {
+      const chains = protocol.metadata?.chains || []
+      chains.forEach(chain => chainSet.add(chain))
+    })
+    return Array.from(chainSet).sort()
+  }, [protocols])
 
   // Handle sorting toggle
   const handleSort = (field: SortField) => {
@@ -117,16 +150,30 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
     setFilters({
       minApy: 0,
       maxUnbondingPeriod: 100,
-      minSafetyScore: 0
+      minSafetyScore: 0,
+      chains: []
     })
   }
 
   // Update a single filter
-  const updateFilter = (name: keyof FilterState, value: number) => {
+  const updateFilter = (name: keyof FilterState, value: number | string[]) => {
     setFilters(prev => ({
       ...prev,
       [name]: value
     }))
+  }
+
+  // Toggle a chain in the chains filter array
+  const toggleChainFilter = (chain: string) => {
+    setFilters(prev => {
+      const currentChains = prev.chains || []
+      return {
+        ...prev,
+        chains: currentChains.includes(chain)
+          ? currentChains.filter(c => c !== chain)
+          : [...currentChains, chain]
+      }
+    })
   }
 
   return {
@@ -139,6 +186,8 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
     resetFilters,
     sortConfig,
     handleSort,
-    refetch
+    refetch,
+    availableChains,
+    toggleChainFilter
   }
 }

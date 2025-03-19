@@ -7,10 +7,11 @@ const Footer = () => {
         <div className={styles.footerContent}>
           <div className={styles.footerBrand}>
             <div className={styles.brand}>
-              <div className={styles.logoIcon}>
-                <span className={styles.logoText}>Y</span>
-              </div>
-              <span className={styles.logoTitle}>YieldMax</span>
+              <img
+                src="/logos/yieldmax-logo-dark-simple.svg"
+                alt="YieldMax Logo"
+                className={styles.footerLogo}
+              />
             </div>
             <p className={styles.footerDescription}>
               Find and compare the best yield farming opportunities across multiple protocols. Make informed decisions based on safety, returns, and ease of use.

@@ -24,7 +24,11 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
 }
 
 .logoIcon {

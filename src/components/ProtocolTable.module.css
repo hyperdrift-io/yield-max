@@ -163,6 +163,116 @@
   box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
 }
 
+.chainIconsContainer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.chainIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--color-background-secondary);
+  overflow: hidden;
+}
+
+.chainIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+}
+
+.moreChains {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 1rem;
+  background-color: var(--color-background-secondary);
+  font-size: 0.625rem;
+  padding: 0 0.35rem;
+  color: var(--color-text-muted);
+}
+
+.filtersContainer {
+  margin-bottom: 1.5rem;
+}
+
+.advancedFilterToggle {
+  background-color: var(--color-background-secondary);
+  color: var(--color-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.advancedFilterToggle:hover {
+  background-color: rgba(51, 65, 85, 0.8);
+}
+
+.advancedFilters {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background-color: var(--color-background-secondary);
+  border-radius: 0.5rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+.filterSection {
+  margin-bottom: 1rem;
+}
+
+.filterHeading {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+}
+
+.chainFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.chainFilterItem {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.375rem 0.5rem;
+  border-radius: 0.375rem;
+  background-color: rgba(51, 65, 85, 0.3);
+  transition: background-color 0.2s ease;
+}
+
+.chainFilterItem:hover {
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+.chainFilterItem input {
+  margin-right: 0.5rem;
+}
+
+.chainFilterLabel {
+  display: flex;
+  align-items: center;
+}
+
+.chainFilterIcon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.375rem;
+}
+
 .unbondingPeriod {
   color: var(--color-success);
 }
@@ -198,4 +308,15 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
