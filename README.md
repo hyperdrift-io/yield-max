@@ -1,61 +1,95 @@
-# React + TypeScript + Vite
+# YieldMax
 
-# design
-- https://dribbble.com/shots/22558614-Logos-Background-Patterns
-- https://dribbble.com/shots/25385015-Try-Angle-Dashboard
-- https://dribbble.com/shots/23588022-GUI-design-kit
-- https://dribbble.com/shots/25461237-AXLOR-token-home-page
-- https://dribbble.com/shots/25755045-Pricing-Plan-Web-Page-Design
--https://dribbble.com/shots/24497210-Crypto-Exchange-Marketplace 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+YieldMax is a modern web application for analyzing and comparing yield farming opportunities across different DeFi protocols. Built with React, TypeScript, and Vite, it provides a user-friendly interface for DeFi enthusiasts to make informed investment decisions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Protocol Comparison**: Compare yields across different DeFi protocols
+- **Yield Simulation**: Simulate potential returns with different investment strategies
+- **Real-time Data**: Access up-to-date information from various DeFi protocols
+- **Modern UI**: Clean and intuitive interface with responsive design
+- **Web3 Integration**: Seamless connection with Ethereum wallets
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- Wagmi (Ethereum hooks)
+- React Query
+- Ethers.js
+- React Router DOM
+- React Helmet Async
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- Bun (recommended) or npm
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/yieldmax.git
+cd yieldmax
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Install dependencies:
+```bash
+bun install
 ```
+
+3. Start the development server:
+```bash
+bun dev
+```
+
+4. Build for production:
+```bash
+bun run build
+```
+
+### Development
+
+The project uses ESLint for code linting and TypeScript for type checking. You can run the following commands:
+
+```bash
+# Run linting
+bun run lint
+
+# Type checking
+bun run tsc
+```
+
+## Project Structure
+
+```
+yieldmax/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/         # Page components
+│   ├── hooks/         # Custom React hooks
+│   ├── utils/         # Utility functions
+│   └── styles/        # Global styles and CSS modules
+├── public/            # Static assets
+└── ...
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Design inspiration from various Dribbble shots
+- Built with modern web technologies and best practices
