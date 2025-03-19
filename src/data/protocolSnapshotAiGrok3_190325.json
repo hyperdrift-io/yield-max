@@ -13,11 +13,7 @@
     "liquidity": 9500000000,
     "unbondingPeriod": 0,
     "vcBacking": ["ParaFi Capital", "Framework Ventures", "Three Arrows Capital"],
-    "engagement": {
-      "twitter": 250000,
-      "discord": 80000,
-      "github": 1200
-    },
+    "engagement": { "twitter": 250000, "discord": 80000, "github": 1200 },
     "metadata": {
       "chains": ["Ethereum", "Polygon", "Avalanche", "Optimism", "Arbitrum"],
       "launchDate": "2020-10-02",
@@ -28,16 +24,16 @@
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
       "tokenData": "https://api.coingecko.com/api/v3/coins/aave",
-      "onChainData": "https://api.thegraph.com/subgraphs/name/aave/protocol-v2"
+      "onChainData": "https://api.thegraph.com/subgraphs/name/aave/protocol-v3-ethereum"
     },
     "newsAndDataSources": {
       "news": ["CoinDesk", "The Block"],
-      "realTime": "DeFi Llama API",
-      "audits": "https://aave.com/security"
+      "realTime": "https://api.llama.fi/protocols",
+      "audits": "https://docs.aave.com/developers/security-and-audits"
     },
     "auditDetails": [
-      { "firm": "Trail of Bits", "date": "2020-09", "url": "https://aave.com/audit-trail-of-bits.pdf" },
-      { "firm": "OpenZeppelin", "date": "2021-03", "url": "https://aave.com/audit-openzeppelin.pdf" }
+      { "firm": "Trail of Bits", "date": "2020-09", "url": "https://docs.aave.com/developers/security-and-audits" },
+      { "firm": "OpenZeppelin", "date": "2021-03", "url": "https://docs.aave.com/developers/security-and-audits" }
     ]
   },
   {
@@ -54,11 +50,7 @@
     "liquidity": 3200000000,
     "unbondingPeriod": 0,
     "vcBacking": ["Framework Ventures", "Andreessen Horowitz"],
-    "engagement": {
-      "twitter": 150000,
-      "discord": 50000,
-      "github": 900
-    },
+    "engagement": { "twitter": 150000, "discord": 50000, "github": 900 },
     "metadata": {
       "chains": ["Ethereum", "Fantom", "Arbitrum"],
       "launchDate": "2020-07-17",
@@ -73,11 +65,11 @@
     },
     "newsAndDataSources": {
       "news": ["Decrypt", "CoinTelegraph"],
-      "realTime": "Yearn Subgraph",
-      "audits": "https://yearn.finance/security"
+      "realTime": "https://api.thegraph.com/subgraphs/name/yearn/yearn-vaults-v2-mainnet",
+      "audits": "https://docs.yearn.finance/resources/security"
     },
     "auditDetails": [
-      { "firm": "Quantstamp", "date": "2020-08", "url": "https://yearn.finance/audit-quantstamp.pdf" }
+      { "firm": "Quantstamp", "date": "2020-08", "url": "https://docs.yearn.finance/resources/security" }
     ]
   },
   {
@@ -94,11 +86,7 @@
     "liquidity": 13000000000,
     "unbondingPeriod": 0,
     "vcBacking": ["a16z", "Polychain Capital"],
-    "engagement": {
-      "twitter": 180000,
-      "discord": 60000,
-      "github": 1100
-    },
+    "engagement": { "twitter": 180000, "discord": 60000, "github": 1100 },
     "metadata": {
       "chains": ["Ethereum", "Polygon", "Arbitrum", "Optimism"],
       "launchDate": "2020-01-15",
@@ -113,11 +101,11 @@
     },
     "newsAndDataSources": {
       "news": ["The Defiant", "CoinDesk"],
-      "realTime": "Curve Subgraph",
-      "audits": "https://curve.fi/security"
+      "realTime": "https://api.thegraph.com/subgraphs/name/curvefi/curve",
+      "audits": "https://curve.fi/#/security"
     },
     "auditDetails": [
-      { "firm": "Trail of Bits", "date": "2020-05", "url": "https://curve.fi/audit-trail-of-bits.pdf" }
+      { "firm": "Trail of Bits", "date": "2020-05", "url": "https://curve.fi/#/security" }
     ]
   },
   {
@@ -134,11 +122,7 @@
     "liquidity": 7000000000,
     "unbondingPeriod": 0,
     "vcBacking": ["a16z", "Paradigm"],
-    "engagement": {
-      "twitter": 300000,
-      "discord": 100000,
-      "github": 2000
-    },
+    "engagement": { "twitter": 300000, "discord": 100000, "github": 2000 },
     "metadata": {
       "chains": ["Ethereum", "Polygon", "Optimism", "Arbitrum"],
       "launchDate": "2018-11-02",
@@ -153,17 +137,17 @@
     },
     "newsAndDataSources": {
       "news": ["CoinDesk", "The Block"],
-      "realTime": "Uniswap Subgraph",
+      "realTime": "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3",
       "audits": "https://uniswap.org/security"
     },
     "auditDetails": [
-      { "firm": "OpenZeppelin", "date": "2020-09", "url": "https://uniswap.org/audit-openzeppelin.pdf" }
+      { "firm": "OpenZeppelin", "date": "2020-09", "url": "https://uniswap.org/security" }
     ]
   },
   {
     "id": "sushiswap",
     "name": "SushiSwap",
-    "logoUrl": "https://assets.coingecko.com/coins/images/12271/large/sushiswap.png",
+    "logoUrl": "https://imgs.search.brave.com/gu-oPak84vFkA5bce-jY8So7Zf55tC4kXbFpcJkiVHA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9sb2dv/dHlwLnVzL2ZpbGUv/c3VzaGlzd2FwLnN2/Zw",
     "description": "A DEX forked from Uniswap, expanding into yield farming, staking, and lending via its ecosystem.",
     "website": "https://sushi.com",
     "apy": 6.0,
@@ -174,11 +158,7 @@
     "liquidity": 1800000000,
     "unbondingPeriod": 0,
     "vcBacking": ["Digital Currency Group", "Alameda Research"],
-    "engagement": {
-      "twitter": 120000,
-      "discord": 40000,
-      "github": 800
-    },
+    "engagement": { "twitter": 120000, "discord": 40000, "github": 800 },
     "metadata": {
       "chains": ["Ethereum", "BSC", "Polygon", "Arbitrum"],
       "launchDate": "2020-08-28",
@@ -188,22 +168,22 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "poolData": "https://api.thegraph.com/subgraphs/name/sushiswap/sushiswap",
+      "poolData": "https://api.thegraph.com/subgraphs/name/sushiswap/exchange",
       "tokenData": "https://api.coingecko.com/api/v3/coins/sushi"
     },
     "newsAndDataSources": {
       "news": ["Decrypt", "CoinTelegraph"],
-      "realTime": "SushiSwap Subgraph",
-      "audits": "https://sushi.com/security"
+      "realTime": "https://api.thegraph.com/subgraphs/name/sushiswap/exchange",
+      "audits": "https://docs.sushi.com/security/audits"
     },
     "auditDetails": [
-      { "firm": "Quantstamp", "date": "2020-09", "url": "https://sushi.com/audit-quantstamp.pdf" }
+      { "firm": "Quantstamp", "date": "2020-09", "url": "https://docs.sushi.com/security/audits" }
     ]
   },
   {
     "id": "pancakeswap",
     "name": "PancakeSwap",
-    "logoUrl": "https://assets.coingecko.com/coins/images/12632/large/pancakeswap.png",
+    "logoUrl": "https://cryptologos.cc/logos/pancakeswap-cake-logo.svg?v=040",
     "description": "A leading DEX on Binance Smart Chain, offering yield farming, staking, and liquidity pools.",
     "website": "https://pancakeswap.finance",
     "apy": 10.0,
@@ -214,11 +194,7 @@
     "liquidity": 4500000000,
     "unbondingPeriod": 0,
     "vcBacking": ["Binance Labs"],
-    "engagement": {
-      "twitter": 200000,
-      "discord": 70000,
-      "github": 600
-    },
+    "engagement": { "twitter": 200000, "discord": 70000, "github": 600 },
     "metadata": {
       "chains": ["BSC", "Ethereum", "Aptos"],
       "launchDate": "2020-09-20",
@@ -228,22 +204,22 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "poolData": "https://api.thegraph.com/subgraphs/name/pancakeswap/exchange",
+      "poolData": "https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-bsc",
       "tokenData": "https://api.coingecko.com/api/v3/coins/pancakeswap-token"
     },
     "newsAndDataSources": {
       "news": ["CoinTelegraph", "The Defiant"],
-      "realTime": "PancakeSwap Subgraph",
-      "audits": "https://pancakeswap.finance/security"
+      "realTime": "https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-bsc",
+      "audits": "https://docs.pancakeswap.finance/docs/audit"
     },
     "auditDetails": [
-      { "firm": "CertiK", "date": "2020-10", "url": "https://pancakeswap.finance/audit-certik.pdf" }
+      { "firm": "CertiK", "date": "2020-10", "url": "https://docs.pancakeswap.finance/docs/audit" }
     ]
   },
   {
     "id": "balancer",
     "name": "Balancer",
-    "logoUrl": "https://assets.coingecko.com/coins/images/11683/large/balancer.png",
+    "logoUrl": "https://cryptologos.cc/logos/balancer-bal-logo.svg?v=040",
     "description": "A flexible AMM allowing custom liquidity pools for yield generation.",
     "website": "https://balancer.fi",
     "apy": 5.5,
@@ -254,11 +230,7 @@
     "liquidity": 2500000000,
     "unbondingPeriod": 0,
     "vcBacking": ["a16z", "Placeholder"],
-    "engagement": {
-      "twitter": 90000,
-      "discord": 30000,
-      "github": 700
-    },
+    "engagement": { "twitter": 90000, "discord": 30000, "github": 700 },
     "metadata": {
       "chains": ["Ethereum", "Polygon", "Arbitrum"],
       "launchDate": "2020-06-20",
@@ -273,17 +245,17 @@
     },
     "newsAndDataSources": {
       "news": ["CoinDesk", "The Block"],
-      "realTime": "Balancer Subgraph",
-      "audits": "https://balancer.fi/security"
+      "realTime": "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2",
+      "audits": "https://docs.balancer.fi/resources/security/audits"
     },
     "auditDetails": [
-      { "firm": "OpenZeppelin", "date": "2020-06", "url": "https://balancer.fi/audit-openzeppelin.pdf" }
+      { "firm": "OpenZeppelin", "date": "2020-06", "url": "https://docs.balancer.fi/resources/security/audits" }
     ]
   },
   {
     "id": "pendle",
     "name": "Pendle",
-    "logoUrl": "https://assets.coingecko.com/coins/images/15352/large/pendle.png",
+    "logoUrl": "https://cryptologos.cc/logos/pendle-pendle-logo.svg?v=040",
     "description": "A yield tokenization protocol that splits assets into principal and yield components for trading or farming.",
     "website": "https://pendle.finance",
     "apy": 15.0,
@@ -294,11 +266,7 @@
     "liquidity": 800000000,
     "unbondingPeriod": 0,
     "vcBacking": ["Spartan Group", "HashKey Capital"],
-    "engagement": {
-      "twitter": 50000,
-      "discord": 20000,
-      "github": 400
-    },
+    "engagement": { "twitter": 50000, "discord": 20000, "github": 400 },
     "metadata": {
       "chains": ["Ethereum", "Arbitrum", "BSC"],
       "launchDate": "2021-04-27",
@@ -308,16 +276,16 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "poolData": "https://api.thegraph.com/subgraphs/name/pendle-finance/pendle",
+      "poolData": "https://api.thegraph.com/subgraphs/name/pendle-finance/pendle-mainnet",
       "tokenData": "https://api.coingecko.com/api/v3/coins/pendle"
     },
     "newsAndDataSources": {
       "news": ["The Defiant", "CoinTelegraph"],
-      "realTime": "Pendle Subgraph",
-      "audits": "https://pendle.finance/security"
+      "realTime": "https://api.thegraph.com/subgraphs/name/pendle-finance/pendle-mainnet",
+      "audits": "https://docs.pendle.finance/resources/security"
     },
     "auditDetails": [
-      { "firm": "PeckShield", "date": "2021-04", "url": "https://pendle.finance/audit-peckshield.pdf" }
+      { "firm": "PeckShield", "date": "2021-04", "url": "https://docs.pendle.finance/resources/security" }
     ]
   },
   {
@@ -325,7 +293,7 @@
     "name": "Convex Finance",
     "logoUrl": "https://assets.coingecko.com/coins/images/15585/large/convex.png",
     "description": "A yield booster built on Curve Finance, enhancing rewards for liquidity providers.",
-    "website": "https://convexfinance.com",
+    "website": "https://www.convexfinance.com",
     "apy": 7.0,
     "tvl": 6000000000,
     "safetyScore": 90,
@@ -334,11 +302,7 @@
     "liquidity": 5500000000,
     "unbondingPeriod": 0,
     "vcBacking": [],
-    "engagement": {
-      "twitter": 70000,
-      "discord": 25000,
-      "github": 500
-    },
+    "engagement": { "twitter": 70000, "discord": 25000, "github": 500 },
     "metadata": {
       "chains": ["Ethereum"],
       "launchDate": "2021-05-17",
@@ -348,22 +312,22 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "poolData": "https://api.thegraph.com/subgraphs/name/convex-community/convex",
+      "poolData": "https://api.thegraph.com/subgraphs/name/convex-community/convex-mainnet",
       "tokenData": "https://api.coingecko.com/api/v3/coins/convex-finance"
     },
     "newsAndDataSources": {
       "news": ["CoinDesk", "The Block"],
-      "realTime": "Convex Subgraph",
-      "audits": "https://convexfinance.com/security"
+      "realTime": "https://api.thegraph.com/subgraphs/name/convex-community/convex-mainnet",
+      "audits": "https://docs.convexfinance.com/convexfinance/security"
     },
     "auditDetails": [
-      { "firm": "MixBytes", "date": "2021-05", "url": "https://convexfinance.com/audit-mixbytes.pdf" }
+      { "firm": "MixBytes", "date": "2021-05", "url": "https://docs.convexfinance.com/convexfinance/security" }
     ]
   },
   {
     "id": "aura-finance",
     "name": "Aura Finance",
-    "logoUrl": "https://assets.coingecko.com/coins/images/25942/large/aura.png",
+    "logoUrl": "https://imgs.search.brave.com/NUgegkpXAJ7OL1TmSuDItIM1pjHbRX22gMOfJTfEv6c/rs:fit:40:40:1:0/g:ce/aHR0cHM6Ly9jb2lu/LWltYWdlcy5jb2lu/Z2Vja28uY29tL2Nv/aW5zL2ltYWdlcy8y/NTk0Mi9sYXJnZS9s/b2dvLnBuZz8xNjk2/NTI1MDIx",
     "description": "A protocol enhancing Balancer yields through staking and governance optimization.",
     "website": "https://aura.finance",
     "apy": 6.5,
@@ -374,11 +338,7 @@
     "liquidity": 700000000,
     "unbondingPeriod": 0,
     "vcBacking": [],
-    "engagement": {
-      "twitter": 40000,
-      "discord": 15000,
-      "github": 300
-    },
+    "engagement": { "twitter": 40000, "discord": 15000, "github": 300 },
     "metadata": {
       "chains": ["Ethereum", "Arbitrum"],
       "launchDate": "2022-04-01",
@@ -388,22 +348,22 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "poolData": "https://api.thegraph.com/subgraphs/name/aura-finance/aura",
+      "poolData": "https://api.thegraph.com/subgraphs/name/aurafinance/aura-mainnet",
       "tokenData": "https://api.coingecko.com/api/v3/coins/aura-finance"
     },
     "newsAndDataSources": {
       "news": ["The Defiant", "CoinTelegraph"],
-      "realTime": "Aura Subgraph",
-      "audits": "https://aura.finance/security"
+      "realTime": "https://api.thegraph.com/subgraphs/name/aurafinance/aura-mainnet",
+      "audits": "https://docs.aura.finance/aura/security"
     },
     "auditDetails": [
-      { "firm": "OpenZeppelin", "date": "2022-03", "url": "https://aura.finance/audit-openzeppelin.pdf" }
+      { "firm": "OpenZeppelin", "date": "2022-03", "url": "https://docs.aura.finance/aura/security" }
     ]
   },
   {
     "id": "lido-finance",
     "name": "Lido Finance",
-    "logoUrl": "https://assets.coingecko.com/coins/images/13573/large/lido.png",
+    "logoUrl": "https://cryptologos.cc/logos/lido-dao-ldo-logo.svg?v=040",
     "description": "A liquid staking protocol offering yield on staked assets like ETH and SOL.",
     "website": "https://lido.fi",
     "apy": 4.5,
@@ -414,11 +374,7 @@
     "liquidity": 28000000000,
     "unbondingPeriod": 0,
     "vcBacking": ["Paradigm", "a16z"],
-    "engagement": {
-      "twitter": 200000,
-      "discord": 60000,
-      "github": 1000
-    },
+    "engagement": { "twitter": 200000, "discord": 60000, "github": 1000 },
     "metadata": {
       "chains": ["Ethereum", "Solana", "Polygon"],
       "launchDate": "2020-12-17",
@@ -428,22 +384,22 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "stakingData": "https://api.thegraph.com/subgraphs/name/lidofinance/lido",
+      "stakingData": "https://api.thegraph.com/subgraphs/name/lidofinance/lido-ethereum",
       "tokenData": "https://api.coingecko.com/api/v3/coins/lido-dao"
     },
     "newsAndDataSources": {
       "news": ["CoinDesk", "The Block"],
-      "realTime": "Lido Subgraph",
-      "audits": "https://lido.fi/security"
+      "realTime": "https://api.thegraph.com/subgraphs/name/lidofinance/lido-ethereum",
+      "audits": "https://lido.fi/static/files/security-audits.pdf"
     },
     "auditDetails": [
-      { "firm": "Sigma Prime", "date": "2020-12", "url": "https://lido.fi/audit-sigma-prime.pdf" }
+      { "firm": "Sigma Prime", "date": "2020-12", "url": "https://lido.fi/static/files/security-audits.pdf" }
     ]
   },
   {
     "id": "makerdao",
     "name": "MakerDAO",
-    "logoUrl": "https://assets.coingecko.com/coins/images/1364/large/Maker.png",
+    "logoUrl": "https://cryptologos.cc/logos/maker-mkr-logo.svg?v=040",
     "description": "A decentralized lending platform where users lock collateral to mint DAI and earn yield via stability fees.",
     "website": "https://makerdao.com",
     "apy": 2.5,
@@ -454,11 +410,7 @@
     "liquidity": 8500000000,
     "unbondingPeriod": 0,
     "vcBacking": ["a16z", "Polychain Capital"],
-    "engagement": {
-      "twitter": 170000,
-      "discord": 50000,
-      "github": 1300
-    },
+    "engagement": { "twitter": 170000, "discord": 50000, "github": 1300 },
     "metadata": {
       "chains": ["Ethereum"],
       "launchDate": "2017-12-18",
@@ -468,24 +420,24 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "vaultData": "https://api.thegraph.com/subgraphs/name/makerdao/maker",
+      "vaultData": "https://api.thegraph.com/subgraphs/name/makerdao/vaults-ethereum",
       "tokenData": "https://api.coingecko.com/api/v3/coins/maker"
     },
     "newsAndDataSources": {
       "news": ["CoinDesk", "The Block"],
-      "realTime": "MakerDAO Subgraph",
-      "audits": "https://makerdao.com/security"
+      "realTime": "https://api.thegraph.com/subgraphs/name/makerdao/vaults-ethereum",
+      "audits": "https://makerdao.com/en/security"
     },
     "auditDetails": [
-      { "firm": "Trail of Bits", "date": "2018-05", "url": "https://makerdao.com/audit-trail-of-bits.pdf" }
+      { "firm": "Trail of Bits", "date": "2018-05", "url": "https://makerdao.com/en/security" }
     ]
   },
   {
     "id": "alpaca-finance",
     "name": "Alpaca Finance",
-    "logoUrl": "https://assets.coingecko.com/coins/images/14169/large/alpaca.png",
+    "logoUrl": "https://www.alpacafinance.org/static/alpaca-logo-f7fcf612582ebf134e0d118b5d62670f.svg",
     "description": "A leveraged yield farming protocol on BSC and other chains.",
-    "website": "https://alpaca.finance",
+    "website": "https://www.alpacafinance.org",
     "apy": 20.0,
     "tvl": 500000000,
     "safetyScore": 80,
@@ -494,11 +446,7 @@
     "liquidity": 400000000,
     "unbondingPeriod": 0,
     "vcBacking": ["Spartan Group", "Multicoin Capital"],
-    "engagement": {
-      "twitter": 60000,
-      "discord": 20000,
-      "github": 300
-    },
+    "engagement": { "twitter": 60000, "discord": 20000, "github": 300 },
     "metadata": {
       "chains": ["BSC", "Fantom"],
       "launchDate": "2021-02-15",
@@ -508,24 +456,24 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "poolData": "https://api.thegraph.com/subgraphs/name/alpacafinance/alpaca",
+      "poolData": "https://api.thegraph.com/subgraphs/name/alpacafinance/alpaca-finance",
       "tokenData": "https://api.coingecko.com/api/v3/coins/alpaca-finance"
     },
     "newsAndDataSources": {
       "news": ["CoinTelegraph", "The Defiant"],
-      "realTime": "Alpaca Subgraph",
-      "audits": "https://alpaca.finance/security"
+      "realTime": "https://api.llama.fi/protocols",
+      "audits": "https://docs.alpacafinance.org/security"
     },
     "auditDetails": [
-      { "firm": "CertiK", "date": "2021-02", "url": "https://alpaca.finance/audit-certik.pdf" }
+      { "firm": "CertiK", "date": "2021-02", "url": "https://docs.alpacafinance.org/security" }
     ]
   },
   {
     "id": "beefy-finance",
     "name": "Beefy Finance",
-    "logoUrl": "https://assets.coingecko.com/coins/images/12704/large/beefy.png",
+    "logoUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTUzIDM5NCIgZmlsbD0iI2ZmZiI+PHBhdGggZD0iTTU4OC40ODQgMTkwLjc2OWMuNzg0Ljg2OCAxLjgzNiAxLjQyNiAyLjk5MSAxLjYxMiAxNC41NjUgNC40ODUgMjUuNDc4IDE2LjY1OCAyOC4zNjYgMzEuNjQzIDMuNTQ5IDE1LjQ2IDEuMjM4IDI5LjkwNy05LjI2MiA0Mi4zOS00Ljc2NiA1LjUxOS0xMC42ODcgOS45MDEtMTcuMzcxIDEyLjgxNS0xMC4yMTEgNC43MzMtMjEuMzMxIDcuMjEzLTMyLjU5NSA3LjI3NS0yOS4zMzUuMjI3LTU4LjY3MSAwLTg4LjAwNiAwLS44MjYgMC0xLjYzLS4xMDMtMi4zOTQtLjE2NS0uOTktMy41OTctMS4yMzctMTczLjQyOC0uMjg4LTE3OS4zMTggMS41NDctLjUxNyAzLjE3Ny0uNjYyIDQuNzg2LS40MTRoNzkuNjFjMTQuMDktLjM1MSAyOC4wMTUgMy4wMzggNDAuMzczIDkuODM4IDI1Ljg3IDE0Ljg2MSAyNC45MjEgNDQuOTMzIDEyLjk5NyA2MC4zMS0zLjkyIDUuMTQ3LTkuMDM2IDkuMjM5LTE0LjkxNiAxMS45MjZsLTQuMjkxIDIuMDg4Wm0tNzMuNDIxIDU4LjU3M2MuNTE1LjIyOCAxLjA3Mi4zNzMgMS42MjkuNDU1aDM2LjE4NWMyMy4yNS0uNzIzIDIzLjY2My0zNS44OC40MzMtMzYuOTU1aC0zNC4zNDhjLTEuMjc5IDAtMi42NjItLjM1MS0zLjgzNy43NjVsLS4wNjIgMzUuNzM1Wm0wLTcxLjQ5MWMuNzg0LjE2NSAxLjU2OC4yNjkgMi4zNTIuMzMxaDMyLjE0MWMyLjE0NS0uMDQyIDQuMjctLjM1MiA2LjMzMy0uODg5IDguMzE0LTEuNjU0IDE0LjAyOC05LjM2MyAxMy4yMDMtMTcuODE2LS40MTItOC40NzQtNS42NzMtMTQuMDc1LTE0LjU2NC0xNS40Ni0xLjYzLS4yNDgtMy4yODEtLjM1Mi00LjkzMS0uMzMxaC0zMS4xM2MtMS4wOTQgMC0yLjMzMi0uMzUxLTMuNDA0Ljg2OHYzMy4yOTdabTUzNi40MTctMjguMDQ3YzkuMjYgMjYuMjkgMTguNDYgNTIuNDc3IDI3LjY0IDc4LjU0LjUyIDEuNDQ2IDIuMTEgMi4yMTEgMy41NSAxLjcxNWguMDRjLjc5LS4yNjkgMS40My0uOTA5IDEuNy0xLjY5NSA0LjU4LTEyLjA0OSA4LjEyLTI0LjMwNiAxMi0zNi40NTkgNC40Ni0xMy45NzEgOC44MS0yNy45NjQgMTMuMjUtNDIuMDguMzMtMS4xOTkgMS40Mi0yLjA0NiAyLjY4LTIuMDY3aDM3LjljMS41MiAwIDIuNzYgMS4yNCAyLjc2IDIuNzY5di4wNDJjMCAuMzcyLS4wNi43MjMtLjIxIDEuMDU0LTE4LjI3IDQ4Ljg4LTM2LjU1IDk3Ljc2MS01NC44NSAxNDYuNi0yLjU0IDcuMDA3LTYgMTMuNjIxLTEwLjMyIDE5LjY5Ny04LjAyIDExLjM4OC0yMC42MyAxOC42NjQtMzQuNDkgMTkuOTA0LTE1LjU5IDEuNzM2LTMwLjIyLTEuMDU0LTQzLjIyLTEwLjQzOGwtMi43OC0yLjA2Ny0xLjk0LTEuNDY3IDE2Ljg3LTI5LjI0NmMuNzktMS4zNDMgMi41LTEuNzk4IDMuODQtMS4wMTNsLjM5LjI2OWMuNDguMzkzLjkxLjgyNyAxLjM4IDEuMTU4IDMuNDcgMi41NjIgNy41OCA0LjEzMyAxMS44NyA0LjU0NyA2LjcyLjgyNiAxMy4yNi0yLjU0MyAxNi41LTguNDk1LjI1LS40MTMuNDMtLjg2OC42Ni0xLjI4MiAyLjM3LTQuMzgxIDIuNi05LjU5LjY0LTE0LjE1Ny0xNi4yMi0zOS4zNTMtMzIuMzEtNzguNzY3LTQ4LjI3LTExOC4yNjQtMS4wNC0yLjU2My0yLjA3LTUuMTI2LTMuMTItNy42ODktLjIzLS41OTktLjQxLTEuNDI2LjEyLTEuNzc3LjI1LS4xMjQuNTItLjE4Ni43OS0uMTY2aDQxLjg2YzEuMy0uMDIgMi40My44NDggMi43NiAyLjA4OHYtLjAyMVptLTE3MC4wNzMgOTIuMjQzIDE4LjAxIDE4LjcyNWMxLjQ4NSAxLjUwOSAxLjQ4NSAzLjk0OCAwIDUuNDU3LTExLjUzMiAxMi4wNDktMjYuOTg0IDE5LjU3Mi00My41NyAyMS4yMjYtMTEuODQyIDEuNjMzLTIzLjg5Ljg2OC0zNS40MjItMi4yMzItMjUuNTM5LTYuNzM4LTQ0LjE2OC0yOC43MjktNDYuNjQ0LTU1LjA4MS0xLjUwNi0xMy4yOS0xLjExNC0yNi40NTYgMy4yMzktMzkuMjcgOC44My0yNS41MjUgMjcuMTctMzkuOTkzIDUzLjg2NS00NC4xMjcgMTAuMjk0LTEuNTI5IDIwLjc5NS0xLjA5NSAzMC45NDQgMS4yODIgMTcuNDMzIDMuNjU4IDMyLjE0MiAxNS4zMzUgMzkuNjkyIDMxLjQ5OCA3LjI0MSAxNC40NjggOC45MzMgMjkuOTI4IDguNTYxIDQ2LjI1Ni0uMDQxIDIuMDg3LTEuNzMyIDMuNzYxLTMuODE2IDMuNzgyLTMuOTYxLjEwMy03LjgxOSAwLTExLjY3NiAwaC02MC44MTdjLTMuNTI4IDAtNy4wMzUtLjEyNC0xMC43NjkgMC0yLjE0NS4wNDEtMy44NTggMS44MzktMy44MTYgMy45ODkgMCAuNDc1LjEwMy45My4yNjggMS4zNjQgMS42MyA0LjI1OCA0LjI1IDguMDYxIDcuNjc0IDExLjA1OCA5LjYxNCA4LjQxMiAyMC42MyA4LjkyOCAzMi4xNjIgNS41OCA1LjY5NC0xLjcxNSAxMC45NTQtNC42NSAxNS40MS04LjYxOWwxLjM2Mi0xLjE1N2MxLjU2OC0xLjM0MyAzLjkyLTEuMjE5IDUuMzQzLjI2OVptLTE4LjU2Ny0zNy44MDNjMi4xNjYgMCAzLjkyLTEuNzU2IDMuOTItMy45Mjd2LS4zNzJjLS44MDUtMTAuMTY4LTguMTctMTguNjIyLTE4LjEzNC0yMC43OTItMTYuNTA0LTMuNjE3LTI3LjU0IDguMjY3LTMwLjU3MyAyMC4zMTctLjQ5NSAyLjA2Ny43NjMgNC4xNTQgMi44NDcgNC42NzEuMzA5LjA2Mi42MzkuMDYyLjk0OSAwbDQwLjk5MS4xMDNabS0xMjQuODMxIDM3LjY5OSAxOC4wMzEgMTguODVjMS4zODIgMS40NjcgMS4zODIgMy43ODIgMCA1LjI1LTYuMDAzIDYuNDg5LTEzLjI0NCAxMS42OTgtMjEuMzExIDE1LjI5NC0xMi40MzkgNS4zOTUtMjUuOTkzIDcuNzA5LTM5LjUwNiA2LjczOC04LjA2Ni0uMjQ4LTE2LjA1LTEuNzc4LTIzLjY0MS00LjU0Ny0yMi41MDgtOC40NzQtMzUuNzkzLTI0Ljk4OC00MC4zMzItNDguMzY0LTMuMjM5LTE1LjEyOS0yLjI0OC0zMC44NTggMi44NDctNDUuNDcgOS40MDctMjUuNjkxIDI4LjExOS0zOS41NTkgNTQuOTM3LTQyLjk0OSAxMC4zMzYtMS4zNDMgMjAuODM2LS43NDQgMzAuOTQ1IDEuNzk4IDE3Ljk2OSA0LjQ0NCAzMC43NTkgMTUuMjc0IDM4Ljc4NCAzMS44NzEgNy4yNDEgMTUuMDA1IDguNjg1IDMxLjAwMiA3Ljk0MyA0Ny4zOTItLjE0NS42Mi0uMzcyIDEuMjQtLjY4MSAxLjc5OGgtODYuNDhjLTIuMDg0IDAtMy43NzYgMS42NzQtMy43OTYgMy43NjIgMCAuNTc5LjEyMyAxLjEzNy4zNzEgMS42NTMuMzA5LjY0MS42NCAxLjI2MS45MjggMS44ODEgNS4yODIgMTEuMDU4IDE2Ljg3NiAxNy42NTEgMjkuMDQ3IDE2LjUzNSA5Ljk0NC0uNjYxIDE5LjM3Mi00Ljc3NCAyNi42MzMtMTEuNjE2IDEuNTA2LTEuNDA1IDMuODU4LTEuMzQzIDUuMjgxLjEyNFptLTY0LjU3MS0zNy45ODhjNi42ODQgMS4xNzggNDcuMTM5LjgyNyA1MC4zOTktLjM3Mi0uMzcyLTguNDc0LTMuMDUzLTE1LjkzNS0xMC4zMTUtMjAuODM0LTcuMjgyLTUuMjA4LTE2Ljg1NS01Ljg0OS0yNC43NTYtMS42NTMtOS4zMjUgNC42My0xMy4zNDcgMTMuMDYyLTE1LjMyOCAyMi44NTlaIi8+PHBhdGggZD0iTTEwMTIuMSAxMDEuNjY3Yy0xLjY3IDEwLjA2Ni0zLjI2IDE5Ljc1OS00Ljg5IDI5LjU5Ny0uMjUgMS40NjgtMS42MyAyLjQ4MS0zLjEgMi4yNTNoLS4yNGMtMi41Ni0uNjYxLTQuODczLTEuMjYtNy4xODQtMS45MjItLjQ1NC0uMTI0LS45MDgtLjI0OC0xLjM2Mi0uMzMxLTguNjIzLTEuMzIyLTE2LjY4OSA0LjU4OS0xOC4wMyAxMy4yMjgtLjE0NC44NjgtLjIwNiAxLjc1Ny0uMTg2IDIuNjQ2djQuMzE5Yy4wMjEgMS40NjggMS4yMTcgMi42NDYgMi42ODIgMi42NjdoMjMuMzFjMS4zNiAwIDIuNSAxLjAxMiAyLjY4IDIuMzU2Ljc1IDguNTc3Ljg1IDE3LjE5Ni4zMyAyNS43NzMtLjEgMS4zODUtMS4yMyAyLjQ2LTIuNjIgMi41MDEtNy43MzIuMTg2LTE1LjU3MiAwLTIzLjc4MiAwLTEuNDY1LjA0MS0yLjYyIDEuMjQtMi42NDEgMi43MDh2OTYuMTI4YzAgMS40ODgtMS4yMTcgMi42ODctMi43MDIgMi42ODdoLTM4LjQ5NmMtMS40ODUgMC0yLjY4Mi0xLjE5OS0yLjY4Mi0yLjY4N3YtOTYuMDI1YzAtMS40MDUtMS4wOTMtMi41NjMtMi40OTYtMi42ODctNC4zNzMtLjM5My04LjU4MiAwLTEyLjgxMS0uMjA3LTEuNDQ0LS4xMDMtMi41MzctMS4zNDMtMi40OTYtMi43OXYtMjQuOTI2YzAtMS40NjcgMS4xNzYtMi42NjYgMi42NDEtMi43MDcgNC4zNTItLjMxIDguNTgyIDAgMTIuNzI4LS4xMjQgMS4zLS4wODMgMi4zNzMtMS4wOTYgMi40OTYtMi4zOTgtLjA2Mi0xLjAzMy0uMDYyLTIuMDQ2IDAtMy4wNzktLjEyMy01LjEyNi4wNjItMTAuMjMxLjU1Ny0xNS4zMzYgMi45NzEtMTkuNjM1IDE1LjE2My0zMi43OCAzNC40MTEtMzcuNDkyNyAxNC4xOTMtMy40NTE2IDI3Ljk3NC0xLjg4MDggNDIuMDgzIDIuODMxNiAxLjI2LjQzNCAyIDEuNzE1MSAxLjggMy4wMTcxWk0xOTYuNjQzIDIxLjAxOTdjMjMuNzI1IDAgNDYuNzI3IDQuNjUwMyA2OC4zNjggMTMuODI3MSAxMC4zOTcgNC40MDIzIDIwLjQ0NCA5Ljg1ODggMjkuODMgMTYuMjI0NiA5LjMwNCA2LjMwMzggMTguMDUxIDEzLjUzNzcgMjYuMDE0IDIxLjQ5NSA3Ljk2MyA3Ljk3OCAxNS4xODQgMTYuNzQxNCAyMS40NTUgMjYuMDYyOCA2LjMzNCA5LjQwMzggMTEuODAxIDE5LjQ2OTggMTYuMTk1IDI5Ljg4NjggOS4xNTkgMjEuNjgxIDEzLjgwMSA0NC43MjYgMTMuODAxIDY4LjQ5NCAwIDIzLjc2OS00LjY0MiA0Ni44MTQtMTMuODAxIDY4LjQ5NS00LjM5NCAxMC40MTctOS44NDEgMjAuNDgyLTE2LjE5NSAyOS44ODYtNi4yOTIgOS4zMjItMTMuNTEyIDE4LjA4NS0yMS40NTUgMjYuMDYzLTcuOTYzIDcuOTc4LTE2LjcxIDE1LjIxMi0yNi4wMTQgMjEuNDk1LTkuMzg2IDYuMzY2LTE5LjQzMyAxMS44MjMtMjkuODMgMTYuMjI1LTIxLjY0MSA5LjE3Ny00NC42NDMgMTMuODI3LTY4LjM2OCAxMy44MjctMjMuNzI0IDAtNDYuNzI2LTQuNjUtNjguMzY3LTEzLjgyNy0xMC4zOTctNC40MDItMjAuNDQ0LTkuODU5LTI5LjgzMDYtMTYuMjI1LTkuMzA0LTYuMzA0LTE4LjA1MS0xMy41MzctMjYuMDE0MS0yMS40OTUtNy45NjMyLTcuOTc4LTE1LjE4MzYtMTYuNzQxLTIxLjQ1NS0yNi4wNjMtNi4zMzM0LTkuNDA0LTExLjgwMDMtMTkuNDY5LTE2LjE5NDQtMjkuODg2LTkuMTU5Ny0yMS42ODEtMTMuODAxNC00NC43MjYtMTMuODAxNC02OC40OTUgMC0yMy43NjggNC42NDE3LTQ2LjgxMyAxMy44MDE0LTY4LjQ5NCA0LjM5NDEtMTAuNDE3IDkuODQwNC0yMC40ODMgMTYuMTk0NC0yOS44ODY4IDYuMjkyLTkuMzIxNCAxMy41MTI1LTE4LjA4NDggMjEuNDU1LTI2LjA2MjggNy45NjMxLTcuOTc3OSAxNi43MTAxLTE1LjIxMTggMjYuMDE0MS0yMS40OTUgOS4zODY2LTYuMzY1OCAxOS40MzM2LTExLjgyMjMgMjkuODMwNi0xNi4yMjQ2IDIxLjY0MS05LjE3NjggNDQuNjQzLTEzLjgyNzEgNjguMzY3LTEzLjgyNzFabTAtMjEuMDE5N0M4OC4wMjc0IDAgMCA4OC4xOTE3IDAgMTk3LjAxYzAgMTA4LjgxOSA4OC4wMjc0IDE5Ny4wMTEgMTk2LjY0MyAxOTcuMDExIDEwOC42MTYgMCAxOTYuNjQ0LTg4LjE5MiAxOTYuNjQ0LTE5Ny4wMTFDMzkzLjI4NyA4OC4xOTE3IDMwNS4yMzkgMCAxOTYuNjQzIDBaIi8+PHBhdGggZD0iTTEzNi45NiAxMjEuNTA5di0xNC41M2MwLTExLjczOTQgNy42NzQtMjEuMzA4OSAxOS4yMjctMjMuMzM0NCA4LjcyNi0xLjU1MDEgMTYuODEzLjA4MjcgMjMuMjI5IDYuNzc5MiA0LjIwOSA0LjM4MTcgNi4zOTUgOS42OTMyIDYuNDc4IDE1Ljc3MDIuMDgyIDUuMDQzIDAgMTAuMTA3IDAgMTUuMjMyaDI2LjUzYzAtLjMxLjA0MS0uNjQuMDQxLS45OTJ2LTEzLjc4NmMuMDQxLTEzLjA0MTIgMTAuMzM2LTIzLjM1NDcgMjMuMzUzLTIzLjQ3ODcgNC40OTctLjA0MTQgOC44NS4zOTI3IDEyLjg1MiAyLjU2MjggOC4yMTEgNC40NjQ0IDEyLjUwMiAxMS40MDg5IDEyLjcyOSAyMC43NTA5LjEyNCA0Ljk0LjAyMSA5Ljg4LjAyMSAxNC45ODVoMzQuNDcyYzYuNDM3IDAgMTAuNzA3IDQuMjk5IDExLjI4NSAxMC43MjYuNDk1IDUuNDk4LS45MDggMTAuNTIxLTIuNzI0IDE1LjU0My0xLjg3NyA1LjIwOC00LjU1OSAxMC4wODYtNy45ODMgMTQuNDI3LTIuNzAzIDMuNDMtNS43MzUgNi42MzQtOC44NTEgOS43MTQtNC4wNDMgMy45NjgtOC4yOTMgNy43My0xMi41MjIgMTEuNTMzLTIuMzEgMi4wNjYtNC4zNzMgNC4zMTktNS42OTQgNy4xNTEtLjM3MS44MDYtLjcwMSAxLjc1Ny0uNzAxIDIuNjI1LS4wNDEgMjEuMTY0LjA0MSA0Mi4zMjgtLjA2MiA2My40OTMtLjEyNCAyNS40NDItMTguODk3IDQ4LjExNi00My44MTggNTIuOTUyLTMuODU3LjcyMy03Ljc1NiAxLjExNi0xMS42NzYgMS4xMzctMTAuOTU1LjE0NC0yMS45MDkuMDYyLTMyLjg2My4wNDEtMjYuNzM3IDAtNDkuMTQxLTE4LjI3MS01NC4zODEtNDQuNDk5LS42OC0zLjYzNy0xLjAzMS03LjMxNi0xLjAxLTExLjAxNi0uMTA0LTIwLjYyNy0uMDQyLTQxLjI1NC0uMDYyLTYxLjg2IDAtLjY0MS0uMTQ1LTEuMjgyLS40MTMtMS44Ni0xLjY3MS0zLjg4Ni00LjYyMS02LjczOC03LjY5NS05LjUyOS00LjE0Ni0zLjc2MS04LjI1Mi03LjU2NC0xMi4zMTYtMTEuNDA4LTQuNzQ0Ny00LjQ4NS04Ljk3MzgtOS40MDUtMTIuMDY4My0xNS4xOTItMy40NjU4LTYuNDktNi40MTU4LTEzLjIyNy02LjQxNTgtMjAuODEzIDAtMS43MTUuMTg1Ni0zLjQxLjU1Ny01LjA4NCAxLjE1NTItNC44MTYgNS40MjU2LTguMDYxIDEwLjM5NzQtOC4wODFoNDAuMDQyN2wuMDQxLjA0MVptMzguMTAzIDIzLjM1NWgtNDIuMTY3Yy0yLjcwMyAwLTUuMDM0IDEuODE5LTUuMzg0IDQuNDg1LS4yMjcgMS41My0uMjA3IDMuMS4wNjEgNC42My45MjkgNC43MzMgMi45OTIgOS4wMTEgNi4yNzIgMTIuNTI1IDMuMjggMy41MTMgNi44NyA2LjYzNCAxMC4xOTEgMTAuMDQ1IDIuNTE3IDIuNTYzIDQuMTI2IDUuNjIxIDQuMTI2IDkuNDA0LS4wMjEgMjMuMTA3LS4wMjEgNDYuMjE0IDAgNjkuMzIxIDAgMS42MzMuMDgzIDMuMjY2LjMwOSA0Ljg3OCAyLjMzMiAxNS44NzMgMTUuNjE3IDI3LjMyMyAzMS42MjYgMjcuMzIzaDMyLjk4N2MxLjYzIDAgMy4yNi0uMDgyIDQuODg5LS4yODkgMTUuNy0yLjE3IDI3LjM5Ny0xNS41ODQgMjcuNDE3LTMxLjQ1NyAwLTMuODQ0LS4wNDEtNy43MDkuMDIxLTExLjU1NCAwLS44ODgtLjI0OC0xLjI2LTEuMTE0LTEuNTI5LTguMTA4LTIuNDgtMTUuODY0LTYuMDE1LTIzLjA2NC0xMC41LTE2LjU0NS0xMC4yOTItMjkuMjMzLTI0LjA5OS0zNy40NDMtNDEuODk0LTMuOTQxLTguNTM2LTYuNjQzLTE3LjQ0NC03LjU5Mi0yNi44MDctLjYxOS02LjEzOS0uNzQzLTEyLjMxOC0xLjExNC0xOC42MjJsLS4wMjEuMDQxWm02OC42OTggNjEuOTY0Yy4wNjEtNS43ODctNC41Ni0xMC41Mi0xMC4zMTUtMTAuNjAzLTUuNzc3LS4wNjItMTAuNTAxIDQuNTY4LTEwLjU4MyAxMC4zNTUtLjA2MiA1Ljc4NyA0LjU1OSAxMC41MiAxMC4zMTQgMTAuNjAzaC4wMjFjNS43NTYuMDgyIDEwLjQ4LTQuNTI3IDEwLjU0Mi0xMC4yOTN2LS4wNjJoLjAyMVoiLz48cGF0aCBkPSJNMTc5LjE4NyAyMDYuNzI0Yy0uMDIxIDUuNzg4LTQuNzI0IDEwLjQ1OS0xMC40OCAxMC40MzgtNS43NzYtLjAyMS0xMC40MzgtNC43MzMtMTAuNDE4LTEwLjUyLjAyMS01Ljc4NyA0LjcyNC0xMC40NTggMTAuNTAxLTEwLjQzOGguMDQxYzUuNzU2IDAgMTAuMzk3IDQuNzEzIDEwLjM3NyAxMC40NTh2LjA0MmwtLjAyMS4wMloiLz48L3N2Zz4=",
     "description": "A multi-chain yield optimizer that auto-compounds rewards.",
-    "website": "https://beefy.finance",
+    "website": "https://beefy.com",
     "apy": 12.0,
     "tvl": 700000000,
     "safetyScore": 85,
@@ -534,11 +482,7 @@
     "liquidity": 600000000,
     "unbondingPeriod": 0,
     "vcBacking": [],
-    "engagement": {
-      "twitter": 50000,
-      "discord": 18000,
-      "github": 400
-    },
+    "engagement": { "twitter": 50000, "discord": 18000, "github": 400 },
     "metadata": {
       "chains": ["BSC", "Polygon", "Avalanche", "Fantom", "Arbitrum"],
       "launchDate": "2020-10-08",
@@ -548,22 +492,22 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "vaultData": "https://api.thegraph.com/subgraphs/name/beefyfinance/beefy",
+      "vaultData": "https://api.thegraph.com/subgraphs/name/beefyfinance/beefy-finance",
       "tokenData": "https://api.coingecko.com/api/v3/coins/beefy-finance"
     },
     "newsAndDataSources": {
       "news": ["CoinDesk", "The Defiant"],
-      "realTime": "Beefy Subgraph",
-      "audits": "https://beefy.finance/security"
+      "realTime": "https://api.llama.fi/protocols",
+      "audits": "https://github.com/beefyfinance/beefy-audits"
     },
     "auditDetails": [
-      { "firm": "CertiK", "date": "2020-10", "url": "https://beefy.finance/audit-certik.pdf" }
+      { "firm": "CertiK", "date": "2020-10", "url": "https://github.com/beefyfinance/beefy-audits" }
     ]
   },
   {
     "id": "frax-finance",
     "name": "Frax Finance",
-    "logoUrl": "https://assets.coingecko.com/coins/images/13422/large/frax.png",
+    "logoUrl": "https://cryptologos.cc/logos/frax-finance-frax-ether-frxeth-logo.svg?v=040",
     "description": "A stablecoin protocol with yield opportunities via staking and liquidity provision.",
     "website": "https://frax.finance",
     "apy": 5.0,
@@ -574,11 +518,7 @@
     "liquidity": 2300000000,
     "unbondingPeriod": 0,
     "vcBacking": ["Dragonfly Capital", "Electric Capital"],
-    "engagement": {
-      "twitter": 80000,
-      "discord": 30000,
-      "github": 600
-    },
+    "engagement": { "twitter": 80000, "discord": 30000, "github": 600 },
     "metadata": {
       "chains": ["Ethereum", "cross-chain integrations"],
       "launchDate": "2020-12-20",
@@ -588,22 +528,22 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "poolData": "https://api.thegraph.com/subgraphs/name/frax-finance/frax",
+      "poolData": "https://api.thegraph.com/subgraphs/name/frax-finance/frax-mainnet",
       "tokenData": "https://api.coingecko.com/api/v3/coins/frax-share"
     },
     "newsAndDataSources": {
       "news": ["CoinTelegraph", "The Block"],
-      "realTime": "Frax Subgraph",
-      "audits": "https://frax.finance/security"
+      "realTime": "https://api.llama.fi/protocols",
+      "audits": "https://docs.frax.finance/security/audits"
     },
     "auditDetails": [
-      { "firm": "Trail of Bits", "date": "2021-01", "url": "https://frax.finance/audit-trail-of-bits.pdf" }
+      { "firm": "Trail of Bits", "date": "2021-01", "url": "https://docs.frax.finance/security/audits" }
     ]
   },
   {
     "id": "harvest-finance",
     "name": "Harvest Finance",
-    "logoUrl": "https://assets.coingecko.com/coins/images/13073/large/harvest.png",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12304/standard/FARM_200x200.png?1696512134",
     "description": "A yield aggregator automating farming across multiple protocols.",
     "website": "https://harvest.finance",
     "apy": 9.0,
@@ -614,11 +554,7 @@
     "liquidity": 250000000,
     "unbondingPeriod": 0,
     "vcBacking": [],
-    "engagement": {
-      "twitter": 40000,
-      "discord": 15000,
-      "github": 300
-    },
+    "engagement": { "twitter": 40000, "discord": 15000, "github": 300 },
     "metadata": {
       "chains": ["Ethereum", "BSC", "Polygon"],
       "launchDate": "2020-09-01",
@@ -628,24 +564,24 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "vaultData": "https://api.thegraph.com/subgraphs/name/harvest-finance/harvest",
+      "vaultData": "https://api.thegraph.com/subgraphs/name/harvest-finance/harvest-finance",
       "tokenData": "https://api.coingecko.com/api/v3/coins/harvest-finance"
     },
     "newsAndDataSources": {
       "news": ["CoinDesk", "The Defiant"],
-      "realTime": "Harvest Subgraph",
-      "audits": "https://harvest.finance/security"
+      "realTime": "https://api.llama.fi/protocols",
+      "audits": "https://docs.harvest.finance/security/audits"
     },
     "auditDetails": [
-      { "firm": "Haechi Audit", "date": "2020-09", "url": "https://harvest.finance/audit-haechi.pdf" }
+      { "firm": "Haechi Audit", "date": "2020-09", "url": "https://docs.harvest.finance/security/audits" }
     ]
   },
   {
     "id": "stake-dao",
     "name": "Stake DAO",
-    "logoUrl": "https://assets.coingecko.com/coins/images/13724/large/stake-dao.png",
+    "logoUrl": "https://cryptologos.cc/logos/xdai-stake-logo.svg?v=040",
     "description": "A platform curating yield strategies with a focus on risk-adjusted returns.",
-    "website": "https://stakedao.org",
+    "website": "https://www.stakedao.org",
     "apy": 7.5,
     "tvl": 200000000,
     "safetyScore": 85,
@@ -654,11 +590,7 @@
     "liquidity": 180000000,
     "unbondingPeriod": 0,
     "vcBacking": [],
-    "engagement": {
-      "twitter": 30000,
-      "discord": 10000,
-      "github": 200
-    },
+    "engagement": { "twitter": 30000, "discord": 10000, "github": 200 },
     "metadata": {
       "chains": ["Ethereum", "Polygon"],
       "launchDate": "2021-01-20",
@@ -668,24 +600,24 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "vaultData": "https://api.thegraph.com/subgraphs/name/stakedao/stakedao",
+      "vaultData": "https://api.thegraph.com/subgraphs/name/stakedao/stakedao-mainnet",
       "tokenData": "https://api.coingecko.com/api/v3/coins/stake-dao"
     },
     "newsAndDataSources": {
       "news": ["CoinTelegraph", "The Defiant"],
-      "realTime": "Stake DAO Subgraph",
-      "audits": "https://stakedao.org/security"
+      "realTime": "https://api.llama.fi/protocols",
+      "audits": "https://docs.stakedao.org/security"
     },
     "auditDetails": [
-      { "firm": "Quantstamp", "date": "2021-01", "url": "https://stakedao.org/audit-quantstamp.pdf" }
+      { "firm": "Quantstamp", "date": "2021-01", "url": "https://docs.stakedao.org/security" }
     ]
   },
   {
     "id": "eigenlayer",
     "name": "EigenLayer",
-    "logoUrl": "https://assets.coingecko.com/coins/images/35253/large/eigenlayer.png",
+    "logoUrl": "https://cryptologos.cc/logos/eigenlayer-eigen-logo.svg?v=040",
     "description": "A restaking protocol enhancing yields by repurposing staked ETH.",
-    "website": "https://eigenlayer.xyz",
+    "website": "https://www.eigenlayer.xyz",
     "apy": 6.0,
     "tvl": 1500000000,
     "safetyScore": 87,
@@ -694,11 +626,7 @@
     "liquidity": 1300000000,
     "unbondingPeriod": 7,
     "vcBacking": ["a16z", "Polychain Capital"],
-    "engagement": {
-      "twitter": 60000,
-      "discord": 25000,
-      "github": 500
-    },
+    "engagement": { "twitter": 60000, "discord": 25000, "github": 500 },
     "metadata": {
       "chains": ["Ethereum"],
       "launchDate": "2023-06-14",
@@ -708,24 +636,24 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "stakingData": "https://api.thegraph.com/subgraphs/name/eigenlayer/eigenlayer",
+      "stakingData": "https://api.thegraph.com/subgraphs/name/eigenlayer/eigenlayer-mainnet",
       "tokenData": "https://api.coingecko.com/api/v3/coins/eigenlayer"
     },
     "newsAndDataSources": {
       "news": ["CoinDesk", "The Block"],
-      "realTime": "EigenLayer Subgraph",
-      "audits": "https://eigenlayer.xyz/security"
+      "realTime": "https://api.llama.fi/protocols",
+      "audits": "https://docs.eigenlayer.xyz/overview/security"
     },
     "auditDetails": [
-      { "firm": "OpenZeppelin", "date": "2023-05", "url": "https://eigenlayer.xyz/audit-openzeppelin.pdf" }
+      { "firm": "OpenZeppelin", "date": "2023-05", "url": "https://docs.eigenlayer.xyz/overview/security" }
     ]
   },
   {
     "id": "jito",
     "name": "Jito",
-    "logoUrl": "https://assets.coingecko.com/coins/images/33292/large/jito.png",
+    "logoUrl": "https://cdn.brandfetch.io/idCrRKOI0F/theme/light/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
     "description": "A liquid staking and restaking protocol on Solana.",
-    "website": "https://jito.network",
+    "website": "https://www.jito.network",
     "apy": 7.0,
     "tvl": 2000000000,
     "safetyScore": 86,
@@ -734,11 +662,7 @@
     "liquidity": 1800000000,
     "unbondingPeriod": 0,
     "vcBacking": ["Multicoin Capital", "Solana Ventures"],
-    "engagement": {
-      "twitter": 50000,
-      "discord": 20000,
-      "github": 400
-    },
+    "engagement": { "twitter": 50000, "discord": 20000, "github": 400 },
     "metadata": {
       "chains": ["Solana"],
       "launchDate": "2023-11-27",
@@ -748,16 +672,16 @@
     },
     "apiSources": {
       "tvlAndApy": "https://api.llama.fi/protocols",
-      "stakingData": "https://api.thegraph.com/subgraphs/name/jito-labs/jito",
+      "stakingData": "https://api.thegraph.com/subgraphs/name/jito-labs/jito-solana",
       "tokenData": "https://api.coingecko.com/api/v3/coins/jito-staked-sol"
     },
     "newsAndDataSources": {
       "news": ["CoinTelegraph", "The Block"],
-      "realTime": "Jito Subgraph",
-      "audits": "https://jito.network/security"
+      "realTime": "https://api.llama.fi/protocols",
+      "audits": "https://www.jito.network/docs/security"
     },
     "auditDetails": [
-      { "firm": "Neodyme", "date": "2023-11", "url": "https://jito.network/audit-neodyme.pdf" }
+      { "firm": "Neodyme", "date": "2023-11", "url": "https://www.jito.network/docs/security" }
     ]
   }
 ]
