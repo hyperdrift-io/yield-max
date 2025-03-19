@@ -2,8 +2,24 @@ import { Helmet } from 'react-helmet-async'
 import ProtocolTable from '../components/ProtocolTable'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
+import { useProtocolsStore } from '../hooks/useProtocolsStore'
 
 const Home = () => {
+  const { allProtocols } = useProtocolsStore()
+
+  // Get highest APY protocol
+  const highestApyProtocol = allProtocols.length > 0
+    ? allProtocols.reduce((prev, current) => (prev.apy > current.apy) ? prev : current)
+    : null
+
+  // Get protocol with highest safety score
+  const safestProtocol = allProtocols.length > 0
+    ? allProtocols.reduce((prev, current) => (prev.safetyScore > current.safetyScore) ? prev : current)
+    : null
+
+  // Calculate total TVL
+  const totalTvl = allProtocols.reduce((sum, protocol) => sum + protocol.tvl, 0)
+
   return (
     <>
       <Helmet>
@@ -33,19 +49,37 @@ const Home = () => {
           <div className={styles.statsGrid}>
             <div className="stat-card animate-fade-in" style={{animationDelay: '0s'}}>
               <div className="stat-label">Highest APY</div>
-              <div className="stat-value">8.5%</div>
-              <div className={styles.statProvider}>Yearn Finance</div>
+              <div className="stat-value">{highestApyProtocol?.apy.toFixed(1)}%</div>
+              <div className={styles.statProvider}>{highestApyProtocol?.name}</div>
             </div>
             <div className="stat-card animate-fade-in" style={{animationDelay: '0.3s'}}>
               <div className="stat-label">Safest Protocol</div>
-              <div className="stat-value">9/10</div>
-              <div className={styles.statProvider}>Lido</div>
+              <div className="stat-value">{safestProtocol ? ((safestProtocol.safetyScore / 10).toFixed(1)) : '0.0'}/10</div>
+              <div className={styles.statProvider}>{safestProtocol?.name}</div>
             </div>
             <div className="stat-card animate-fade-in" style={{animationDelay: '0.6s'}}>
               <div className="stat-label">Total Value Locked</div>
-              <div className="stat-value">$33.5B+</div>
+              <div className="stat-value">${(totalTvl / 1e9).toFixed(1)}B+</div>
               <div className={styles.statProvider}>Across all protocols</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Protocol Table Section */}
+      <section className={styles.protocolsSection}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeaderWithAction}>
+            <h2 className={styles.sectionTitle}>Top Yield Protocols</h2>
+            <Link to="/compare" className={styles.viewAllLink}>
+              View All
+              <svg className={styles.viewAllIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+          <div className={styles.protocolTableWrapper}>
+            <ProtocolTable limit={10} />
           </div>
         </div>
       </section>
@@ -97,24 +131,6 @@ const Home = () => {
                 Calculate potential returns with our advanced simulator that accounts for unbonding periods and compounding.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Protocol Table Section */}
-      <section className={styles.protocolsSection}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeaderWithAction}>
-            <h2 className={styles.sectionTitle}>Top Yield Protocols</h2>
-            <Link to="/compare" className={styles.viewAllLink}>
-              View All
-              <svg className={styles.viewAllIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-          <div className={styles.protocolTableWrapper}>
-            <ProtocolTable limit={5} />
           </div>
         </div>
       </section>

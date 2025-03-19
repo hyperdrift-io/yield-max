@@ -12,9 +12,12 @@
   --color-background-secondary: #1e293b;
   --color-card: #1e293b;
   --color-card-hover: #293548;
+  --color-card-light: #1e293b;
   --color-text: #f8fafc;
   --color-text-muted: #94a3b8;
   --color-border: rgba(71, 85, 105, 0.3);
+  --color-bg-secondary: #1e293b;
+  --color-bg-tertiary: #151e2d;
 
   /* UI Elements */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);

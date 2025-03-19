@@ -21,6 +21,9 @@ const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
     ? protocols.slice(0, limit)
     : protocols
 
+  console.log("🚀 ~ ProtocolTable ~ passed filters:", filters)
+  console.log("🚀 ~ ProtocolTable ~ filtered protocols count:", protocols.length)
+
   if (isLoading) {
     return (
       <div className={styles.loadingContainer}>
@@ -143,7 +146,7 @@ const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
                     <div className={styles.scoreBar}>
                       <div
                         className={`${styles.scoreBarFill} ${styles.safetyScoreFill}`}
-                        style={{ width: `${protocol.safetyScore * 10}%` }}
+                        style={{ width: `${protocol.safetyScore}%` }}
                       ></div>
                     </div>
                   </div>
@@ -154,7 +157,7 @@ const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
                     <div className={styles.scoreBar}>
                       <div
                         className={`${styles.scoreBarFill} ${styles.easeScoreFill}`}
-                        style={{ width: `${protocol.easeOfUseScore * 10}%` }}
+                        style={{ width: `${protocol.easeOfUseScore}%` }}
                       ></div>
                     </div>
                   </div>

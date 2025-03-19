@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import ProtocolTable from '../components/ProtocolTable'
-import { useProtocolsStore } from '../hooks/useProtocolsStore'
+import { useProtocolsStore, FilterState } from '../hooks/useProtocolsStore'
 import styles from './Compare.module.css'
 
 const Compare = () => {
@@ -12,7 +12,7 @@ const Compare = () => {
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
-    updateFilter(name as any, Number(value))
+    updateFilter(name as keyof FilterState, Number(value))
   }
 
   return (
@@ -98,24 +98,24 @@ const Compare = () => {
                 <label className={styles.filterLabel}>
                   Minimum Safety Score
                 </label>
-                <span className={styles.filterValueTertiary}>{filters.minSafetyScore}/10</span>
+                <span className={styles.filterValueTertiary}>{filters.minSafetyScore}/100</span>
               </div>
               <input
                 type="range"
                 name="minSafetyScore"
                 min="0"
-                max="10"
+                max="100"
+                step="5"
                 value={filters.minSafetyScore}
                 onChange={handleFilterChange}
                 className={styles.rangeInputTertiary}
               />
               <div className={styles.rangeLabels}>
                 <span>0</span>
-                <span>2</span>
-                <span>4</span>
-                <span>6</span>
-                <span>8</span>
-                <span>10</span>
+                <span>25</span>
+                <span>50</span>
+                <span>75</span>
+                <span>100</span>
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@ const Compare = () => {
               Reset Filters
             </button>
           </div>
-          <ProtocolTable />
+          <ProtocolTable filters={filters} />
         </div>
       </div>
     </>

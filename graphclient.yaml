@@ -1,0 +1,21 @@
+sources:
+  - name: uniswap
+    handler:
+      graphql:
+        endpoint: https://gateway.thegraph.com/api/3c3bb8d268d61420e38f6cf6f1eb25d1/subgraphs/id/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV
+        headers:
+          Authorization: Bearer ${GRAPH_API_KEY}
+  - name: aave
+    handler:
+      graphql:
+        endpoint: https://gateway.thegraph.com/api/3c3bb8d268d61420e38f6cf6f1eb25d1/subgraphs/id/C2zniPn45RnLDGzVeGZCx2Sw3GXrbc9gL4ZfL8B8Em2j
+          Authorization: Bearer ${GRAPH_API_KEY}
+  - name: compound
+    handler:
+      graphql:
+        endpoint: https://gateway.thegraph.com/api/3c3bb8d268d61420e38f6cf6f1eb25d1/subgraphs/id/AAHFozW6KF553DsmqZkY7SRNLngP3vgrTMig2oxmfmfh
+        headers:
+          Authorization: Bearer ${GRAPH_API_KEY}
+
+documents:
+  - ./src/graphql/*.graphql

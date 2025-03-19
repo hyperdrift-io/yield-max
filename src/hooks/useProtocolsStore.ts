@@ -1,15 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState, useMemo } from 'react'
-import { getProtocols, Protocol } from '../api/protocols'
-
-// Add safety score and ease of use score to the Protocol type
-// This extends the Protocol type with additional properties used in the UI
-declare module '../api/protocols' {
-  interface Protocol {
-    safetyScore: number;
-    easeOfUseScore: number;
-  }
-}
+import { useState, useMemo, useEffect } from 'react'
+import { getProtocols } from '../api/protocols'
 
 export type FilterState = {
   minApy: number
@@ -17,7 +8,7 @@ export type FilterState = {
   minSafetyScore: number
 }
 
-export type SortField = 'apy' | 'tvl' | 'safetyScore' | 'easeOfUseScore' | 'unbondingPeriod' | 'risk'
+export type SortField = 'apy' | 'tvl' | 'safetyScore' | 'easeOfUseScore' | 'unbondingPeriod' | 'audits' | 'liquidity'
 export type SortOrder = 'asc' | 'desc'
 
 export type SortConfig = {
@@ -32,6 +23,16 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
     maxUnbondingPeriod: initialFilters?.maxUnbondingPeriod ?? 100,
     minSafetyScore: initialFilters?.minSafetyScore ?? 0
   })
+
+  // Update filters when initialFilters change
+  useEffect(() => {
+    if (initialFilters) {
+      setFilters(prevFilters => ({
+        ...prevFilters,
+        ...initialFilters
+      }))
+    }
+  }, [initialFilters])
 
   const [sortConfig, setSortConfig] = useState<SortConfig>({
     field: 'apy',
@@ -72,8 +73,8 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
 
       // Regular sorting (higher is better for most metrics)
       return sortConfig.order === 'desc'
-        ? b[sortConfig.field as keyof Protocol] - a[sortConfig.field as keyof Protocol]
-        : a[sortConfig.field as keyof Protocol] - b[sortConfig.field as keyof Protocol]
+        ? b[sortConfig.field] - a[sortConfig.field]
+        : a[sortConfig.field] - b[sortConfig.field]
     })
 
     return result
@@ -105,24 +106,15 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
   }
 
   return {
-    // Data
     protocols: processedProtocols,
-    rawProtocols: protocols,
-
-    // Filters
-    filters,
-    setFilters,
-    updateFilter,
-    resetFilters,
-
-    // Sorting
-    sortConfig,
-    setSortConfig,
-    handleSort,
-
-    // Query state
+    allProtocols: protocols,
     isLoading,
     error,
+    filters,
+    updateFilter,
+    resetFilters,
+    sortConfig,
+    handleSort,
     refetch
   }
 }

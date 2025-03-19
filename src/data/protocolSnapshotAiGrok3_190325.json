@@ -1,0 +1,763 @@
+[
+  {
+    "id": "aave",
+    "name": "Aave",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12645/large/AAVE.png",
+    "description": "Aave is a decentralized lending and borrowing protocol allowing users to deposit assets for interest or borrow against collateral with variable or fixed rates.",
+    "website": "https://aave.com",
+    "apy": 5.2,
+    "tvl": 12000000000,
+    "safetyScore": 92,
+    "easeOfUseScore": 85,
+    "audits": 4,
+    "liquidity": 9500000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["ParaFi Capital", "Framework Ventures", "Three Arrows Capital"],
+    "engagement": {
+      "twitter": 250000,
+      "discord": 80000,
+      "github": 1200
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Avalanche", "Optimism", "Arbitrum"],
+      "launchDate": "2020-10-02",
+      "token": "AAVE",
+      "governance": "Aave Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/aave",
+      "onChainData": "https://api.thegraph.com/subgraphs/name/aave/protocol-v2"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinDesk", "The Block"],
+      "realTime": "DeFi Llama API",
+      "audits": "https://aave.com/security"
+    },
+    "auditDetails": [
+      { "firm": "Trail of Bits", "date": "2020-09", "url": "https://aave.com/audit-trail-of-bits.pdf" },
+      { "firm": "OpenZeppelin", "date": "2021-03", "url": "https://aave.com/audit-openzeppelin.pdf" }
+    ]
+  },
+  {
+    "id": "yearn-finance",
+    "name": "Yearn Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/11849/large/yearn-finance.png",
+    "description": "Yearn Finance automates yield farming by optimizing returns across DeFi protocols through vaults.",
+    "website": "https://yearn.finance",
+    "apy": 8.1,
+    "tvl": 4000000000,
+    "safetyScore": 88,
+    "easeOfUseScore": 75,
+    "audits": 3,
+    "liquidity": 3200000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["Framework Ventures", "Andreessen Horowitz"],
+    "engagement": {
+      "twitter": 150000,
+      "discord": 50000,
+      "github": 900
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Fantom", "Arbitrum"],
+      "launchDate": "2020-07-17",
+      "token": "YFI",
+      "governance": "YFI Voting",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "vaultData": "https://api.thegraph.com/subgraphs/name/yearn/yearn-vaults-v2-mainnet",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/yearn-finance"
+    },
+    "newsAndDataSources": {
+      "news": ["Decrypt", "CoinTelegraph"],
+      "realTime": "Yearn Subgraph",
+      "audits": "https://yearn.finance/security"
+    },
+    "auditDetails": [
+      { "firm": "Quantstamp", "date": "2020-08", "url": "https://yearn.finance/audit-quantstamp.pdf" }
+    ]
+  },
+  {
+    "id": "curve-finance",
+    "name": "Curve Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12124/large/Curve.png",
+    "description": "Curve Finance is a DEX optimized for stablecoin swaps and yield farming with low slippage.",
+    "website": "https://curve.fi",
+    "apy": 3.5,
+    "tvl": 15000000000,
+    "safetyScore": 90,
+    "easeOfUseScore": 80,
+    "audits": 5,
+    "liquidity": 13000000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["a16z", "Polychain Capital"],
+    "engagement": {
+      "twitter": 180000,
+      "discord": 60000,
+      "github": 1100
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Arbitrum", "Optimism"],
+      "launchDate": "2020-01-15",
+      "token": "CRV",
+      "governance": "veCRV Voting",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "poolData": "https://api.thegraph.com/subgraphs/name/curvefi/curve",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/curve-dao-token"
+    },
+    "newsAndDataSources": {
+      "news": ["The Defiant", "CoinDesk"],
+      "realTime": "Curve Subgraph",
+      "audits": "https://curve.fi/security"
+    },
+    "auditDetails": [
+      { "firm": "Trail of Bits", "date": "2020-05", "url": "https://curve.fi/audit-trail-of-bits.pdf" }
+    ]
+  },
+  {
+    "id": "uniswap",
+    "name": "Uniswap",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12504/large/uniswap-uni.png",
+    "description": "A top DEX using an automated market maker (AMM) model, offering yield through liquidity provision.",
+    "website": "https://uniswap.org",
+    "apy": 4.0,
+    "tvl": 8000000000,
+    "safetyScore": 95,
+    "easeOfUseScore": 90,
+    "audits": 6,
+    "liquidity": 7000000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["a16z", "Paradigm"],
+    "engagement": {
+      "twitter": 300000,
+      "discord": 100000,
+      "github": 2000
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Optimism", "Arbitrum"],
+      "launchDate": "2018-11-02",
+      "token": "UNI",
+      "governance": "UNI Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "poolData": "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/uniswap"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinDesk", "The Block"],
+      "realTime": "Uniswap Subgraph",
+      "audits": "https://uniswap.org/security"
+    },
+    "auditDetails": [
+      { "firm": "OpenZeppelin", "date": "2020-09", "url": "https://uniswap.org/audit-openzeppelin.pdf" }
+    ]
+  },
+  {
+    "id": "sushiswap",
+    "name": "SushiSwap",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12271/large/sushiswap.png",
+    "description": "A DEX forked from Uniswap, expanding into yield farming, staking, and lending via its ecosystem.",
+    "website": "https://sushi.com",
+    "apy": 6.0,
+    "tvl": 2000000000,
+    "safetyScore": 85,
+    "easeOfUseScore": 80,
+    "audits": 3,
+    "liquidity": 1800000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["Digital Currency Group", "Alameda Research"],
+    "engagement": {
+      "twitter": 120000,
+      "discord": 40000,
+      "github": 800
+    },
+    "metadata": {
+      "chains": ["Ethereum", "BSC", "Polygon", "Arbitrum"],
+      "launchDate": "2020-08-28",
+      "token": "SUSHI",
+      "governance": "SUSHI Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "poolData": "https://api.thegraph.com/subgraphs/name/sushiswap/sushiswap",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/sushi"
+    },
+    "newsAndDataSources": {
+      "news": ["Decrypt", "CoinTelegraph"],
+      "realTime": "SushiSwap Subgraph",
+      "audits": "https://sushi.com/security"
+    },
+    "auditDetails": [
+      { "firm": "Quantstamp", "date": "2020-09", "url": "https://sushi.com/audit-quantstamp.pdf" }
+    ]
+  },
+  {
+    "id": "pancakeswap",
+    "name": "PancakeSwap",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12632/large/pancakeswap.png",
+    "description": "A leading DEX on Binance Smart Chain, offering yield farming, staking, and liquidity pools.",
+    "website": "https://pancakeswap.finance",
+    "apy": 10.0,
+    "tvl": 5000000000,
+    "safetyScore": 87,
+    "easeOfUseScore": 88,
+    "audits": 3,
+    "liquidity": 4500000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["Binance Labs"],
+    "engagement": {
+      "twitter": 200000,
+      "discord": 70000,
+      "github": 600
+    },
+    "metadata": {
+      "chains": ["BSC", "Ethereum", "Aptos"],
+      "launchDate": "2020-09-20",
+      "token": "CAKE",
+      "governance": "CAKE Voting",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "poolData": "https://api.thegraph.com/subgraphs/name/pancakeswap/exchange",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/pancakeswap-token"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinTelegraph", "The Defiant"],
+      "realTime": "PancakeSwap Subgraph",
+      "audits": "https://pancakeswap.finance/security"
+    },
+    "auditDetails": [
+      { "firm": "CertiK", "date": "2020-10", "url": "https://pancakeswap.finance/audit-certik.pdf" }
+    ]
+  },
+  {
+    "id": "balancer",
+    "name": "Balancer",
+    "logoUrl": "https://assets.coingecko.com/coins/images/11683/large/balancer.png",
+    "description": "A flexible AMM allowing custom liquidity pools for yield generation.",
+    "website": "https://balancer.fi",
+    "apy": 5.5,
+    "tvl": 3000000000,
+    "safetyScore": 89,
+    "easeOfUseScore": 82,
+    "audits": 4,
+    "liquidity": 2500000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["a16z", "Placeholder"],
+    "engagement": {
+      "twitter": 90000,
+      "discord": 30000,
+      "github": 700
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Arbitrum"],
+      "launchDate": "2020-06-20",
+      "token": "BAL",
+      "governance": "veBAL Voting",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "poolData": "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/balancer"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinDesk", "The Block"],
+      "realTime": "Balancer Subgraph",
+      "audits": "https://balancer.fi/security"
+    },
+    "auditDetails": [
+      { "firm": "OpenZeppelin", "date": "2020-06", "url": "https://balancer.fi/audit-openzeppelin.pdf" }
+    ]
+  },
+  {
+    "id": "pendle",
+    "name": "Pendle",
+    "logoUrl": "https://assets.coingecko.com/coins/images/15352/large/pendle.png",
+    "description": "A yield tokenization protocol that splits assets into principal and yield components for trading or farming.",
+    "website": "https://pendle.finance",
+    "apy": 15.0,
+    "tvl": 1000000000,
+    "safetyScore": 84,
+    "easeOfUseScore": 70,
+    "audits": 2,
+    "liquidity": 800000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["Spartan Group", "HashKey Capital"],
+    "engagement": {
+      "twitter": 50000,
+      "discord": 20000,
+      "github": 400
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Arbitrum", "BSC"],
+      "launchDate": "2021-04-27",
+      "token": "PENDLE",
+      "governance": "PENDLE Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "poolData": "https://api.thegraph.com/subgraphs/name/pendle-finance/pendle",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/pendle"
+    },
+    "newsAndDataSources": {
+      "news": ["The Defiant", "CoinTelegraph"],
+      "realTime": "Pendle Subgraph",
+      "audits": "https://pendle.finance/security"
+    },
+    "auditDetails": [
+      { "firm": "PeckShield", "date": "2021-04", "url": "https://pendle.finance/audit-peckshield.pdf" }
+    ]
+  },
+  {
+    "id": "convex-finance",
+    "name": "Convex Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/15585/large/convex.png",
+    "description": "A yield booster built on Curve Finance, enhancing rewards for liquidity providers.",
+    "website": "https://convexfinance.com",
+    "apy": 7.0,
+    "tvl": 6000000000,
+    "safetyScore": 90,
+    "easeOfUseScore": 78,
+    "audits": 3,
+    "liquidity": 5500000000,
+    "unbondingPeriod": 0,
+    "vcBacking": [],
+    "engagement": {
+      "twitter": 70000,
+      "discord": 25000,
+      "github": 500
+    },
+    "metadata": {
+      "chains": ["Ethereum"],
+      "launchDate": "2021-05-17",
+      "token": "CVX",
+      "governance": "veCVX Voting",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "poolData": "https://api.thegraph.com/subgraphs/name/convex-community/convex",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/convex-finance"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinDesk", "The Block"],
+      "realTime": "Convex Subgraph",
+      "audits": "https://convexfinance.com/security"
+    },
+    "auditDetails": [
+      { "firm": "MixBytes", "date": "2021-05", "url": "https://convexfinance.com/audit-mixbytes.pdf" }
+    ]
+  },
+  {
+    "id": "aura-finance",
+    "name": "Aura Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/25942/large/aura.png",
+    "description": "A protocol enhancing Balancer yields through staking and governance optimization.",
+    "website": "https://aura.finance",
+    "apy": 6.5,
+    "tvl": 800000000,
+    "safetyScore": 86,
+    "easeOfUseScore": 76,
+    "audits": 2,
+    "liquidity": 700000000,
+    "unbondingPeriod": 0,
+    "vcBacking": [],
+    "engagement": {
+      "twitter": 40000,
+      "discord": 15000,
+      "github": 300
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Arbitrum"],
+      "launchDate": "2022-04-01",
+      "token": "AURA",
+      "governance": "veBAL Boosting",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "poolData": "https://api.thegraph.com/subgraphs/name/aura-finance/aura",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/aura-finance"
+    },
+    "newsAndDataSources": {
+      "news": ["The Defiant", "CoinTelegraph"],
+      "realTime": "Aura Subgraph",
+      "audits": "https://aura.finance/security"
+    },
+    "auditDetails": [
+      { "firm": "OpenZeppelin", "date": "2022-03", "url": "https://aura.finance/audit-openzeppelin.pdf" }
+    ]
+  },
+  {
+    "id": "lido-finance",
+    "name": "Lido Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/13573/large/lido.png",
+    "description": "A liquid staking protocol offering yield on staked assets like ETH and SOL.",
+    "website": "https://lido.fi",
+    "apy": 4.5,
+    "tvl": 30000000000,
+    "safetyScore": 93,
+    "easeOfUseScore": 90,
+    "audits": 5,
+    "liquidity": 28000000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["Paradigm", "a16z"],
+    "engagement": {
+      "twitter": 200000,
+      "discord": 60000,
+      "github": 1000
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Solana", "Polygon"],
+      "launchDate": "2020-12-17",
+      "token": "LDO",
+      "governance": "LDO Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "stakingData": "https://api.thegraph.com/subgraphs/name/lidofinance/lido",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/lido-dao"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinDesk", "The Block"],
+      "realTime": "Lido Subgraph",
+      "audits": "https://lido.fi/security"
+    },
+    "auditDetails": [
+      { "firm": "Sigma Prime", "date": "2020-12", "url": "https://lido.fi/audit-sigma-prime.pdf" }
+    ]
+  },
+  {
+    "id": "makerdao",
+    "name": "MakerDAO",
+    "logoUrl": "https://assets.coingecko.com/coins/images/1364/large/Maker.png",
+    "description": "A decentralized lending platform where users lock collateral to mint DAI and earn yield via stability fees.",
+    "website": "https://makerdao.com",
+    "apy": 2.5,
+    "tvl": 9000000000,
+    "safetyScore": 94,
+    "easeOfUseScore": 80,
+    "audits": 6,
+    "liquidity": 8500000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["a16z", "Polychain Capital"],
+    "engagement": {
+      "twitter": 170000,
+      "discord": 50000,
+      "github": 1300
+    },
+    "metadata": {
+      "chains": ["Ethereum"],
+      "launchDate": "2017-12-18",
+      "token": "MKR",
+      "governance": "MKR Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "vaultData": "https://api.thegraph.com/subgraphs/name/makerdao/maker",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/maker"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinDesk", "The Block"],
+      "realTime": "MakerDAO Subgraph",
+      "audits": "https://makerdao.com/security"
+    },
+    "auditDetails": [
+      { "firm": "Trail of Bits", "date": "2018-05", "url": "https://makerdao.com/audit-trail-of-bits.pdf" }
+    ]
+  },
+  {
+    "id": "alpaca-finance",
+    "name": "Alpaca Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/14169/large/alpaca.png",
+    "description": "A leveraged yield farming protocol on BSC and other chains.",
+    "website": "https://alpaca.finance",
+    "apy": 20.0,
+    "tvl": 500000000,
+    "safetyScore": 80,
+    "easeOfUseScore": 75,
+    "audits": 2,
+    "liquidity": 400000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["Spartan Group", "Multicoin Capital"],
+    "engagement": {
+      "twitter": 60000,
+      "discord": 20000,
+      "github": 300
+    },
+    "metadata": {
+      "chains": ["BSC", "Fantom"],
+      "launchDate": "2021-02-15",
+      "token": "ALPACA",
+      "governance": "ALPACA Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "poolData": "https://api.thegraph.com/subgraphs/name/alpacafinance/alpaca",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/alpaca-finance"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinTelegraph", "The Defiant"],
+      "realTime": "Alpaca Subgraph",
+      "audits": "https://alpaca.finance/security"
+    },
+    "auditDetails": [
+      { "firm": "CertiK", "date": "2021-02", "url": "https://alpaca.finance/audit-certik.pdf" }
+    ]
+  },
+  {
+    "id": "beefy-finance",
+    "name": "Beefy Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12704/large/beefy.png",
+    "description": "A multi-chain yield optimizer that auto-compounds rewards.",
+    "website": "https://beefy.finance",
+    "apy": 12.0,
+    "tvl": 700000000,
+    "safetyScore": 85,
+    "easeOfUseScore": 85,
+    "audits": 3,
+    "liquidity": 600000000,
+    "unbondingPeriod": 0,
+    "vcBacking": [],
+    "engagement": {
+      "twitter": 50000,
+      "discord": 18000,
+      "github": 400
+    },
+    "metadata": {
+      "chains": ["BSC", "Polygon", "Avalanche", "Fantom", "Arbitrum"],
+      "launchDate": "2020-10-08",
+      "token": "BIFI",
+      "governance": "BIFI Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "vaultData": "https://api.thegraph.com/subgraphs/name/beefyfinance/beefy",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/beefy-finance"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinDesk", "The Defiant"],
+      "realTime": "Beefy Subgraph",
+      "audits": "https://beefy.finance/security"
+    },
+    "auditDetails": [
+      { "firm": "CertiK", "date": "2020-10", "url": "https://beefy.finance/audit-certik.pdf" }
+    ]
+  },
+  {
+    "id": "frax-finance",
+    "name": "Frax Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/13422/large/frax.png",
+    "description": "A stablecoin protocol with yield opportunities via staking and liquidity provision.",
+    "website": "https://frax.finance",
+    "apy": 5.0,
+    "tvl": 2500000000,
+    "safetyScore": 88,
+    "easeOfUseScore": 80,
+    "audits": 4,
+    "liquidity": 2300000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["Dragonfly Capital", "Electric Capital"],
+    "engagement": {
+      "twitter": 80000,
+      "discord": 30000,
+      "github": 600
+    },
+    "metadata": {
+      "chains": ["Ethereum", "cross-chain integrations"],
+      "launchDate": "2020-12-20",
+      "token": "FXS",
+      "governance": "veFXS Voting",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "poolData": "https://api.thegraph.com/subgraphs/name/frax-finance/frax",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/frax-share"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinTelegraph", "The Block"],
+      "realTime": "Frax Subgraph",
+      "audits": "https://frax.finance/security"
+    },
+    "auditDetails": [
+      { "firm": "Trail of Bits", "date": "2021-01", "url": "https://frax.finance/audit-trail-of-bits.pdf" }
+    ]
+  },
+  {
+    "id": "harvest-finance",
+    "name": "Harvest Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/13073/large/harvest.png",
+    "description": "A yield aggregator automating farming across multiple protocols.",
+    "website": "https://harvest.finance",
+    "apy": 9.0,
+    "tvl": 300000000,
+    "safetyScore": 82,
+    "easeOfUseScore": 78,
+    "audits": 2,
+    "liquidity": 250000000,
+    "unbondingPeriod": 0,
+    "vcBacking": [],
+    "engagement": {
+      "twitter": 40000,
+      "discord": 15000,
+      "github": 300
+    },
+    "metadata": {
+      "chains": ["Ethereum", "BSC", "Polygon"],
+      "launchDate": "2020-09-01",
+      "token": "FARM",
+      "governance": "FARM Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "vaultData": "https://api.thegraph.com/subgraphs/name/harvest-finance/harvest",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/harvest-finance"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinDesk", "The Defiant"],
+      "realTime": "Harvest Subgraph",
+      "audits": "https://harvest.finance/security"
+    },
+    "auditDetails": [
+      { "firm": "Haechi Audit", "date": "2020-09", "url": "https://harvest.finance/audit-haechi.pdf" }
+    ]
+  },
+  {
+    "id": "stake-dao",
+    "name": "Stake DAO",
+    "logoUrl": "https://assets.coingecko.com/coins/images/13724/large/stake-dao.png",
+    "description": "A platform curating yield strategies with a focus on risk-adjusted returns.",
+    "website": "https://stakedao.org",
+    "apy": 7.5,
+    "tvl": 200000000,
+    "safetyScore": 85,
+    "easeOfUseScore": 80,
+    "audits": 2,
+    "liquidity": 180000000,
+    "unbondingPeriod": 0,
+    "vcBacking": [],
+    "engagement": {
+      "twitter": 30000,
+      "discord": 10000,
+      "github": 200
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon"],
+      "launchDate": "2021-01-20",
+      "token": "SDT",
+      "governance": "SDT Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "vaultData": "https://api.thegraph.com/subgraphs/name/stakedao/stakedao",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/stake-dao"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinTelegraph", "The Defiant"],
+      "realTime": "Stake DAO Subgraph",
+      "audits": "https://stakedao.org/security"
+    },
+    "auditDetails": [
+      { "firm": "Quantstamp", "date": "2021-01", "url": "https://stakedao.org/audit-quantstamp.pdf" }
+    ]
+  },
+  {
+    "id": "eigenlayer",
+    "name": "EigenLayer",
+    "logoUrl": "https://assets.coingecko.com/coins/images/35253/large/eigenlayer.png",
+    "description": "A restaking protocol enhancing yields by repurposing staked ETH.",
+    "website": "https://eigenlayer.xyz",
+    "apy": 6.0,
+    "tvl": 1500000000,
+    "safetyScore": 87,
+    "easeOfUseScore": 75,
+    "audits": 2,
+    "liquidity": 1300000000,
+    "unbondingPeriod": 7,
+    "vcBacking": ["a16z", "Polychain Capital"],
+    "engagement": {
+      "twitter": 60000,
+      "discord": 25000,
+      "github": 500
+    },
+    "metadata": {
+      "chains": ["Ethereum"],
+      "launchDate": "2023-06-14",
+      "token": "EIGEN",
+      "governance": "EIGEN Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "stakingData": "https://api.thegraph.com/subgraphs/name/eigenlayer/eigenlayer",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/eigenlayer"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinDesk", "The Block"],
+      "realTime": "EigenLayer Subgraph",
+      "audits": "https://eigenlayer.xyz/security"
+    },
+    "auditDetails": [
+      { "firm": "OpenZeppelin", "date": "2023-05", "url": "https://eigenlayer.xyz/audit-openzeppelin.pdf" }
+    ]
+  },
+  {
+    "id": "jito",
+    "name": "Jito",
+    "logoUrl": "https://assets.coingecko.com/coins/images/33292/large/jito.png",
+    "description": "A liquid staking and restaking protocol on Solana.",
+    "website": "https://jito.network",
+    "apy": 7.0,
+    "tvl": 2000000000,
+    "safetyScore": 86,
+    "easeOfUseScore": 85,
+    "audits": 2,
+    "liquidity": 1800000000,
+    "unbondingPeriod": 0,
+    "vcBacking": ["Multicoin Capital", "Solana Ventures"],
+    "engagement": {
+      "twitter": 50000,
+      "discord": 20000,
+      "github": 400
+    },
+    "metadata": {
+      "chains": ["Solana"],
+      "launchDate": "2023-11-27",
+      "token": "JTO",
+      "governance": "JTO Governance",
+      "realTimeData": true
+    },
+    "apiSources": {
+      "tvlAndApy": "https://api.llama.fi/protocols",
+      "stakingData": "https://api.thegraph.com/subgraphs/name/jito-labs/jito",
+      "tokenData": "https://api.coingecko.com/api/v3/coins/jito-staked-sol"
+    },
+    "newsAndDataSources": {
+      "news": ["CoinTelegraph", "The Block"],
+      "realTime": "Jito Subgraph",
+      "audits": "https://jito.network/security"
+    },
+    "auditDetails": [
+      { "firm": "Neodyme", "date": "2023-11", "url": "https://jito.network/audit-neodyme.pdf" }
+    ]
+  }
+]

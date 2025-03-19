@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet-async'
-import { ChangeEvent, FormEvent } from 'react'
+import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
 import { useProtocolsStore } from '../hooks/useProtocolsStore'
 import { useYieldSimulator } from '../hooks/useYieldSimulator'
 import { SimulationParams } from '../api/protocols'
 import styles from './Simulator.module.css'
 
 const Simulator = () => {
-  const { rawProtocols: protocols } = useProtocolsStore()
+  const { allProtocols: protocols } = useProtocolsStore()
   const {
     simParams,
     updateSimParam,
@@ -16,6 +16,8 @@ const Simulator = () => {
     simHistory,
     clearHistory
   } = useYieldSimulator()
+
+  const [showHistory, setShowHistory] = useState(false)
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -29,6 +31,15 @@ const Simulator = () => {
       runSimulation(simParams)
     }
   }
+
+  // Load protocol ID from URL if present
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const protocolId = urlParams.get('protocol')
+    if (protocolId) {
+      updateSimParam('protocolId', protocolId)
+    }
+  }, [])
 
   return (
     <>
@@ -165,32 +176,53 @@ const Simulator = () => {
                 <span className={styles.resultValue}>{currentResult.totalDaysLocked} days</span>
               </div>
             </div>
+
+            <div className={styles.resultActions}>
+              <button
+                className={styles.compareButton}
+                onClick={() => setShowHistory(!showHistory)}
+              >
+                {showHistory ? 'Hide History' : 'Show History'}
+              </button>
+            </div>
           </div>
         )}
 
-        {simHistory.length > 0 && (
+        {showHistory && simHistory.length > 0 && (
           <div className={styles.historyCard}>
             <div className={styles.historyHeader}>
-              <h3 className={styles.historyTitle}>Previous Simulations</h3>
-              <button onClick={clearHistory} className={styles.clearHistoryButton}>
+              <h2 className={styles.sectionTitle}>Simulation History</h2>
+              <button
+                className={styles.clearButton}
+                onClick={clearHistory}
+              >
                 Clear History
               </button>
             </div>
 
-            <div className={styles.historyList}>
-              {simHistory.map((result, index) => (
-                <div key={index} className={styles.historyItem}>
-                  <div className={styles.historyMain}>
-                    <span className={styles.historyAmount}>${result.initialAmount.toLocaleString()}</span>
-                    <span className={styles.historyArrow}>→</span>
-                    <span className={styles.historyFinal}>${Math.round(result.finalAmount).toLocaleString()}</span>
-                  </div>
-                  <div className={styles.historyDetails}>
-                    <span>+${Math.round(result.yield).toLocaleString()} ({result.yieldPercentage.toFixed(2)}%)</span>
-                    <span>{result.totalDaysLocked} days</span>
-                  </div>
-                </div>
-              ))}
+            <div className={styles.historyTable}>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Amount</th>
+                    <th>Duration</th>
+                    <th>Final Amount</th>
+                    <th>Yield</th>
+                    <th>Effective APY</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {simHistory.map((result, index) => (
+                    <tr key={index}>
+                      <td>${result.initialAmount.toLocaleString()}</td>
+                      <td>{result.totalDaysLocked} days</td>
+                      <td>${Math.round(result.finalAmount).toLocaleString()}</td>
+                      <td>${Math.round(result.yield).toLocaleString()}</td>
+                      <td>{result.effectiveApy.toFixed(2)}%</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         )}

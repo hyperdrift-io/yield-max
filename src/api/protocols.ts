@@ -1,143 +1,23 @@
-import axios from 'axios'
+import { Protocol } from '../types/protocol'
+import protocolData from '../data/protocolSnapshotAiGrok3_190325.json'
 
-export type Protocol = {
-  id: string
-  name: string
-  logoUrl: string
-  apy: number
-  tvl: number
-  website: string
-  token: string
-  unbondingPeriod: number
-  risk: 'low' | 'medium' | 'high'
-  description: string
-  safetyScore: number
-  easeOfUseScore: number
-}
-
-// Mock data for development
-const mockProtocols: Protocol[] = [
-  {
-    id: 'osmosis',
-    name: 'Osmosis',
-    logoUrl: 'https://assets.coingecko.com/coins/images/16724/small/osmo.png',
-    apy: 69.42,
-    tvl: 243500000,
-    website: 'https://osmosis.zone',
-    token: 'OSMO',
-    unbondingPeriod: 14,
-    risk: 'medium',
-    description: 'Osmosis is an automated market maker (AMM) protocol built for liquidity providers.',
-    safetyScore: 8,
-    easeOfUseScore: 9
-  },
-  {
-    id: 'juno',
-    name: 'Juno',
-    logoUrl: 'https://assets.coingecko.com/coins/images/19249/small/juno.png',
-    apy: 52.18,
-    tvl: 95600000,
-    website: 'https://junonetwork.io',
-    token: 'JUNO',
-    unbondingPeriod: 28,
-    risk: 'medium',
-    description: 'Juno is a sovereign public blockchain in the Cosmos ecosystem.',
-    safetyScore: 7,
-    easeOfUseScore: 8
-  },
-  {
-    id: 'kava',
-    name: 'Kava',
-    logoUrl: 'https://assets.coingecko.com/coins/images/9761/small/kava.png',
-    apy: 23.65,
-    tvl: 375800000,
-    website: 'https://www.kava.io',
-    token: 'KAVA',
-    unbondingPeriod: 21,
-    risk: 'medium',
-    description: 'Kava is a layer-1 blockchain featuring a developer-optimized co-chain architecture.',
-    safetyScore: 7,
-    easeOfUseScore: 8
-  },
-  {
-    id: 'cosmos',
-    name: 'Cosmos Hub',
-    logoUrl: 'https://assets.coingecko.com/coins/images/1481/small/cosmos_hub.png',
-    apy: 19.25,
-    tvl: 1250000000,
-    website: 'https://cosmos.network',
-    token: 'ATOM',
-    unbondingPeriod: 21,
-    risk: 'low',
-    description: 'Cosmos Hub is the first of thousands of interconnected blockchains that will comprise the Cosmos Network.',
-    safetyScore: 9,
-    easeOfUseScore: 10
-  },
-  {
-    id: 'akash',
-    name: 'Akash',
-    logoUrl: 'https://assets.coingecko.com/coins/images/12785/small/akash-logo.png',
-    apy: 17.35,
-    tvl: 45200000,
-    website: 'https://akash.network',
-    token: 'AKT',
-    unbondingPeriod: 21,
-    risk: 'medium',
-    description: 'Akash Network is a distributed peer-to-peer marketplace for cloud compute.',
-    safetyScore: 7,
-    easeOfUseScore: 8
-  },
-  {
-    id: 'stargaze',
-    name: 'Stargaze',
-    logoUrl: 'https://assets.coingecko.com/coins/images/24186/small/Stargaze_Logomark_White.png',
-    apy: 88.75,
-    tvl: 23800000,
-    website: 'https://stargaze.zone',
-    token: 'STARS',
-    unbondingPeriod: 14,
-    risk: 'high',
-    description: 'Stargaze is a permissionless and sovereign NFT marketplace built on the Cosmos blockchain.',
-    safetyScore: 6,
-    easeOfUseScore: 7
-  },
-  {
-    id: 'secret',
-    name: 'Secret Network',
-    logoUrl: 'https://assets.coingecko.com/coins/images/11871/small/Secret.png',
-    apy: 26.40,
-    tvl: 180600000,
-    website: 'https://scrt.network',
-    token: 'SCRT',
-    unbondingPeriod: 21,
-    risk: 'medium',
-    description: 'Secret Network is the first blockchain with data privacy by default, allowing you to build and use applications that are both permissionless and privacy-preserving.',
-    safetyScore: 8,
-    easeOfUseScore: 9
-  },
-  {
-    id: 'evmos',
-    name: 'Evmos',
-    logoUrl: 'https://assets.coingecko.com/coins/images/24023/small/evmos.png',
-    apy: 93.15,
-    tvl: 67500000,
-    website: 'https://evmos.org',
-    token: 'EVMOS',
-    unbondingPeriod: 14,
-    risk: 'high',
-    description: 'Evmos is an EVM-compatible blockchain built on the Cosmos SDK.',
-    safetyScore: 6,
-    easeOfUseScore: 7
-  }
-]
+// Get protocols from JSON file
+const mockProtocols: Protocol[] = protocolData as Protocol[]
 
 // Get a list of all protocols
 export const getProtocols = async (): Promise<Protocol[]> => {
   // In a real app, you would fetch this from an API
   // return (await axios.get<Protocol[]>('/api/protocols')).data
 
-  // Using mock data for development
+  // Using JSON data
   return Promise.resolve(mockProtocols)
+}
+
+// Get top yielding protocols
+export const getTopYieldProtocols = async (limit: number = 10): Promise<Protocol[]> => {
+  // Sort protocols by APY in descending order and return the top ones
+  const sortedProtocols = [...mockProtocols].sort((a, b) => b.apy - a.apy).slice(0, limit)
+  return Promise.resolve(sortedProtocols)
 }
 
 // Get details for a specific protocol by ID
@@ -163,7 +43,7 @@ export const searchProtocols = async (query: string): Promise<Protocol[]> => {
   // Using mock data for development
   const filtered = mockProtocols.filter(p =>
     p.name.toLowerCase().includes(query.toLowerCase()) ||
-    p.token.toLowerCase().includes(query.toLowerCase())
+    p.metadata?.token.toLowerCase().includes(query.toLowerCase())
   )
 
   return Promise.resolve(filtered)
@@ -216,12 +96,38 @@ export const simulateYield = async (params: SimulationParams): Promise<Simulatio
 }
 
 // Sort protocols by a specific field
-export const sortProtocols = (protocols: Protocol[], field: keyof Protocol, ascending: boolean = true): Protocol[] => {
+export const sortProtocols = (protocols: Protocol[], field: keyof Protocol | string, ascending: boolean = true): Protocol[] => {
   return [...protocols].sort((a, b) => {
-    if (ascending) {
-      return a[field] > b[field] ? 1 : -1
-    } else {
-      return a[field] < b[field] ? 1 : -1
+    // Handle special cases for nested properties
+    if (typeof field === 'string' && field.includes('.')) {
+      const [parent, child] = field.split('.') as [keyof Protocol, string]
+      const aParent = a[parent]
+      const bParent = b[parent]
+
+      if (aParent && bParent && typeof aParent === 'object' && typeof bParent === 'object') {
+        // Type assertion to access nested property
+        const aValue = (aParent as Record<string, unknown>)[child]
+        const bValue = (bParent as Record<string, unknown>)[child]
+
+        if (aValue !== undefined && aValue !== null && bValue !== undefined && bValue !== null) {
+          return ascending ?
+            (aValue > bValue ? 1 : -1) :
+            (aValue < bValue ? 1 : -1)
+        }
+      }
+      return 0
     }
+
+    const aValue = a[field as keyof Protocol]
+    const bValue = b[field as keyof Protocol]
+
+    if (aValue !== undefined && aValue !== null && bValue !== undefined && bValue !== null) {
+      if (ascending) {
+        return aValue > bValue ? 1 : -1
+      } else {
+        return aValue < bValue ? 1 : -1
+      }
+    }
+    return 0
   })
 }
