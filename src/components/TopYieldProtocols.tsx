@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Protocol } from '../types/protocol'
 import { getTopYieldProtocols } from '../api/protocols'
+import { Protocol } from '../types/protocol'
 
 type TopYieldProtocolsProps = {
   limit?: number

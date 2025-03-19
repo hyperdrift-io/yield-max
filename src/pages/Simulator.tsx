@@ -88,7 +88,6 @@ const Simulator = () => {
                 value={simParams.amount}
                 onChange={handleInputChange}
                 min="1"
-                step="100"
                 className={styles.formInput}
                 required
               />

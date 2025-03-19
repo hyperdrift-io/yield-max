@@ -21,9 +21,6 @@ const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
     ? protocols.slice(0, limit)
     : protocols
 
-  console.log("🚀 ~ ProtocolTable ~ passed filters:", filters)
-  console.log("🚀 ~ ProtocolTable ~ filtered protocols count:", protocols.length)
-
   if (isLoading) {
     return (
       <div className={styles.loadingContainer}>
