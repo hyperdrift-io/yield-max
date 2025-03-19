@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { getProtocolDetails } from '../api/protocols'
 import styles from './SimulatorResult.module.css'
+import { useMemo } from 'react'
 
 type SimulatorResultProps = {
   params: {
@@ -13,10 +14,45 @@ type SimulatorResultProps = {
 const SimulatorResult = ({ params }: SimulatorResultProps) => {
   const { data: protocol, isLoading } = useQuery({
     queryKey: ['protocol', params.protocolId],
-    queryFn: () => getProtocolDetails(params.protocolId)
+    queryFn: () => getProtocolDetails(params.protocolId),
+    staleTime: 5 * 60 * 1000, // 5 minutes cache
   })
 
-  if (isLoading || !protocol) {
+  // Use useMemo to calculate yield values only when dependencies change
+  const yieldCalculations = useMemo(() => {
+    if (!protocol) return null;
+
+    // Calculate yield
+    const dailyYield = params.amount * (protocol.apy / 100 / 365)
+    const totalYield = dailyYield * params.duration
+    const finalAmount = params.amount + totalYield
+
+    // Calculate average monthly yield
+    const monthlyYield = dailyYield * 30
+
+    // Calculate compounded yield (if applicable)
+    let compoundedAmount = params.amount
+    // Check if compounding properties exist before using them
+    if ('compounding' in protocol && protocol.compounding &&
+        'compoundFrequency' in protocol && protocol.compoundFrequency) {
+      const compoundFreq = Number(protocol.compoundFrequency);
+      const periods = params.duration / compoundFreq
+      const rate = protocol.apy / 100 / (365 / compoundFreq)
+      compoundedAmount = params.amount * Math.pow(1 + rate, periods)
+    }
+    const compoundedYield = compoundedAmount - params.amount
+
+    return {
+      dailyYield,
+      totalYield,
+      finalAmount,
+      monthlyYield,
+      compoundedAmount,
+      compoundedYield
+    }
+  }, [params.amount, params.duration, protocol]);
+
+  if (isLoading || !protocol || !yieldCalculations) {
     return (
       <div className={styles.loadingContainer}>
         <div className={styles.spinner}></div>
@@ -24,23 +60,13 @@ const SimulatorResult = ({ params }: SimulatorResultProps) => {
     )
   }
 
-  // Calculate yield
-  const dailyYield = params.amount * (protocol.apy / 100 / 365)
-  const totalYield = dailyYield * params.duration
-  const finalAmount = params.amount + totalYield
-
-  // Calculate average monthly yield
-  const monthlyYield = dailyYield * 30
-
-  // Calculate compounded yield (if applicable)
-  let compoundedAmount = params.amount
-  if (protocol.compounding) {
-    const periods = params.duration / protocol.compoundFrequency
-    const rate = protocol.apy / 100 / (365 / protocol.compoundFrequency)
-    compoundedAmount = params.amount * Math.pow(1 + rate, periods)
-  }
-
-  const compoundedYield = compoundedAmount - params.amount
+  const {
+    dailyYield,
+    totalYield,
+    finalAmount,
+    monthlyYield,
+    compoundedYield
+  } = yieldCalculations;
 
   return (
     <div className={styles.resultCard}>
