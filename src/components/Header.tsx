@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import styles from './Header.module.css'
 
 const Header = () => {
@@ -20,9 +20,11 @@ const Header = () => {
     }
   }, [])
 
-  const isActive = (path: string) => {
-    return location.pathname === path
-  }
+  // Memoize the isActive function to prevent recreating it on each render
+  const isActive = useCallback(
+    (path: string) => location.pathname === path,
+    [location.pathname]
+  )
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
@@ -37,13 +39,31 @@ const Header = () => {
         <nav className={styles.mainNav}>
           <ul className={styles.navList}>
             <li className={styles.navItem}>
-              <Link to="/" className={`${styles.navLink} ${isActive('/') ? styles.active : ''}`}>Home</Link>
+              <Link
+                to="/"
+                className={`${styles.navLink} ${isActive('/') ? styles.active : ''}`}
+                key={`home-${isActive('/')}`}
+              >
+                Home
+              </Link>
             </li>
             <li className={styles.navItem}>
-              <Link to="/compare" className={`${styles.navLink} ${isActive('/compare') ? styles.active : ''}`}>Compare</Link>
+              <Link
+                to="/compare"
+                className={`${styles.navLink} ${isActive('/compare') ? styles.active : ''}`}
+                key={`compare-${isActive('/compare')}`}
+              >
+                Compare
+              </Link>
             </li>
             <li className={styles.navItem}>
-              <Link to="/simulator" className={`${styles.navLink} ${isActive('/simulator') ? styles.active : ''}`}>Simulator</Link>
+              <Link
+                to="/simulator"
+                className={`${styles.navLink} ${isActive('/simulator') ? styles.active : ''}`}
+                key={`simulator-${isActive('/simulator')}`}
+              >
+                Simulator
+              </Link>
             </li>
             <li className={styles.navItem}>
               <a
