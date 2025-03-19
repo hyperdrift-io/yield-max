@@ -1,153 +1,197 @@
-import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useQuery } from '@tanstack/react-query'
-import { getProtocols, type Protocol } from '../api/protocols'
-import SimulatorResult from '../components/SimulatorResult'
+import { ChangeEvent, FormEvent } from 'react'
+import { useProtocolsStore } from '../hooks/useProtocolsStore'
+import { useYieldSimulator } from '../hooks/useYieldSimulator'
+import { SimulationParams } from '../api/protocols'
 import styles from './Simulator.module.css'
 
 const Simulator = () => {
-  const [amount, setAmount] = useState<number>(1000)
-  const [duration, setDuration] = useState<number>(90)
-  const [selectedProtocolId, setSelectedProtocolId] = useState<string>('')
-  const [showResults, setShowResults] = useState<boolean>(false)
+  const { rawProtocols: protocols } = useProtocolsStore()
+  const {
+    simParams,
+    updateSimParam,
+    runSimulation,
+    isSimulating,
+    currentResult,
+    simHistory,
+    clearHistory
+  } = useYieldSimulator()
 
-  const { data: protocols, isLoading } = useQuery<Protocol[]>({
-    queryKey: ['protocols'],
-    queryFn: getProtocols
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (amount > 0 && duration > 0 && selectedProtocolId) {
-      setShowResults(true)
-    }
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    updateSimParam(name as keyof SimulationParams,
+      name === 'amount' || name === 'duration' ? Number(value) : value)
   }
 
-  const handleReset = () => {
-    setShowResults(false)
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    if (simParams.protocolId && simParams.amount > 0 && simParams.duration > 0) {
+      runSimulation(simParams)
+    }
   }
 
   return (
     <>
       <Helmet>
-        <title>Yield Simulator | YieldMax</title>
-        <meta name="description" content="Simulate your potential returns from yield farming protocols" />
+        <title>Yield Simulator - YieldMax</title>
+        <meta name="description" content="Simulate your potential yield returns" />
       </Helmet>
 
+      <section className={styles.headerSection}>
+        <div className={styles.container}>
+          <h1 className={styles.title}>Yield Simulator</h1>
+          <p className={styles.subtitle}>
+            Calculate your potential returns across different protocols and time periods
+          </p>
+        </div>
+      </section>
+
       <div className={styles.simulatorContainer}>
-        {!showResults ? (
-          <div>
-            <h1 className={styles.simulatorTitle}>Yield Simulator</h1>
-            <p className={styles.simulatorDescription}>
-              Enter the details of your planned investment to simulate potential returns
-            </p>
+        <div className={styles.simulatorCard}>
+          <h2 className={styles.sectionTitle}>Input Parameters</h2>
 
-            <div className={styles.simulatorCard}>
-              <form onSubmit={handleSubmit} className={styles.form}>
-                {/* Amount Input */}
-                <div className={styles.formGroup}>
-                  <label htmlFor="amount" className={styles.label}>
-                    Investment Amount (USD)
-                  </label>
-                  <div className={styles.inputWrapper}>
-                    <span className={styles.currencySymbol}>$</span>
-                    <input
-                      type="number"
-                      id="amount"
-                      value={amount}
-                      onChange={(e) => setAmount(Number(e.target.value))}
-                      min="1"
-                      className={styles.input}
-                      placeholder="Enter amount"
-                      required
-                    />
-                  </div>
-                </div>
+          <form onSubmit={handleSubmit} className={styles.simulatorForm}>
+            <div className={styles.formGroup}>
+              <label className={styles.formLabel}>Protocol</label>
+              <select
+                name="protocolId"
+                value={simParams.protocolId}
+                onChange={handleInputChange}
+                className={styles.formSelect}
+                required
+              >
+                <option value="">Select a protocol</option>
+                {protocols.map(protocol => (
+                  <option key={protocol.id} value={protocol.id}>
+                    {protocol.name} ({protocol.apy}% APY)
+                  </option>
+                ))}
+              </select>
+            </div>
 
-                {/* Duration Input */}
-                <div className={styles.formGroup}>
-                  <label htmlFor="duration" className={styles.label}>
-                    Investment Duration (Days)
-                  </label>
-                  <div className={styles.rangeControl}>
-                    <input
-                      type="range"
-                      id="duration"
-                      min="1"
-                      max="365"
-                      step="1"
-                      value={duration}
-                      onChange={(e) => setDuration(Number(e.target.value))}
-                      className={styles.range}
-                    />
-                    <div className={styles.rangeLabels}>
-                      <span>1 day</span>
-                      <span>{duration} days</span>
-                      <span>365 days</span>
-                    </div>
-                  </div>
-                </div>
+            <div className={styles.formGroup}>
+              <label className={styles.formLabel}>Investment Amount (USD)</label>
+              <input
+                type="number"
+                name="amount"
+                value={simParams.amount}
+                onChange={handleInputChange}
+                min="1"
+                step="100"
+                className={styles.formInput}
+                required
+              />
+            </div>
 
-                {/* Protocol Selection */}
-                <div className={styles.formGroup}>
-                  <label htmlFor="protocol" className={styles.label}>
-                    Select Protocol
-                  </label>
-                  {isLoading ? (
-                    <div className={styles.loader}>
-                      <div className={styles.spinner}></div>
-                    </div>
-                  ) : (
-                    <select
-                      id="protocol"
-                      value={selectedProtocolId}
-                      onChange={(e) => setSelectedProtocolId(e.target.value)}
-                      className={styles.select}
-                      required
-                    >
-                      <option value="">Select a protocol</option>
-                      {protocols?.map((protocol) => (
-                        <option key={protocol.id} value={protocol.id}>
-                          {protocol.name} ({protocol.apy}% APY)
-                        </option>
-                      ))}
-                    </select>
-                  )}
-                </div>
-
-                {/* Submit Button */}
+            <div className={styles.formGroup}>
+              <label className={styles.formLabel}>Time Period (days)</label>
+              <input
+                type="number"
+                name="duration"
+                value={simParams.duration}
+                onChange={handleInputChange}
+                min="1"
+                max="3650"
+                className={styles.formInput}
+                required
+              />
+              <div className={styles.timePresets}>
                 <button
-                  type="submit"
-                  className={`button-primary ${styles.submitButton}`}
-                  disabled={!amount || !duration || !selectedProtocolId}
+                  type="button"
+                  onClick={() => updateSimParam('duration', 30)}
+                  className={styles.timePresetButton}
                 >
-                  <svg className={styles.buttonIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                  Simulate Yield
+                  30 days
                 </button>
-              </form>
+                <button
+                  type="button"
+                  onClick={() => updateSimParam('duration', 90)}
+                  className={styles.timePresetButton}
+                >
+                  90 days
+                </button>
+                <button
+                  type="button"
+                  onClick={() => updateSimParam('duration', 365)}
+                  className={styles.timePresetButton}
+                >
+                  1 year
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className={styles.simulateButton}
+              disabled={isSimulating || !simParams.protocolId}
+            >
+              {isSimulating ? 'Calculating...' : 'Calculate Returns'}
+            </button>
+          </form>
+        </div>
+
+        {currentResult && (
+          <div className={styles.resultsCard}>
+            <h2 className={styles.sectionTitle}>Simulation Results</h2>
+
+            <div className={styles.resultsGrid}>
+              <div className={styles.resultItem}>
+                <span className={styles.resultLabel}>Initial Investment</span>
+                <span className={styles.resultValue}>${currentResult.initialAmount.toLocaleString()}</span>
+              </div>
+
+              <div className={styles.resultItem}>
+                <span className={styles.resultLabel}>Final Amount</span>
+                <span className={styles.resultValueHighlight}>${Math.round(currentResult.finalAmount).toLocaleString()}</span>
+              </div>
+
+              <div className={styles.resultItem}>
+                <span className={styles.resultLabel}>Total Yield</span>
+                <span className={styles.resultValuePositive}>${Math.round(currentResult.yield).toLocaleString()}</span>
+              </div>
+
+              <div className={styles.resultItem}>
+                <span className={styles.resultLabel}>Yield Percentage</span>
+                <span className={styles.resultValuePositive}>{currentResult.yieldPercentage.toFixed(2)}%</span>
+              </div>
+
+              <div className={styles.resultItem}>
+                <span className={styles.resultLabel}>Effective APY</span>
+                <span className={styles.resultValue}>{currentResult.effectiveApy.toFixed(2)}%</span>
+              </div>
+
+              <div className={styles.resultItem}>
+                <span className={styles.resultLabel}>Total Days Locked</span>
+                <span className={styles.resultValue}>{currentResult.totalDaysLocked} days</span>
+              </div>
             </div>
           </div>
-        ) : (
-          <div>
-            <button
-              onClick={handleReset}
-              className={styles.backButton}
-            >
-              <svg className={styles.backIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              Back to simulator
-            </button>
+        )}
 
-            <SimulatorResult
-              params={{
-                amount,
-                duration,
-                protocolId: selectedProtocolId
-              }}
-            />
+        {simHistory.length > 0 && (
+          <div className={styles.historyCard}>
+            <div className={styles.historyHeader}>
+              <h3 className={styles.historyTitle}>Previous Simulations</h3>
+              <button onClick={clearHistory} className={styles.clearHistoryButton}>
+                Clear History
+              </button>
+            </div>
+
+            <div className={styles.historyList}>
+              {simHistory.map((result, index) => (
+                <div key={index} className={styles.historyItem}>
+                  <div className={styles.historyMain}>
+                    <span className={styles.historyAmount}>${result.initialAmount.toLocaleString()}</span>
+                    <span className={styles.historyArrow}>→</span>
+                    <span className={styles.historyFinal}>${Math.round(result.finalAmount).toLocaleString()}</span>
+                  </div>
+                  <div className={styles.historyDetails}>
+                    <span>+${Math.round(result.yield).toLocaleString()} ({result.yieldPercentage.toFixed(2)}%)</span>
+                    <span>{result.totalDaysLocked} days</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>

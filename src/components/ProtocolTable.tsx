@@ -1,69 +1,25 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useQuery } from '@tanstack/react-query'
-import { getProtocols } from '../api/protocols'
-import type { Protocol } from '../types/protocol'
+import { useProtocolsStore, FilterState } from '../hooks/useProtocolsStore'
 import styles from './ProtocolTable.module.css'
 
-type SortField = 'apy' | 'tvl' | 'safetyScore' | 'easeOfUseScore' | 'audits' | 'unbondingPeriod'
-type SortOrder = 'asc' | 'desc'
-
 type ProtocolTableProps = {
-  filters?: {
-    minApy?: number
-    maxUnbondingPeriod?: number
-    minSafetyScore?: number
-  }
+  filters?: Partial<FilterState>
   limit?: number
 }
 
 const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
-  const [sortField, setSortField] = useState<SortField>('apy')
-  const [sortOrder, setSortOrder] = useState<SortOrder>('desc')
-
-  const { data: protocols = [], isLoading, error } = useQuery({
-    queryKey: ['protocols'],
-    queryFn: getProtocols
-  })
-
-  const handleSort = (field: SortField) => {
-    if (field === sortField) {
-      setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')
-    } else {
-      setSortField(field)
-      setSortOrder('desc')
-    }
-  }
-
-  let sortedAndFilteredProtocols = protocols
-    .filter(protocol => {
-      if (filters.minApy !== undefined && protocol.apy < filters.minApy) {
-        return false
-      }
-      if (filters.maxUnbondingPeriod !== undefined && protocol.unbondingPeriod > filters.maxUnbondingPeriod) {
-        return false
-      }
-      if (filters.minSafetyScore !== undefined && protocol.safetyScore < filters.minSafetyScore) {
-        return false
-      }
-      return true
-    })
-    .sort((a, b) => {
-      const aValue = a[sortField]
-      const bValue = b[sortField]
-
-      // Special case for unbonding period where lower is better
-      if (sortField === 'unbondingPeriod') {
-        return sortOrder === 'desc' ? aValue - bValue : bValue - aValue
-      }
-
-      return sortOrder === 'desc' ? bValue - aValue : aValue - bValue
-    })
+  const {
+    protocols,
+    sortConfig,
+    handleSort,
+    isLoading,
+    error
+  } = useProtocolsStore(filters)
 
   // Apply limit if provided
-  if (limit && sortedAndFilteredProtocols.length > limit) {
-    sortedAndFilteredProtocols = sortedAndFilteredProtocols.slice(0, limit)
-  }
+  const displayProtocols = limit && protocols.length > limit
+    ? protocols.slice(0, limit)
+    : protocols
 
   if (isLoading) {
     return (
@@ -99,9 +55,9 @@ const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
             >
               <div className={styles.protocolCell}>
                 <span>APY</span>
-                {sortField === 'apy' && (
+                {sortConfig.field === 'apy' && (
                   <svg className={styles.sortIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortOrder === 'desc' ? "M19 9l-7 7-7-7" : "M5 15l7-7 7 7"} />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortConfig.order === 'desc' ? "M19 9l-7 7-7-7" : "M5 15l7-7 7 7"} />
                   </svg>
                 )}
               </div>
@@ -112,9 +68,9 @@ const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
             >
               <div className={styles.protocolCell}>
                 <span>TVL</span>
-                {sortField === 'tvl' && (
+                {sortConfig.field === 'tvl' && (
                   <svg className={styles.sortIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortOrder === 'desc' ? "M19 9l-7 7-7-7" : "M5 15l7-7 7 7"} />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortConfig.order === 'desc' ? "M19 9l-7 7-7-7" : "M5 15l7-7 7 7"} />
                   </svg>
                 )}
               </div>
@@ -125,9 +81,9 @@ const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
             >
               <div className={styles.protocolCell}>
                 <span>Safety</span>
-                {sortField === 'safetyScore' && (
+                {sortConfig.field === 'safetyScore' && (
                   <svg className={styles.sortIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortOrder === 'desc' ? "M19 9l-7 7-7-7" : "M5 15l7-7 7 7"} />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortConfig.order === 'desc' ? "M19 9l-7 7-7-7" : "M5 15l7-7 7 7"} />
                   </svg>
                 )}
               </div>
@@ -138,9 +94,9 @@ const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
             >
               <div className={styles.protocolCell}>
                 <span>Ease of Use</span>
-                {sortField === 'easeOfUseScore' && (
+                {sortConfig.field === 'easeOfUseScore' && (
                   <svg className={styles.sortIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortOrder === 'desc' ? "M19 9l-7 7-7-7" : "M5 15l7-7 7 7"} />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortConfig.order === 'desc' ? "M19 9l-7 7-7-7" : "M5 15l7-7 7 7"} />
                   </svg>
                 )}
               </div>
@@ -151,9 +107,9 @@ const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
             >
               <div className={styles.protocolCell}>
                 <span>Unbonding</span>
-                {sortField === 'unbondingPeriod' && (
+                {sortConfig.field === 'unbondingPeriod' && (
                   <svg className={styles.sortIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortOrder === 'desc' ? "M19 9l-7 7-7-7" : "M5 15l7-7 7 7"} />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortConfig.order === 'desc' ? "M19 9l-7 7-7-7" : "M5 15l7-7 7 7"} />
                   </svg>
                 )}
               </div>
@@ -164,8 +120,8 @@ const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
           </tr>
         </thead>
         <tbody>
-          {sortedAndFilteredProtocols.length > 0 ? (
-            sortedAndFilteredProtocols.map(protocol => (
+          {displayProtocols.length > 0 ? (
+            displayProtocols.map(protocol => (
               <tr key={protocol.id} className={styles.protocolRow}>
                 <td className={styles.tableCell}>
                   <div className={styles.protocolCell}>

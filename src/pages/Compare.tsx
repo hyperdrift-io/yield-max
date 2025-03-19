@@ -1,21 +1,18 @@
 import { Helmet } from 'react-helmet-async'
-import { useState } from 'react'
 import ProtocolTable from '../components/ProtocolTable'
+import { useProtocolsStore } from '../hooks/useProtocolsStore'
 import styles from './Compare.module.css'
 
 const Compare = () => {
-  const [filters, setFilters] = useState({
-    minApy: 0,
-    maxUnbondingPeriod: 100,
-    minSafetyScore: 0,
-  })
+  const {
+    filters,
+    updateFilter,
+    resetFilters
+  } = useProtocolsStore()
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
-    setFilters(prev => ({
-      ...prev,
-      [name]: Number(value)
-    }))
+    updateFilter(name as any, Number(value))
   }
 
   return (
@@ -127,12 +124,11 @@ const Compare = () => {
         <div className={styles.resultsCard}>
           <div className={styles.resultsHeader}>
             <h2 className={styles.resultsTitle}>Protocols Matching Your Criteria</h2>
-            <button className={styles.resetButton}
-              onClick={() => setFilters({ minApy: 0, maxUnbondingPeriod: 100, minSafetyScore: 0 })}>
+            <button className={styles.resetButton} onClick={resetFilters}>
               Reset Filters
             </button>
           </div>
-          <ProtocolTable filters={filters} />
+          <ProtocolTable />
         </div>
       </div>
     </>

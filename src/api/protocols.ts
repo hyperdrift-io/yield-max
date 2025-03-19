@@ -11,6 +11,8 @@ export type Protocol = {
   unbondingPeriod: number
   risk: 'low' | 'medium' | 'high'
   description: string
+  safetyScore: number
+  easeOfUseScore: number
 }
 
 // Mock data for development
@@ -25,7 +27,9 @@ const mockProtocols: Protocol[] = [
     token: 'OSMO',
     unbondingPeriod: 14,
     risk: 'medium',
-    description: 'Osmosis is an automated market maker (AMM) protocol built for liquidity providers.'
+    description: 'Osmosis is an automated market maker (AMM) protocol built for liquidity providers.',
+    safetyScore: 8,
+    easeOfUseScore: 9
   },
   {
     id: 'juno',
@@ -37,7 +41,9 @@ const mockProtocols: Protocol[] = [
     token: 'JUNO',
     unbondingPeriod: 28,
     risk: 'medium',
-    description: 'Juno is a sovereign public blockchain in the Cosmos ecosystem.'
+    description: 'Juno is a sovereign public blockchain in the Cosmos ecosystem.',
+    safetyScore: 7,
+    easeOfUseScore: 8
   },
   {
     id: 'kava',
@@ -49,7 +55,9 @@ const mockProtocols: Protocol[] = [
     token: 'KAVA',
     unbondingPeriod: 21,
     risk: 'medium',
-    description: 'Kava is a layer-1 blockchain featuring a developer-optimized co-chain architecture.'
+    description: 'Kava is a layer-1 blockchain featuring a developer-optimized co-chain architecture.',
+    safetyScore: 7,
+    easeOfUseScore: 8
   },
   {
     id: 'cosmos',
@@ -61,7 +69,9 @@ const mockProtocols: Protocol[] = [
     token: 'ATOM',
     unbondingPeriod: 21,
     risk: 'low',
-    description: 'Cosmos Hub is the first of thousands of interconnected blockchains that will comprise the Cosmos Network.'
+    description: 'Cosmos Hub is the first of thousands of interconnected blockchains that will comprise the Cosmos Network.',
+    safetyScore: 9,
+    easeOfUseScore: 10
   },
   {
     id: 'akash',
@@ -73,7 +83,9 @@ const mockProtocols: Protocol[] = [
     token: 'AKT',
     unbondingPeriod: 21,
     risk: 'medium',
-    description: 'Akash Network is a distributed peer-to-peer marketplace for cloud compute.'
+    description: 'Akash Network is a distributed peer-to-peer marketplace for cloud compute.',
+    safetyScore: 7,
+    easeOfUseScore: 8
   },
   {
     id: 'stargaze',
@@ -85,7 +97,9 @@ const mockProtocols: Protocol[] = [
     token: 'STARS',
     unbondingPeriod: 14,
     risk: 'high',
-    description: 'Stargaze is a permissionless and sovereign NFT marketplace built on the Cosmos blockchain.'
+    description: 'Stargaze is a permissionless and sovereign NFT marketplace built on the Cosmos blockchain.',
+    safetyScore: 6,
+    easeOfUseScore: 7
   },
   {
     id: 'secret',
@@ -97,7 +111,9 @@ const mockProtocols: Protocol[] = [
     token: 'SCRT',
     unbondingPeriod: 21,
     risk: 'medium',
-    description: 'Secret Network is the first blockchain with data privacy by default, allowing you to build and use applications that are both permissionless and privacy-preserving.'
+    description: 'Secret Network is the first blockchain with data privacy by default, allowing you to build and use applications that are both permissionless and privacy-preserving.',
+    safetyScore: 8,
+    easeOfUseScore: 9
   },
   {
     id: 'evmos',
@@ -109,7 +125,9 @@ const mockProtocols: Protocol[] = [
     token: 'EVMOS',
     unbondingPeriod: 14,
     risk: 'high',
-    description: 'Evmos is an EVM-compatible blockchain built on the Cosmos SDK.'
+    description: 'Evmos is an EVM-compatible blockchain built on the Cosmos SDK.',
+    safetyScore: 6,
+    easeOfUseScore: 7
   }
 ]
 
