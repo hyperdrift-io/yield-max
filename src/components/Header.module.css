@@ -26,26 +26,34 @@
   align-items: center;
 }
 
-.logo {
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoEmblem {
   height: 40px;
   width: auto;
 }
 
-.logoIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--border-radius-lg);
-  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
-  box-shadow: var(--shadow-glow);
-}
-
 .logoText {
   color: var(--color-text);
-  font-weight: 700;
-  font-size: 1.25rem;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: 1.375rem;
+  letter-spacing: 0.05em;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
 }
 
 .brandName {

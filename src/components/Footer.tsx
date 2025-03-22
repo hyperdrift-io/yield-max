@@ -1,17 +1,28 @@
 import styles from './Footer.module.css'
+import { useThemeDetection } from '../hooks/useThemeDetection'
+
+// Define logo paths - now only for the emblem
+const darkLogoPath = '/logos/YM-logo-dark.svg'
+const lightLogoPath = '/logos/YM-logo.svg'
 
 const Footer = () => {
+  const isDarkTheme = useThemeDetection()
+
+  // Choose logo based on theme
+  const logoPath = isDarkTheme ? darkLogoPath : lightLogoPath
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.footerContent}>
           <div className={styles.footerBrand}>
             <div className={styles.brand}>
-              <img
-                src="/logos/yieldmax-logo-dark-simple.svg"
-                alt="YieldMax Logo"
-                className={styles.footerLogo}
-              />
+              <div className={styles.logoContainer}>
+                <div className={styles.logoWrapper}>
+                  <img src={logoPath} alt="YM Logo" className={styles.logoEmblem} />
+                </div>
+                <span className={styles.logoText}>YIELDMAX</span>
+              </div>
             </div>
             <p className={styles.footerDescription}>
               Find and compare the best yield farming opportunities across multiple protocols. Make informed decisions based on safety, returns, and ease of use.

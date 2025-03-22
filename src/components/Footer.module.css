@@ -6,9 +6,34 @@
 }
 
 .footerLogo {
-  height: 35px;
+  height: 40px;
   width: auto;
   margin-bottom: 1rem;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoEmblem {
+  height: 40px;
+  width: auto;
+}
+
+.logoText {
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: 1.375rem;
+  letter-spacing: 0.05em;
 }
 
 .logoTitle {

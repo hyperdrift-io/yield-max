@@ -234,7 +234,6 @@ table {
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
   margin-bottom: var(--space-2);
 }
 
