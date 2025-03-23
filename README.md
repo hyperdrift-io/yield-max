@@ -33,11 +33,45 @@ Next.js generates static HTML files for all pages during the build process, whic
 
 ## Deployment
 
-This app can be deployed to any static hosting service. For example:
+This repository is configured with GitHub Actions for automatic deployment to the production server. We use Bun for all build and deployment processes.
 
-1. Build the app: `bun run build`
-2. The static files are generated in the `/out` directory
-3. Deploy the contents of the `/out` directory to your hosting service
+### Setting up SSH Deployment
+
+1. Generate an SSH key pair if you don't already have one:
+   ```bash
+   ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f ~/.ssh/yieldmax_deploy
+   ```
+
+2. Add the public key to the authorized_keys file on the server:
+   ```bash
+   ssh-copy-id -i ~/.ssh/yieldmax_deploy.pub yannvr@69.62.124.138
+   ```
+   Or manually add the content of `yieldmax_deploy.pub` to `~/.ssh/authorized_keys` on the server.
+
+3. Add the private key as a GitHub secret:
+   - Go to your GitHub repository
+   - Navigate to Settings > Secrets and variables > Actions
+   - Click "New repository secret"
+   - Name: `SSH_PRIVATE_KEY`
+   - Value: Copy the entire contents of your private key file (~/.ssh/yieldmax_deploy)
+   - Click "Add secret"
+
+4. The GitHub workflow will now be able to deploy directly to the server whenever code is pushed to the main branch.
+
+### Manual Deployment
+
+You can also trigger a deployment manually:
+1. Go to the "Actions" tab in your GitHub repository
+2. Select the "Deploy to Production" workflow
+3. Click "Run workflow"
+4. Select the branch you want to deploy
+5. Click "Run workflow"
+
+### Server Requirements
+
+Make sure your server has the following:
+1. Bun installed: `curl -fsSL https://bun.sh/install | bash`
+2. PM2 for process management: `bun install -g pm2`
 
 ## Project Structure
 
@@ -46,6 +80,7 @@ This app can be deployed to any static hosting service. For example:
   - `/api` - API functions for data fetching
   - `/components` - React components
   - `/data` - Data files and types
+- `/out` - Static build output (generated after build)
 
 ## Features
 
