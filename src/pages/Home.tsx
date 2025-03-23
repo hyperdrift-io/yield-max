@@ -159,7 +159,7 @@ const Home = () => {
             <div className={styles.questionCard}>
               <h3 className={styles.questionTitle}>What Are the Safest DeFi Yield Protocols?</h3>
               <p className={styles.questionAnswer}>
-                Safety in DeFi comes from audit history, TVL, team transparency, and track record. Currently, {safestProtocol?.name} has our highest safety rating at {(safestProtocol?.safetyScore / 10).toFixed(1)}/10.
+                Safety in DeFi comes from audit history, TVL, team transparency, and track record. Currently, {safestProtocol?.name} has our highest safety rating at {safestProtocol?.safetyScore ? (safestProtocol.safetyScore / 10).toFixed(1) : '0.0'}/10.
               </p>
               <Link to="/risks" className={styles.questionLink}>Learn About Risks</Link>
             </div>

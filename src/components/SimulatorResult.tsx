@@ -65,7 +65,6 @@ const SimulatorResult = ({ params }: SimulatorResultProps) => {
     totalYield,
     finalAmount,
     monthlyYield,
-    compoundedYield
   } = yieldCalculations;
 
   return (
@@ -211,7 +210,9 @@ const SimulatorResult = ({ params }: SimulatorResultProps) => {
               Important Note
             </div>
             <p className={styles.disclaimerText}>
-              This simulation is based on the current APY of {protocol.apy}% and assumes it remains constant for the entire period.
+              This simulation is based on the current APY of {protocol.apy}%.
+              {protocol.apyExplanation ? ` ${protocol.apyExplanation}` :
+              ' This assumes it remains constant for the entire period.'}
               Actual returns may vary due to market conditions, protocol changes, or other factors.
               Always do your own research before investing.
             </p>

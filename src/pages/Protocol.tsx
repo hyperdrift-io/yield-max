@@ -2,27 +2,21 @@ import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import styles from './Protocol.module.css'
-import { useQuery } from '@tanstack/react-query'
-import { getProtocolDetails } from '../api/protocols'
+import { useProtocolDetails } from '../hooks/useProtocolDetails'
+import ProtocolRiskAssessment from '../components/ProtocolRiskAssessment'
 
 type TabType = 'overview' | 'performance' | 'risks'
 
 const Protocol = () => {
   const { id } = useParams<{ id: string }>()
   const [activeTab, setActiveTab] = useState<TabType>('overview')
-
-  // Fetch protocol data
-  const { data: protocol, isLoading, error } = useQuery({
-    queryKey: ['protocol', id],
-    queryFn: () => id ? getProtocolDetails(id) : Promise.reject('No protocol ID provided'),
-    enabled: !!id,
-  })
+  const { protocol, rawData, isLoading, error } = useProtocolDetails(id)
 
   if (isLoading) {
     return (
-      <div className={styles.errorContainer}>
-        <div className={styles.spinner}></div>
-        <span className={styles.loadingText}>Loading protocol details...</span>
+      <div className={styles.loadingContainer}>
+        <div className={styles.loadingSpinner}></div>
+        <span className={styles.loadingText}>Loading protocol data...</span>
       </div>
     )
   }
@@ -30,12 +24,13 @@ const Protocol = () => {
   if (error || !protocol) {
     return (
       <div className={styles.errorContainer}>
-        <svg className={styles.errorIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-        </svg>
         <h2 className={styles.errorTitle}>Protocol Not Found</h2>
-        <p className={styles.errorText}>We couldn't find the protocol you're looking for.</p>
-        <Link to="/compare" className={styles.backLink}>Go to Protocol List</Link>
+        <p className={styles.errorMessage}>
+          The protocol you're looking for doesn't exist or there was an error loading the data.
+        </p>
+        <Link to="/" className={styles.errorButton}>
+          Return to Home
+        </Link>
       </div>
     )
   }
@@ -138,6 +133,13 @@ const Protocol = () => {
                 <p className={styles.protocolDescription}>
                   {protocol.description}
                 </p>
+
+                {protocol.apyExplanation && (
+                  <div className={styles.apyExplanationBox}>
+                    <h3 className={styles.apyExplanationTitle}>How the {protocol.apy}% APY Works</h3>
+                    <p className={styles.apyExplanation}>{protocol.apyExplanation}</p>
+                  </div>
+                )}
 
                 <div className={styles.metricsContainer}>
                   <div className={styles.metricItem}>
@@ -314,70 +316,12 @@ const Protocol = () => {
             <div className={styles.card}>
               <h2 className={styles.cardTitle}>Risk Assessment</h2>
               <div className={styles.cardContent}>
-                <div className={styles.riskScores}>
-                  <div className={styles.riskScore}>
-                    <span className={styles.riskLabel}>Safety Score</span>
-                    <div className={styles.riskMeter}>
-                      <div
-                        className={styles.riskFill}
-                        style={{ width: `${protocol.safetyScore}%` }}
-                      ></div>
-                    </div>
-                    <span className={styles.riskValue}>{protocol.safetyScore}/100</span>
-                  </div>
-
-                  <div className={styles.riskFactors}>
-                    <div className={styles.riskFactor}>
-                      <span className={styles.factorLabel}>Audits</span>
-                      <span className={styles.factorValue}>{protocol.audits}</span>
-                    </div>
-                    <div className={styles.riskFactor}>
-                      <span className={styles.factorLabel}>Liquidity</span>
-                      <span className={styles.factorValue}>${(protocol.liquidity / 1e9).toFixed(2)}B</span>
-                    </div>
-                    <div className={styles.riskFactor}>
-                      <span className={styles.factorLabel}>Ease of Use</span>
-                      <span className={styles.factorValue}>{protocol.easeOfUseScore}/100</span>
-                    </div>
-                  </div>
-                </div>
-
-                {protocol.newsAndDataSources && (
-                  <div className={styles.newsSources}>
-                    <h3 className={styles.newsTitle}>News & Data Sources</h3>
-
-                    {protocol.newsAndDataSources.news && (
-                      <div className={styles.newsItem}>
-                        <span className={styles.newsLabel}>News Outlets:</span>
-                        <div className={styles.newsList}>
-                          {protocol.newsAndDataSources.news.map(source => (
-                            <span key={source} className={styles.newsSource}>{source}</span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {protocol.newsAndDataSources.realTime && (
-                      <div className={styles.newsItem}>
-                        <span className={styles.newsLabel}>Real-Time Data:</span>
-                        <span className={styles.newsValue}>{protocol.newsAndDataSources.realTime}</span>
-                      </div>
-                    )}
-
-                    {protocol.newsAndDataSources.audits && (
-                      <div className={styles.newsItem}>
-                        <span className={styles.newsLabel}>Audit Reports:</span>
-                        <a
-                          href={protocol.newsAndDataSources.audits}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.newsLink}
-                        >
-                          View Reports
-                        </a>
-                      </div>
-                    )}
-                  </div>
+                {rawData ? (
+                  <ProtocolRiskAssessment protocol={rawData} />
+                ) : (
+                  <p className={styles.riskIntro}>
+                    Detailed risk assessment is not available for this protocol.
+                  </p>
                 )}
               </div>
             </div>

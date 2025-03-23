@@ -1,8 +1,56 @@
 import { Protocol } from '../types/protocol'
-import protocolData from '../data/protocolSnapshotAiGrok3_190325.json'
+import protocolsRawData from '../data/yieldmax_23_03_2025.json'
 
-// Get protocols from JSON file
-const mockProtocols: Protocol[] = protocolData as Protocol[]
+// Convert the raw data to match our Protocol type
+const mockProtocols: Protocol[] = protocolsRawData.map(p => ({
+  id: p.id,
+  name: p.name,
+  logoUrl: p.logoUrl,
+  description: p.description,
+  website: p.website,
+  apy: typeof p.apy === 'object' ? p.apy.value : p.apy,
+  apyExplanation: typeof p.apy === 'object' ? p.apy.explanation : undefined,
+  tvl: p.tvl,
+  // Extract safetyScore from riskAssessment if it exists, otherwise use a default
+  safetyScore: p.riskAssessment?.safetyScore || 50,
+  // Use easeOfUseScore if it exists
+  easeOfUseScore: p.easeOfUseScore || 70,
+  // Default values for missing fields
+  audits: p.riskAssessment?.smartContractRisk?.score || 0,
+  liquidity: p.liquidity || 0,
+  unbondingPeriod: 0, // Default to 0 if not specified
+  vcBacking: p.vcBacking || [],
+  // Map risk level from assessment scores
+  risk: p.riskAssessment ?
+    (p.riskAssessment.safetyScore >= 80 ? 'low' :
+     p.riskAssessment.safetyScore >= 70 ? 'medium' : 'high') : 'medium',
+  // Map social engagement metrics
+  engagement: {
+    twitter: 0, // These would come from communityLinks in real data
+    discord: 0,
+    github: 0
+  },
+  // Map metadata
+  metadata: {
+    chains: p.metadata?.chains || [],
+    launchDate: p.metadata?.launchDate || '',
+    token: p.metadata?.token || '',
+    governance: p.metadata?.governance || '',
+    realTimeData: true
+  },
+  // Map API sources
+  apiSources: {
+    tvlAndApy: p.tokenPages?.tvlAndApy || '',
+    tokenData: p.tokenPages?.tokenData || '',
+    onChainData: ''
+  },
+  // Map news and data sources
+  newsAndDataSources: {
+    news: p.infoSources?.news || [],
+    realTime: '',
+    audits: p.infoSources?.security || ''
+  }
+}))
 
 // Get a list of all protocols
 export const getProtocols = async (): Promise<Protocol[]> => {

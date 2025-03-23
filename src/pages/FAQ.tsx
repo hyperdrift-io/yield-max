@@ -277,23 +277,23 @@ const categories = [
 const FAQ = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [activeCategory, setActiveCategory] = useState(0);
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState<number | null>(null);
   const totalPages = faqPages.length;
 
-  const handlePageChange = (pageIndex) => {
+  const handlePageChange = (pageIndex: number) => {
     setCurrentPage(pageIndex);
     setActiveItem(null); // Reset active item when changing page
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleCategoryChange = (categoryIndex) => {
+  const handleCategoryChange = (categoryIndex: number) => {
     setActiveCategory(categoryIndex);
     // Reset to first page when changing categories
     setCurrentPage(0);
     setActiveItem(null);
   };
 
-  const toggleItem = (index) => {
+  const toggleItem = (index: number) => {
     setActiveItem(activeItem === index ? null : index);
   };
 

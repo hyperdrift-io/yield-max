@@ -1,106 +1,11 @@
 import { Helmet } from 'react-helmet-async'
 import styles from './CompareRisks.module.css'
 import { Link } from 'react-router-dom'
+import { protocolTypes } from '../data/protocolTypeMapping'
 
 const CompareRisks = () => {
   // Sample risk data for different protocol types
-  const protocolTypes = [
-    {
-      name: 'Lending Platforms',
-      examples: 'Aave, Compound, Maple',
-      riskLevel: 'Low to Medium',
-      safetyScore: '7-9',
-      benefits: [
-        'Relatively stable yields',
-        'Clear revenue model from borrower interest',
-        'Usually well-audited',
-        'Typically no impermanent loss'
-      ],
-      risks: [
-        'Smart contract risk',
-        'Liquidation risk when borrowing',
-        'Interest rate volatility',
-        'Potential governance attacks'
-      ],
-      bestFor: 'Conservative yield seekers looking for steady returns with manageable risk'
-    },
-    {
-      name: 'Liquidity Pools (DEXs)',
-      examples: 'Uniswap, Curve, Balancer',
-      riskLevel: 'Medium',
-      safetyScore: '6-8',
-      benefits: [
-        'Trading fee income',
-        'Potential for additional reward tokens',
-        'High liquidity for major assets',
-        'Transparency in operation'
-      ],
-      risks: [
-        'Impermanent loss',
-        'Smart contract risk',
-        'Market volatility exposure',
-        'Competition leading to yield reduction'
-      ],
-      bestFor: 'Traders willing to accept some volatility for potentially higher returns'
-    },
-    {
-      name: 'Yield Aggregators',
-      examples: 'Yearn Finance, Beefy, Pickle',
-      riskLevel: 'Medium to High',
-      safetyScore: '5-7',
-      benefits: [
-        'Automated yield optimization',
-        'Professional management',
-        'Gas efficiency through batching',
-        'Diversification across strategies'
-      ],
-      risks: [
-        'Strategy complexity risks',
-        'Multiple layers of smart contract risk',
-        'Higher management fees',
-        'Potential for strategy failures'
-      ],
-      bestFor: 'Experienced users who want active yield management without manual rebalancing'
-    },
-    {
-      name: 'Staking Protocols',
-      examples: 'Ethereum 2.0, Cosmos, Polkadot',
-      riskLevel: 'Low to Medium',
-      safetyScore: '7-9',
-      benefits: [
-        'Support network security',
-        'Predictable rewards',
-        'No impermanent loss',
-        'Often native to blockchain'
-      ],
-      risks: [
-        'Lock-up periods',
-        'Slashing risk for validator issues',
-        'Network adoption risk',
-        'Lower yields compared to other strategies'
-      ],
-      bestFor: 'Long-term holders who want to earn yield while supporting blockchain infrastructure'
-    },
-    {
-      name: 'Options/Derivatives Platforms',
-      examples: 'Ribbon Finance, Opyn, dYdX',
-      riskLevel: 'High',
-      safetyScore: '4-6',
-      benefits: [
-        'Potentially high yields',
-        'Market-neutral strategies available',
-        'Unique yield mechanisms',
-        'Less correlated to direct price movements'
-      ],
-      risks: [
-        'Complex mechanisms',
-        'High volatility in returns',
-        'Additional market risks',
-        'Usually lower total value locked (TVL)'
-      ],
-      bestFor: 'Sophisticated users with risk appetite and understanding of options markets'
-    }
-  ]
+  // Now importing this data from our mapping file
 
   // Risk mitigation strategies
   const mitigationStrategies = [

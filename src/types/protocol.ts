@@ -5,6 +5,7 @@ export type Protocol = {
   description: string
   website: string
   apy: number // Annual percentage yield in %
+  apyExplanation?: string // Explanation of how the APY is calculated
   tvl: number // Total value locked in USD
   safetyScore: number // 0-100
   easeOfUseScore: number // 0-100
@@ -12,6 +13,7 @@ export type Protocol = {
   liquidity: number // USD value of liquid assets
   unbondingPeriod: number // Days
   vcBacking: string[] // Venture capital firms
+  risk?: string // Risk level (low, medium, high)
   engagement: {
     twitter: number // Followers
     discord: number // Members
