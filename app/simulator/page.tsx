@@ -1,22 +1,30 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Metadata } from 'next';
 import { getProtocols } from '../../src/api/protocols';
 import SimulatorResult from '../../src/components/SimulatorResult';
 import styles from './page.module.css';
+import { Protocol } from '../../src/types/protocol';
 
-export const metadata = {
-  title: 'Yield Simulator - YieldMax',
-  description: 'Simulate potential earnings from different yield protocols'
+// Define the simulation result type
+type SimulationResultType = {
+  protocol: Protocol;
+  initialAmount: number;
+  period: number;
+  yieldCalculations: {
+    dailyYield: number;
+    monthlyYield: number;
+    totalYield: number;
+    finalAmount: number;
+  };
 };
 
 export default function SimulatorPage() {
   const [amount, setAmount] = useState('1000');
   const [days, setDays] = useState('365');
   const [selectedProtocolId, setSelectedProtocolId] = useState('');
-  const [simulationResult, setSimulationResult] = useState(null);
-  const [protocols, setProtocols] = useState([]);
+  const [simulationResult, setSimulationResult] = useState<SimulationResultType | null>(null);
+  const [protocols, setProtocols] = useState<Protocol[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   // Set up preset timeframes
@@ -29,11 +37,20 @@ export default function SimulatorPage() {
   // Load protocols on component mount
   useEffect(() => {
     async function loadProtocols() {
-      const data = await getProtocols();
-      setProtocols(data);
+      try {
+        const data = await getProtocols();
+        setProtocols(data);
+
+        // Set default selected protocol if none is selected
+        if (!selectedProtocolId && data.length > 0) {
+          setSelectedProtocolId(data[0].id);
+        }
+      } catch (error) {
+        console.error("Error loading protocols:", error);
+      }
     }
     loadProtocols();
-  }, []);
+  }, [selectedProtocolId]);
 
   const handleSimulate = async () => {
     if (!amount || !days || !selectedProtocolId) {
@@ -76,7 +93,7 @@ export default function SimulatorPage() {
     setIsLoading(false);
   };
 
-  const handleTimeframeClick = (value) => {
+  const handleTimeframeClick = (value: string) => {
     setDays(value);
   };
 

@@ -5,7 +5,7 @@ import protocolsRawData from '../data/yieldmax_23_03_2025.json'
 const mockProtocols: Protocol[] = protocolsRawData.map(p => ({
   id: p.id,
   name: p.name,
-  logoUrl: p.logoUrl,
+  logoUrl: p.logoUrl || `/logos/${p.id}.png`,
   description: p.description,
   website: p.website,
   apy: typeof p.apy === 'object' ? p.apy.value : p.apy,

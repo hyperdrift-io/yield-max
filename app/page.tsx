@@ -1,12 +1,6 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getProtocols } from '../src/api/protocols';
 import styles from './page.module.css';
-
-export const metadata: Metadata = {
-  title: 'YieldMax - Compare Yield Aggregators',
-  description: 'Discover and compare the best yield aggregators in DeFi'
-};
 
 export default async function HomePage() {
   const protocols = await getProtocols();
@@ -77,9 +71,9 @@ export default async function HomePage() {
               </div>
               <div className={styles.cell}>
                 <div className={styles['score-bar']}>
-                  <div className={styles['score-fill-alt']} style={{width: `${protocol.easeOfUse || 76}%`}}></div>
+                  <div className={styles['score-fill-alt']} style={{width: `${protocol.easeOfUseScore || 76}%`}}></div>
                 </div>
-                <span>{protocol.easeOfUse || 76}</span>
+                <span>{protocol.easeOfUseScore || 76}</span>
               </div>
               <div className={styles.cell}>
                 <div className={styles['chain-icons']}>

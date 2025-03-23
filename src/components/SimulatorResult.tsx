@@ -1,4 +1,5 @@
 import styles from './SimulatorResult.module.css'
+import { Protocol } from '../types/protocol'
 
 type YieldCalculations = {
   dailyYield: number;
@@ -8,7 +9,7 @@ type YieldCalculations = {
 };
 
 type SimulationResultType = {
-  protocol: any;
+  protocol: Protocol;
   initialAmount: number;
   period: number;
   yieldCalculations: YieldCalculations;
@@ -32,7 +33,9 @@ const SimulatorResult = ({ result }: SimulatorResultProps) => {
             className={styles.logo}
           />
         ) : (
-          <div className={styles.logoPlaceholder}></div>
+          <div className={styles.logoPlaceholder}>
+            {protocol.name.charAt(0)}
+          </div>
         )}
         <div className={styles.headerContent}>
           <h2 className={styles.title}>{protocol.name} Yield Simulation</h2>
