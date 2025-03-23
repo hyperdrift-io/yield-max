@@ -1,4 +1,4 @@
-PROTOCOL_LIST=Update the JSON entries for the following list of DeFi protocols: ["aave", "yearn-finance", "curve-finance", "uniswap", "sushiswap", "pancakeswap", "balancer", "pendle", "convex-finance", "aura-finance", "lido-finance", "makerdao", "alpaca-finance", "beefy-finance", "frax-finance", "harvest-finance", "stake-dao", "eigenlayer", "jito"]. Use the current date, March 23, 2025, as the reference point. Apply the following transformations to each entry based on the provided initial JSON structure:
+PROTOCOL_LIST=["aave", "yearn-finance", "curve-finance", "uniswap", "sushiswap", "pancakeswap", "balancer", "pendle", "convex-finance", "aura-finance", "lido-finance", "makerdao", "alpaca-finance", "beefy-finance", "frax-finance", "harvest-finance", "stake-dao", "eigenlayer", "jito"]. 
 
 1. **Retain Core Fields:** Keep `id`, `name`, `logoUrl`, `description`, `website`, `tvl`, `liquidity`, `vcBacking`, `metadata` (with `chains`, `launchDate`, `token`, `governance`), and `tokenPages` (with `tvlAndApy` and `tokenData`).
 2. **Date Format:** Convert all dates (e.g., `launchDate`) to the format `%dd_%mm_%YYYY` (e.g., `23_03_2025`).
