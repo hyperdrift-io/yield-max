@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getProtocols } from '../src/api/protocols';
 import styles from './page.module.css';
+import ProtocolList from '../src/components/ProtocolList';
 
 export default async function HomePage() {
   const protocols = await getProtocols();
@@ -34,123 +35,102 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className={styles['protocols-list']}>
+      <section className={styles['protocols-section']}>
         <div className={styles['section-header']}>
-          <h2>Top Yield Protocols</h2>
-          <Link href="/compare" className={styles['view-all']}>View all</Link>
-        </div>
-
-        <div className={styles['filter-container']}>
-          <button className={styles['filter-button']}>Show Advanced Filters</button>
-        </div>
-
-        <div className={styles['protocol-table']}>
-          <div className={styles['table-header']}>
-            <div className={styles['header-cell']}>PROTOCOL</div>
-            <div className={styles['header-cell']}>APY</div>
-            <div className={styles['header-cell']}>TVL</div>
-            <div className={styles['header-cell']}>SAFETY</div>
-            <div className={styles['header-cell']}>EASE OF USE</div>
-            <div className={styles['header-cell']}>CHAINS</div>
-            <div className={styles['header-cell']}>ACTION</div>
+          <div>
+            <h2>Top Yield Protocols</h2>
+            <p>Explore the highest-rated yield opportunities across DeFi</p>
           </div>
-
-          {protocols.slice(0, 8).map((protocol) => (
-            <div key={protocol.id} className={styles['table-row']}>
-              <div className={styles['protocol-cell']}>
-                <div className={styles['protocol-logo']}></div>
-                <div className={styles['protocol-name']}>{protocol.name}</div>
-              </div>
-              <div className={styles.cell}>{protocol.apy}%</div>
-              <div className={styles.cell}>${protocol.tvl || '500,000,000'}</div>
-              <div className={styles.cell}>
-                <div className={styles['score-bar']}>
-                  <div className={styles['score-fill']} style={{width: `${protocol.safetyScore || 78}%`}}></div>
-                </div>
-                <span>{protocol.safetyScore || 78}</span>
-              </div>
-              <div className={styles.cell}>
-                <div className={styles['score-bar']}>
-                  <div className={styles['score-fill-alt']} style={{width: `${protocol.easeOfUseScore || 76}%`}}></div>
-                </div>
-                <span>{protocol.easeOfUseScore || 76}</span>
-              </div>
-              <div className={styles.cell}>
-                <div className={styles['chain-icons']}>
-                  {(protocol.metadata?.chains || ['ETH']).map((chain, i) => (
-                    <span key={i} className={styles['chain-icon']}>{chain.substring(0, 3)}</span>
-                  ))}
-                </div>
-              </div>
-              <div className={styles.cell}>
-                <Link href={`/protocol/${protocol.id}`} className={styles['view-details']}>View Details</Link>
-              </div>
-            </div>
-          ))}
+          <Link href="/compare" className={styles['view-all']}>
+            View All
+          </Link>
         </div>
+
+        <div className={styles['filter-section']}>
+          <button className={styles['filter-button']}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+            Show Advanced Filters
+          </button>
+        </div>
+
+        <ProtocolList protocols={protocols.slice(0, 8)} />
       </section>
 
       <section className={styles['features-section']}>
-        <h2>Why Choose YieldMax?</h2>
-        <p className={styles['section-subtitle']}>We provide comprehensive tools to help you make the best yield farming decisions</p>
+        <h2>Why Choose YieldMax</h2>
+        <p>Get the tools you need to make informed decisions about yield protocols</p>
 
         <div className={styles['features-grid']}>
           <div className={styles['feature-card']}>
-            <div className={styles['feature-icon']}></div>
+            <div className={styles['feature-icon']}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
             <h3>Safety First</h3>
-            <p>We analyze every protocol's security, vulnerabilities, audit history, and more to give you accurate safety scores.</p>
+            <p>We thoroughly assess each protocol's safety through comprehensive audits and track record analysis.</p>
           </div>
 
           <div className={styles['feature-card']}>
-            <div className={styles['feature-icon']}></div>
+            <div className={styles['feature-icon']}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
             <h3>Accurate Data</h3>
-            <p>Real-time updates for APY, TVL, and token price data from trusted sources. Always have the latest information.</p>
+            <p>We provide real-time, reliable data on yields, unlocking periods, and other critical metrics.</p>
           </div>
 
           <div className={styles['feature-card']}>
-            <div className={styles['feature-icon']}></div>
+            <div className={styles['feature-icon']}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
             <h3>Yield Simulation</h3>
-            <p>Calculate potential yield over any time period with our interactive tools. Compare returns across competing protocols and protocols.</p>
+            <p>Our simulator helps you forecast potential earnings based on your deposit amount and timeframe.</p>
           </div>
         </div>
       </section>
 
       <section className={styles['faq-preview']}>
-        <h2>Find Answers to Your DeFi Questions</h2>
-        <p>Get clear information about yield farming, staking, and passive income opportunities in DeFi</p>
+        <h2>Frequently Asked Questions</h2>
+        <p>Get quick answers to common questions about yield protocols.</p>
 
         <div className={styles['faq-grid']}>
           <div className={styles['faq-item']}>
-            <h3>Which DeFi Protocol Has the Highest Yield?</h3>
-            <p>Typically high-yield farms like Alpaca Finance, PancakeSwap, and other newer yield-driven protocols yield higher yields. We continuously monitor protocols based on data.</p>
-            <Link href="/compare" className={styles['text-link']}>Compare Protocols →</Link>
+            <h3>What is yield farming?</h3>
+            <p>Yield farming is a way to earn rewards by providing liquidity to DeFi protocols. Users can deposit their crypto assets to earn interest and other rewards.</p>
           </div>
-
           <div className={styles['faq-item']}>
-            <h3>What Are the Safest DeFi Yield Protocols?</h3>
-            <p>Aave, Lido Finance, and Curve tend to rank high for safety. Established protocols with high TVL, thorough audits, battle-tested smart contracts, and clean histories fare best.</p>
-            <Link href="/compare?sort=safety" className={styles['text-link']}>View Safest Protocols →</Link>
+            <h3>How safe are these protocols?</h3>
+            <p>Protocol safety varies based on several factors including audits, code quality, and track record. We provide safety ratings to help you make informed decisions.</p>
           </div>
-
           <div className={styles['faq-item']}>
-            <h3>How Much Can I Earn With Yield Farming?</h3>
-            <p>Your earnings depend on your investment amount, the protocol's APY, compound frequency, and time invested. Our calculator helps estimate returns.</p>
-            <Link href="/simulator" className={styles['text-link']}>Try Simulator →</Link>
+            <h3>What is APY?</h3>
+            <p>Annual Percentage Yield (APY) represents the rate of return earned on an investment over a year, accounting for compound interest.</p>
           </div>
         </div>
 
         <div className={styles['faq-cta']}>
-          <Link href="/faq" className={styles['text-button']}>View All FAQs</Link>
+          <Link href="/faq" className={styles['button-secondary']}>
+            View All FAQs
+          </Link>
         </div>
       </section>
 
       <section className={styles['bottom-cta']}>
-        <h2>Ready to maximize your crypto returns?</h2>
-        <p>Start comparing DeFi protocols and find the best yield opportunities that match your risk profile.</p>
-
+        <h2>Start Earning Yield Today</h2>
+        <p>Compare protocols, simulate potential earnings, and make informed decisions about your crypto investments.</p>
         <div className={styles['cta-buttons']}>
-          <Link href="/compare" className={styles['primary-button']}>Compare Protocols</Link>
-          <Link href="/beginner-guide" className={styles['outline-button']}>Read Beginner's Guide</Link>
+          <Link href="/compare" className={styles['button-primary']}>
+            Compare Protocols
+          </Link>
+          <Link href="/simulator" className={styles['button-secondary']}>
+            Try Simulator
+          </Link>
         </div>
       </section>
     </div>

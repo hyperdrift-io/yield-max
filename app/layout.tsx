@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import '../src/index.css'; // Import global CSS from src
 import styles from './layout.module.css';
 
@@ -21,7 +22,16 @@ export default function RootLayout({
           <header className={styles.header}>
             <nav className={styles.nav}>
               <div className={styles['logo-container']}>
-                <Link href="/" className={styles.logo}>YieldMax</Link>
+                <Link href="/" className={styles.logo}>
+                  <Image
+                    src="/logos/YM-logo-dark.svg"
+                    alt="YieldMax Logo"
+                    width={32}
+                    height={32}
+                    className={styles.logoIcon}
+                  />
+                  YieldMax
+                </Link>
               </div>
               <div className={styles['nav-links']}>
                 <Link href="/" className={styles['nav-link']}>Home</Link>
@@ -31,16 +41,22 @@ export default function RootLayout({
                 <Link href="/risks" className={styles['nav-link']}>Risks</Link>
                 <Link href="/faq" className={styles['nav-link']}>FAQ</Link>
               </div>
-              <div className={styles['connect-wallet']}>
-                <Link href="/connect" className={styles['wallet-button']}>Connect Wallet</Link>
-              </div>
             </nav>
           </header>
           <main className={styles.main}>{children}</main>
           <footer className={styles.footer}>
             <div className={styles['footer-container']}>
               <div className={styles['footer-logo']}>
-                <Link href="/">YieldMax</Link>
+                <Link href="/" className={styles.logo}>
+                  <Image
+                    src="/logos/YM-logo-dark.svg"
+                    alt="YieldMax Logo"
+                    width={32}
+                    height={32}
+                    className={styles.logoIcon}
+                  />
+                  YieldMax
+                </Link>
                 <p>Find and compare the best yield farming opportunities across multiple protocols. Make informed decisions based on safety, returns, and ease of use.</p>
               </div>
 

@@ -1,5 +1,5 @@
 .container {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: var(--space-6);
 }
@@ -23,7 +23,7 @@
 }
 
 .simulatorCard {
-  background-color: var(--color-background-secondary);
+  background-color: var(--color-card);
   border-radius: var(--border-radius-lg);
   padding: var(--space-6);
   margin-bottom: var(--space-8);

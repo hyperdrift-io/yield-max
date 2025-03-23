@@ -28,10 +28,23 @@
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: white;
   text-decoration: none;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary, #8b5cf6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.logoIcon {
+  color: var(--color-primary);
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
 }
 
 .nav-links {
@@ -99,8 +112,13 @@
 .footer-logo a {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: white;
   text-decoration: none;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary, #8b5cf6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .footer-logo p {

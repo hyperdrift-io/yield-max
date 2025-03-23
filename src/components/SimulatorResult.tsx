@@ -26,17 +26,20 @@ const SimulatorResult = ({ result }: SimulatorResultProps) => {
   return (
     <div className={styles.resultCard}>
       <div className={styles.header}>
-        {protocol.logoUrl ? (
-          <img
-            src={protocol.logoUrl}
-            alt={protocol.name}
-            className={styles.logo}
-          />
-        ) : (
-          <div className={styles.logoPlaceholder}>
-            {protocol.name.charAt(0)}
-          </div>
-        )}
+        <div className={styles.logoPlaceholder}>
+          {protocol.name.charAt(0)}
+          {protocol.logoUrl && (
+            <img
+              src={protocol.logoUrl}
+              alt={protocol.name}
+              className={styles.logo}
+              onError={(e) => {
+                // Hide the image on error
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
+          )}
+        </div>
         <div className={styles.headerContent}>
           <h2 className={styles.title}>{protocol.name} Yield Simulation</h2>
           <div className={styles.subtitle}>Based on current APY of {protocol.apy}%</div>

@@ -1,11 +1,28 @@
 import { Protocol } from '../types/protocol'
 import protocolsRawData from '../data/yieldmax_23_03_2025.json'
 
+// Helper function to get a proper logo URL with fallbacks
+function getLogoUrl(protocol: any): string {
+  // First try the protocol's logoUrl if it exists
+  if (protocol.logoUrl && typeof protocol.logoUrl === 'string') {
+    return protocol.logoUrl;
+  }
+
+  // Then try to construct a URL based on protocol ID
+  if (protocol.id) {
+    // Try common paths that might work
+    return `/logos/${protocol.id.toLowerCase()}.png`;
+  }
+
+  // Fallback to a generic placeholder
+  return '/logos/placeholder.png';
+}
+
 // Convert the raw data to match our Protocol type
 const mockProtocols: Protocol[] = protocolsRawData.map(p => ({
   id: p.id,
   name: p.name,
-  logoUrl: p.logoUrl || `/logos/${p.id}.png`,
+  logoUrl: getLogoUrl(p),
   description: p.description,
   website: p.website,
   apy: typeof p.apy === 'object' ? p.apy.value : p.apy,

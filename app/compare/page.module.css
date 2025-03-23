@@ -1,5 +1,5 @@
 .container {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: var(--space-6);
 }
@@ -23,7 +23,7 @@
 }
 
 .filterSection {
-  background-color: var(--color-background-secondary);
+  background-color: var(--color-card);
   border-radius: var(--border-radius-lg);
   padding: var(--space-6);
   margin-bottom: var(--space-8);
@@ -133,6 +133,12 @@
   color: var(--color-text);
 }
 
+.resetButton:disabled,
+.advancedButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .showAdvanced {
   margin-bottom: var(--space-4);
 }
@@ -153,141 +159,71 @@
   color: var(--color-text);
 }
 
-.tableHeader {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  padding: var(--space-4);
-  background-color: var(--color-background-secondary);
-  border-top-left-radius: var(--border-radius-md);
-  border-top-right-radius: var(--border-radius-md);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.headerCell {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  display: flex;
-  align-items: center;
-}
-
-.sortArrow {
-  margin-left: var(--space-1);
-  color: var(--color-primary);
-}
-
 .protocolList {
-  background-color: var(--color-background-secondary);
-  border-bottom-left-radius: var(--border-radius-md);
-  border-bottom-right-radius: var(--border-radius-md);
-  overflow: hidden;
-}
-
-.protocolRow {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  padding: var(--space-4);
-  border-bottom: 1px solid var(--color-border);
-  align-items: center;
-}
-
-.protocolRow:last-child {
-  border-bottom: none;
-}
-
-.protocolCell {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.protocolLogo {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  opacity: 0.5;
-}
-
-.protocolName {
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.cell {
-  color: var(--color-text);
-  font-size: 0.9rem;
-}
-
-.scoreBar {
-  width: 80px;
-  height: 6px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-  margin-bottom: var(--space-1);
-}
-
-.scoreFill {
-  height: 100%;
-  background-color: var(--color-success);
-  border-radius: 3px;
-}
-
-.scoreFillAlt {
-  height: 100%;
-  background-color: var(--color-secondary);
-  border-radius: 3px;
-}
-
-.chainIcons {
-  display: flex;
-  gap: var(--space-1);
-}
-
-.chainIcon {
-  display: inline-block;
-  padding: var(--space-1) var(--space-2);
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: var(--border-radius-sm);
-  font-size: 0.7rem;
-  color: var(--color-text-muted);
-}
-
-.viewDetails {
-  color: var(--color-text);
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: var(--space-1) var(--space-3);
   border-radius: var(--border-radius-md);
-  text-decoration: none;
-  font-size: 0.8rem;
-  transition: background-color 0.2s ease;
-  display: inline-block;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.viewDetails:hover {
-  background-color: var(--color-primary);
+.error {
+  padding: var(--space-6);
+  text-align: center;
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-md);
+  margin-top: var(--space-4);
+}
+
+.error p {
+  color: var(--color-danger);
+  font-weight: 500;
+}
+
+.slider:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 @media (max-width: 1024px) {
-  .tableHeader, .protocolRow {
+  .tableHeader {
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
   }
 
-  .tableHeader div:nth-child(4), .protocolRow div:nth-child(4) {
+  .tableHeader div:nth-child(4),
+  .tableHeader div:nth-child(4) {
     display: none;
   }
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: var(--space-4);
+  }
+
   .header h1 {
     font-size: 2rem;
   }
 
-  .tableHeader, .protocolRow {
-    min-width: 800px;
+  .filterSection {
+    padding: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: var(--space-3);
   }
 
-  .protocolList {
-    overflow-x: auto;
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  .resetButton,
+  .advancedButton {
+    font-size: 0.8rem;
+    padding: var(--space-1) var(--space-2);
   }
 }
