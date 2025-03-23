@@ -20,6 +20,21 @@
   margin-right: var(--space-3);
 }
 
+.logoPlaceholder {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  margin-right: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
 .headerContent {
   display: flex;
   flex-direction: column;
@@ -198,4 +213,13 @@
   font-size: 0.875rem;
   color: var(--color-text-muted);
   line-height: 1.5;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

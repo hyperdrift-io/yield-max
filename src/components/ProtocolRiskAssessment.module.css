@@ -2,7 +2,11 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 1rem 0;
+  background-color: var(--color-background-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+  box-shadow: var(--shadow-sm);
 }
 
 .overallRisk {
@@ -20,9 +24,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(45deg, rgba(var(--color-primary-rgb), 0.1), rgba(var(--color-primary-rgb), 0.2));
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.2));
   border: 2px solid var(--color-primary);
   margin-bottom: 0.5rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .scoreNumber {
@@ -34,13 +39,13 @@
 .scoreMax {
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--color-text-muted);
 }
 
 .scoreLabel {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--color-text);
 }
 
 .riskCategories {
@@ -50,10 +55,11 @@
 }
 
 .riskCategory {
-  background-color: var(--card-bg);
-  border-radius: 0.5rem;
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-md);
   padding: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
 }
 
 .riskHeader {
@@ -66,7 +72,7 @@
 .riskTitle {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--color-text);
   margin: 0;
 }
 
@@ -79,7 +85,7 @@
 .scoreBar {
   width: 100px;
   height: 6px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--color-background);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -92,21 +98,24 @@
 .scoreValue {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--color-text-muted);
 }
 
 .riskDescription {
   font-size: 0.9rem;
   line-height: 1.5;
-  color: var(--text-secondary);
+  color: var(--color-text-muted);
   margin: 0;
 }
 
 .noDataContainer {
   padding: 2rem;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 0.5rem;
+  background-color: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  color: var(--color-text-muted);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
 }
 
 @media (max-width: 768px) {

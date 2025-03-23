@@ -1,0 +1,242 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: var(--color-background-secondary);
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.nav-link {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.connect-wallet {
+  display: flex;
+  align-items: center;
+}
+
+.wallet-button {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-2) var(--space-4);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.wallet-button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.main {
+  flex: 1;
+  background-color: var(--color-background);
+}
+
+.footer {
+  background-color: var(--color-background-secondary);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: var(--space-8);
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.footer-logo a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.footer-logo p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-section h3 {
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.footer-section a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-section a:hover {
+  color: var(--color-primary);
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.social-links {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.social-icon {
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.social-icon:hover {
+  color: var(--color-primary);
+}
+
+.newsletter h3 {
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.newsletter p {
+  font-size: 0.9rem;
+  margin-bottom: var(--space-3);
+}
+
+.email-form {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.email-form input {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-2);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.email-form button {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  border-radius: var(--border-radius-md);
+  padding: var(--space-2) var(--space-3);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.email-form button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: var(--space-6) auto 0;
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .connect-wallet {
+    margin-top: var(--space-2);
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,148 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-6);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.simulatorCard {
+  background-color: var(--color-background-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.simulatorCard h2 {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.formGroup label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.input, .select {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-3);
+  color: var(--color-text);
+  font-size: 1rem;
+  width: 100%;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: var(--space-3);
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--color-text-muted);
+  pointer-events: none;
+}
+
+.select {
+  appearance: none;
+}
+
+.timeframes {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.timeframeButton {
+  padding: var(--space-1) var(--space-2);
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timeframeButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.timeframeButton.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.calculateButton {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  border-radius: var(--border-radius-md);
+  padding: var(--space-3);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.calculateButton:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.calculateButton:disabled {
+  background-color: var(--color-border);
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .timeframes {
+    flex-wrap: wrap;
+  }
+}

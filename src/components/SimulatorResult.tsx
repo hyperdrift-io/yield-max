@@ -1,80 +1,39 @@
-import { useQuery } from '@tanstack/react-query'
-import { getProtocolDetails } from '../api/protocols'
 import styles from './SimulatorResult.module.css'
-import { useMemo } from 'react'
+
+type YieldCalculations = {
+  dailyYield: number;
+  monthlyYield: number;
+  totalYield: number;
+  finalAmount: number;
+};
+
+type SimulationResultType = {
+  protocol: any;
+  initialAmount: number;
+  period: number;
+  yieldCalculations: YieldCalculations;
+};
 
 type SimulatorResultProps = {
-  params: {
-    amount: number
-    duration: number
-    protocolId: string
-  }
-}
+  result: SimulationResultType;
+};
 
-const SimulatorResult = ({ params }: SimulatorResultProps) => {
-  const { data: protocol, isLoading } = useQuery({
-    queryKey: ['protocol', params.protocolId],
-    queryFn: () => getProtocolDetails(params.protocolId),
-    staleTime: 5 * 60 * 1000, // 5 minutes cache
-  })
-
-  // Use useMemo to calculate yield values only when dependencies change
-  const yieldCalculations = useMemo(() => {
-    if (!protocol) return null;
-
-    // Calculate yield
-    const dailyYield = params.amount * (protocol.apy / 100 / 365)
-    const totalYield = dailyYield * params.duration
-    const finalAmount = params.amount + totalYield
-
-    // Calculate average monthly yield
-    const monthlyYield = dailyYield * 30
-
-    // Calculate compounded yield (if applicable)
-    let compoundedAmount = params.amount
-    // Check if compounding properties exist before using them
-    if ('compounding' in protocol && protocol.compounding &&
-        'compoundFrequency' in protocol && protocol.compoundFrequency) {
-      const compoundFreq = Number(protocol.compoundFrequency);
-      const periods = params.duration / compoundFreq
-      const rate = protocol.apy / 100 / (365 / compoundFreq)
-      compoundedAmount = params.amount * Math.pow(1 + rate, periods)
-    }
-    const compoundedYield = compoundedAmount - params.amount
-
-    return {
-      dailyYield,
-      totalYield,
-      finalAmount,
-      monthlyYield,
-      compoundedAmount,
-      compoundedYield
-    }
-  }, [params.amount, params.duration, protocol]);
-
-  if (isLoading || !protocol || !yieldCalculations) {
-    return (
-      <div className={styles.loadingContainer}>
-        <div className={styles.spinner}></div>
-      </div>
-    )
-  }
-
-  const {
-    dailyYield,
-    totalYield,
-    finalAmount,
-    monthlyYield,
-  } = yieldCalculations;
+const SimulatorResult = ({ result }: SimulatorResultProps) => {
+  const { protocol, initialAmount, period, yieldCalculations } = result;
+  const { dailyYield, monthlyYield, totalYield, finalAmount } = yieldCalculations;
 
   return (
     <div className={styles.resultCard}>
       <div className={styles.header}>
-        <img
-          src={protocol.logoUrl}
-          alt={protocol.name}
-          className={styles.logo}
-        />
+        {protocol.logoUrl ? (
+          <img
+            src={protocol.logoUrl}
+            alt={protocol.name}
+            className={styles.logo}
+          />
+        ) : (
+          <div className={styles.logoPlaceholder}></div>
+        )}
         <div className={styles.headerContent}>
           <h2 className={styles.title}>{protocol.name} Yield Simulation</h2>
           <div className={styles.subtitle}>Based on current APY of {protocol.apy}%</div>
@@ -93,7 +52,7 @@ const SimulatorResult = ({ params }: SimulatorResultProps) => {
                 </svg>
               </div>
             </div>
-            <div className={styles.statValue}>${params.amount.toLocaleString()}</div>
+            <div className={styles.statValue}>${initialAmount.toLocaleString()}</div>
           </div>
 
           <div className={styles.statCard}>
@@ -105,7 +64,7 @@ const SimulatorResult = ({ params }: SimulatorResultProps) => {
                 </svg>
               </div>
             </div>
-            <div className={styles.statValue}>{params.duration} days</div>
+            <div className={styles.statValue}>{period} days</div>
           </div>
 
           <div className={styles.statCard}>
@@ -118,7 +77,7 @@ const SimulatorResult = ({ params }: SimulatorResultProps) => {
               </div>
             </div>
             <div className={`${styles.statValue} ${styles.positive}`}>+${totalYield.toFixed(2)}</div>
-            <div className={styles.percentage}>+{((totalYield / params.amount) * 100).toFixed(2)}%</div>
+            <div className={styles.percentage}>+{((totalYield / initialAmount) * 100).toFixed(2)}%</div>
           </div>
 
           <div className={styles.statCard}>
@@ -149,11 +108,11 @@ const SimulatorResult = ({ params }: SimulatorResultProps) => {
                 </div>
                 <div className={styles.timelineContent}>
                   <h4 className={styles.timelineEvent}>Day 1</h4>
-                  <p className={styles.timelineDescription}>Initial investment of ${params.amount.toLocaleString()}</p>
+                  <p className={styles.timelineDescription}>Initial investment of ${initialAmount.toLocaleString()}</p>
                 </div>
               </div>
 
-              {params.duration >= 30 && (
+              {period >= 30 && (
                 <div className={styles.timelineItem}>
                   <div className={styles.timelineIcon}>
                     <svg className={styles.iconPrimary} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -163,13 +122,13 @@ const SimulatorResult = ({ params }: SimulatorResultProps) => {
                   <div className={styles.timelineContent}>
                     <h4 className={styles.timelineEvent}>Day 30</h4>
                     <p className={styles.timelineDescription}>
-                      Earned ~${monthlyYield.toFixed(2)} in yield, balance: ${(params.amount + monthlyYield).toFixed(2)}
+                      Earned ~${monthlyYield.toFixed(2)} in yield, balance: ${(initialAmount + monthlyYield).toFixed(2)}
                     </p>
                   </div>
                 </div>
               )}
 
-              {params.duration >= 180 && (
+              {period >= 180 && (
                 <div className={styles.timelineItem}>
                   <div className={styles.timelineIcon}>
                     <svg className={styles.iconPrimary} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -179,7 +138,7 @@ const SimulatorResult = ({ params }: SimulatorResultProps) => {
                   <div className={styles.timelineContent}>
                     <h4 className={styles.timelineEvent}>Day 180</h4>
                     <p className={styles.timelineDescription}>
-                      Earned ~${(dailyYield * 180).toFixed(2)} in yield, balance: ${(params.amount + (dailyYield * 180)).toFixed(2)}
+                      Earned ~${(dailyYield * 180).toFixed(2)} in yield, balance: ${(initialAmount + (dailyYield * 180)).toFixed(2)}
                     </p>
                   </div>
                 </div>
@@ -192,7 +151,7 @@ const SimulatorResult = ({ params }: SimulatorResultProps) => {
                   </svg>
                 </div>
                 <div className={styles.timelineContent}>
-                  <h4 className={styles.timelineEvent}>Day {params.duration}</h4>
+                  <h4 className={styles.timelineEvent}>Day {period}</h4>
                   <p className={styles.timelineDescription}>
                     Total earned: ${totalYield.toFixed(2)}, final balance: ${finalAmount.toFixed(2)}
                   </p>

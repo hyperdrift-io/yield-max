@@ -1,7 +1,27 @@
 import styles from './ProtocolRiskAssessment.module.css';
 
+type RiskData = {
+  score: number;
+  description: string;
+};
+
+type RiskAssessment = {
+  safetyScore: number;
+  smartContractRisk?: RiskData;
+  impermanentLoss?: RiskData;
+  marketRisk?: RiskData;
+  liquidationRisk?: RiskData;
+  tokenomicDesignRisk?: RiskData;
+};
+
+type Protocol = {
+  id: string;
+  name: string;
+  riskAssessment?: RiskAssessment;
+};
+
 type ProtocolRiskAssessmentProps = {
-  protocol: any; // Original protocol data from yieldmax_23_03_2025.json
+  protocol: Protocol;
 }
 
 const ProtocolRiskAssessment = ({ protocol }: ProtocolRiskAssessmentProps) => {
@@ -22,7 +42,7 @@ const ProtocolRiskAssessment = ({ protocol }: ProtocolRiskAssessmentProps) => {
     { key: 'marketRisk', name: 'Market Risk' },
     { key: 'liquidationRisk', name: 'Liquidation Risk' },
     { key: 'tokenomicDesignRisk', name: 'Tokenomic Design Risk' }
-  ];
+  ] as const;
 
   return (
     <div className={styles.riskAssessmentContainer}>
@@ -36,9 +56,11 @@ const ProtocolRiskAssessment = ({ protocol }: ProtocolRiskAssessmentProps) => {
 
       <div className={styles.riskCategories}>
         {riskCategories.map(category => {
-          if (!riskAssessment[category.key]) return null;
+          const categoryKey = category.key as keyof RiskAssessment;
+          const riskData = riskAssessment[categoryKey];
 
-          const riskData = riskAssessment[category.key];
+          if (!riskData) return null;
+
           return (
             <div key={category.key} className={styles.riskCategory}>
               <div className={styles.riskHeader}>

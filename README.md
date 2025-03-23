@@ -1,95 +1,55 @@
 # YieldMax
 
-YieldMax is a modern web application for analyzing and comparing yield farming opportunities across different DeFi protocols. Built with React, TypeScript, and Vite, it provides a user-friendly interface for DeFi enthusiasts to make informed investment decisions.
-
-## Features
-
-- **Protocol Comparison**: Compare yields across different DeFi protocols
-- **Yield Simulation**: Simulate potential returns with different investment strategies
-- **Real-time Data**: Access up-to-date information from various DeFi protocols
-- **Modern UI**: Clean and intuitive interface with responsive design
-- **Web3 Integration**: Seamless connection with Ethereum wallets
+YieldMax is a platform that helps you compare and analyze different yield opportunities in the DeFi ecosystem. 
+We aggregate data from various protocols to provide you with transparent information to make informed decisions.
 
 ## Tech Stack
 
-- React 19
-- TypeScript
-- Vite
-- Wagmi (Ethereum hooks)
-- React Query
-- Ethers.js
-- React Router DOM
-- React Helmet Async
+- **Next.js** - React framework with SSR and static site generation capabilities
+- **TypeScript** - For type safety and better developer experience
+- **Bun** - JavaScript runtime and package manager
 
 ## Getting Started
 
-### Prerequisites
+Make sure you have [Bun](https://bun.sh) installed on your machine.
 
-- Node.js (v18 or higher)
-- Bun (recommended) or npm
-
-### Installation
-
-1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/yieldmax.git
-cd yieldmax
-```
-
-2. Install dependencies:
-```bash
+# Install dependencies
 bun install
-```
 
-3. Start the development server:
-```bash
-bun dev
-```
+# Run development server
+bun run dev
 
-4. Build for production:
-```bash
+# Build for production
 bun run build
+
+# Start production server
+bun run start
 ```
 
-### Development
+## Static Site Generation
 
-The project uses ESLint for code linting and TypeScript for type checking. You can run the following commands:
+Next.js generates static HTML files for all pages during the build process, which enables faster loading times and SEO benefits. The output is saved to the `/out` directory.
 
-```bash
-# Run linting
-bun run lint
+## Deployment
 
-# Type checking
-bun run tsc
-```
+This app can be deployed to any static hosting service. For example:
+
+1. Build the app: `bun run build`
+2. The static files are generated in the `/out` directory
+3. Deploy the contents of the `/out` directory to your hosting service
 
 ## Project Structure
 
-```
-yieldmax/
-├── src/
-│   ├── components/     # Reusable UI components
-│   ├── pages/         # Page components
-│   ├── hooks/         # Custom React hooks
-│   ├── utils/         # Utility functions
-│   └── styles/        # Global styles and CSS modules
-├── public/            # Static assets
-└── ...
-```
+- `/app` - Next.js app directory (Pages and layouts)
+- `/src` - Source code
+  - `/api` - API functions for data fetching
+  - `/components` - React components
+  - `/data` - Data files and types
 
-## Contributing
+## Features
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Design inspiration from various Dribbble shots
-- Built with modern web technologies and best practices
+- Protocol comparison
+- Yield simulation
+- Risk assessment
+- Protocol details
