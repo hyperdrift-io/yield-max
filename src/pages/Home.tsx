@@ -23,8 +23,10 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>YieldMax - Best Yield Farming Opportunities</title>
-        <meta name="description" content="Compare the top yield farming protocols for safety, liquidity, and returns" />
+        <title>YieldMax - Best DeFi Yield Farming Opportunities | Compare Highest APY</title>
+        <meta name="description" content="Find and compare the best DeFi yield farming protocols for highest APY, safety, and returns. Maximize your passive income with our real-time protocol comparison and simulator." />
+        <meta name="keywords" content="defi yield farming, highest apy crypto, safe defi protocols, crypto passive income, yield comparison, best roi crypto" />
+        <link rel="canonical" href="https://yieldmax.app/" />
       </Helmet>
 
       {/* Hero Section */}
@@ -130,6 +132,88 @@ const Home = () => {
               <p className={styles.featureDescription}>
                 Calculate potential returns with our advanced simulator that accounts for unbonding periods and compounding.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Top DeFi Questions Section */}
+      <section className={styles.questionsSection}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Find Answers to Your DeFi Questions</h2>
+            <p className={styles.sectionSubtitle}>
+              Get clear information about yield farming, staking, and passive income opportunities in DeFi
+            </p>
+          </div>
+
+          <div className={styles.questionsGrid}>
+            <div className={styles.questionCard}>
+              <h3 className={styles.questionTitle}>Which DeFi Protocol Has the Highest Yield?</h3>
+              <p className={styles.questionAnswer}>
+                Currently, {highestApyProtocol?.name} offers the highest APY at {highestApyProtocol?.apy.toFixed(1)}%. However, higher yields often come with higher risks. We recommend comparing protocols based on both APY and safety score.
+              </p>
+              <Link to="/compare" className={styles.questionLink}>Compare Protocols</Link>
+            </div>
+
+            <div className={styles.questionCard}>
+              <h3 className={styles.questionTitle}>What Are the Safest DeFi Yield Protocols?</h3>
+              <p className={styles.questionAnswer}>
+                Safety in DeFi comes from audit history, TVL, team transparency, and track record. Currently, {safestProtocol?.name} has our highest safety rating at {(safestProtocol?.safetyScore / 10).toFixed(1)}/10.
+              </p>
+              <Link to="/risks" className={styles.questionLink}>Learn About Risks</Link>
+            </div>
+
+            <div className={styles.questionCard}>
+              <h3 className={styles.questionTitle}>How Much Can I Earn With Yield Farming?</h3>
+              <p className={styles.questionAnswer}>
+                Your earnings depend on your investment amount, the protocol's APY, compound frequency, and time horizon. Use our simulator to calculate potential returns with different parameters.
+              </p>
+              <Link to="/simulator" className={styles.questionLink}>Try Simulator</Link>
+            </div>
+
+            <div className={styles.questionCard}>
+              <h3 className={styles.questionTitle}>What's the Difference Between Staking and Yield Farming?</h3>
+              <p className={styles.questionAnswer}>
+                Staking involves locking tokens to support network operations, typically with lower risk and returns. Yield farming involves more active strategies like providing liquidity or lending, often with higher risk and returns.
+              </p>
+              <Link to="/guide" className={styles.questionLink}>Read Beginner's Guide</Link>
+            </div>
+
+            <div className={styles.questionCard}>
+              <h3 className={styles.questionTitle}>How Do I Start Yield Farming?</h3>
+              <p className={styles.questionAnswer}>
+                To start yield farming, you need to set up a wallet, acquire cryptocurrency, research protocols, and deposit your funds. Our beginner's guide covers the entire process step-by-step.
+              </p>
+              <Link to="/guide" className={styles.questionLink}>Get Started</Link>
+            </div>
+
+            <div className={styles.questionCard}>
+              <h3 className={styles.questionTitle}>What Are the Risks of Yield Farming?</h3>
+              <p className={styles.questionAnswer}>
+                Yield farming involves risks like smart contract vulnerabilities, impermanent loss, market volatility, and liquidation risks. Understanding these risks is essential before starting.
+              </p>
+              <Link to="/faq" className={styles.questionLink}>Read FAQ</Link>
+            </div>
+          </div>
+
+          <div className={styles.questionsAction}>
+            <Link to="/faq" className="button-primary">View All FAQs</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className={styles.ctaSection}>
+        <div className={styles.container}>
+          <div className={styles.ctaContent}>
+            <h2 className={styles.ctaTitle}>Ready to maximize your crypto returns?</h2>
+            <p className={styles.ctaSubtitle}>
+              Start comparing DeFi protocols and find the best yield opportunities that match your risk profile.
+            </p>
+            <div className={styles.ctaActions}>
+              <Link to="/compare" className="button-primary">Compare Protocols</Link>
+              <Link to="/guide" className="button-secondary">Read Beginner's Guide</Link>
             </div>
           </div>
         </div>

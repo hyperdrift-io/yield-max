@@ -1,0 +1,6 @@
+# Robots.txt file for YieldMax
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yieldmax.app/sitemap.xml

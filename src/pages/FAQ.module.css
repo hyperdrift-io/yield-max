@@ -1,0 +1,298 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.heroSection {
+  padding: 80px 0 50px;
+  background: linear-gradient(to right, var(--color-bg-dark), var(--color-bg));
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0 0 15px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* FAQ Section */
+.faqSection {
+  padding: 60px 0;
+  background: var(--color-bg-light);
+}
+
+.faqCategories {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.categoryButton {
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 50px;
+  color: var(--color-text);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.categoryButton:hover {
+  color: var(--color-primary);
+}
+
+.categoryButton.active {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  color: white;
+}
+
+.faqContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  background: var(--color-card-bg);
+  border-radius: 12px;
+  padding: 25px 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.faqQuestion {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 15px;
+  color: var(--color-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faqQuestion::after {
+  content: '+';
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-primary);
+  transition: transform 0.3s ease;
+}
+
+.faqItem.active .faqQuestion::after {
+  transform: rotate(45deg);
+}
+
+.faqAnswer {
+  color: var(--color-text-light);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faqAnswer.open {
+  max-height: 1000px;
+}
+
+.faqAnswer p {
+  margin: 0 0 15px;
+}
+
+.faqAnswer p:last-child {
+  margin-bottom: 0;
+}
+
+.faqAnswer ul, .faqAnswer ol {
+  margin: 0 0 15px;
+  padding-left: 20px;
+}
+
+.faqAnswer ul li, .faqAnswer ol li {
+  margin-bottom: 8px;
+}
+
+.faqAnswer a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.faqAnswer a:hover {
+  color: var(--color-secondary);
+}
+
+/* Tooltip Styles */
+.tooltipContainer {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dashed var(--color-primary);
+  color: var(--color-primary);
+  cursor: help;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 250px;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--color-border);
+  font-size: 0.85rem;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--color-border) transparent transparent transparent;
+}
+
+.tooltipContainer:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.paginationButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 0 5px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.paginationButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.paginationButton.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.paginationEllipsis {
+  margin: 0 5px;
+  color: var(--color-text-light);
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 80px 0;
+  background: var(--color-bg-dark);
+}
+
+.ctaBox {
+  background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.1), rgba(var(--color-secondary-rgb), 0.1));
+  border-radius: 16px;
+  padding: 50px;
+  text-align: center;
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 15px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ctaText {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin: 0 0 30px;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .faqItem {
+    padding: 20px;
+  }
+
+  .faqQuestion {
+    font-size: 1.1rem;
+  }
+
+  .tooltip {
+    width: 200px;
+  }
+
+  .ctaBox {
+    padding: 30px 20px;
+  }
+
+  .ctaTitle {
+    font-size: 1.8rem;
+  }
+}

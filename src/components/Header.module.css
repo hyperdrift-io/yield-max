@@ -166,7 +166,7 @@
   height: 1.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .mobileMenuButton {
     display: none;
   }
@@ -176,8 +176,44 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .mainNav {
     display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0;
+    z-index: 49;
+  }
+
+  .mobileMenuOpen {
+    display: block;
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 2rem;
+  }
+
+  .navItem {
+    width: 100%;
+  }
+
+  .navLink {
+    display: block;
+    padding: 0.75rem 1rem;
+    width: 100%;
+  }
+
+  .walletButton {
+    margin: 1rem 0 0 0;
+    width: 100%;
+    text-align: center;
   }
 }

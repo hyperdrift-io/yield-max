@@ -1,0 +1,1085 @@
+[
+  {
+    "id": "aave",
+    "name": "Aave",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12645/large/AAVE.png",
+    "description": "A decentralized lending platform enabling users to earn interest or borrow assets with flexible rates.",
+    "website": "https://aave.com",
+    "apy": {
+      "value": 6.5,
+      "explanation": "The 6.5% APY is your yearly earnings from lending assets on Aave. It’s based on interest rates paid by borrowers, which adjust with supply and demand across supported chains."
+    },
+    "tvl": 15000000000,
+    "easeOfUseScore": 88,
+    "liquidity": 12000000000,
+    "vcBacking": ["ParaFi Capital", "Framework Ventures", "Three Arrows Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/AaveAave",
+      "discord": "https://discord.com/invite/aave",
+      "github": "https://github.com/aave"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Avalanche", "Optimism", "Arbitrum"],
+      "launchDate": "02_10_2020",
+      "token": "AAVE",
+      "governance": "Aave Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/aave#information",
+      "tokenData": "https://www.coingecko.com/en/coins/aave"
+    },
+    "infoSources": {
+      "news": ["CoinDesk", "The Block"],
+      "security": "https://docs.aave.com/developers/security-and-audits"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Low risk; extensively audited and battle-tested, though integrations add minor complexity.",
+        "score": 85
+      },
+      "impermanentLoss": {
+        "description": "Minimal risk; Aave focuses on lending, not AMM pools, so IL is not a concern.",
+        "score": 95
+      },
+      "marketRisk": {
+        "description": "Moderate risk; volatile markets can affect collateral values and borrowing stability.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Moderate risk; borrowers face liquidation if collateral drops, mitigated by over-collateralization.",
+        "score": 75
+      },
+      "tokenomicDesignRisk": {
+        "description": "Low risk; AAVE’s governance and staking model is robust, with minor centralization concerns.",
+        "score": 80
+      },
+      "safetyScore": 81
+    }
+  },
+  {
+    "id": "yearn-finance",
+    "name": "Yearn Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/11849/large/yearn-finance.png",
+    "description": "Automates yield farming by maximizing returns through optimized vaults across DeFi.",
+    "website": "https://yearn.finance",
+    "apy": {
+      "value": 8.7,
+      "explanation": "The 8.7% APY is your yearly profit from Yearn vaults. It’s earned by automatically moving your funds to the best yield opportunities in DeFi."
+    },
+    "tvl": 5000000000,
+    "easeOfUseScore": 82,
+    "liquidity": 4100000000,
+    "vcBacking": ["Framework Ventures", "Andreessen Horowitz"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/iearnfinance",
+      "discord": "https://discord.com/invite/yearnfinance",
+      "github": "https://github.com/yearn"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Fantom", "Arbitrum"],
+      "launchDate": "17_07_2020",
+      "token": "YFI",
+      "governance": "YFI Voting"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/yearn-finance#information",
+      "tokenData": "https://www.coingecko.com/en/coins/yearn-finance"
+    },
+    "infoSources": {
+      "news": ["Decrypt", "CoinTelegraph"],
+      "security": "https://docs.yearn.finance/resources/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; complex strategies are audited, but past exploits highlight ongoing vigilance needs.",
+        "score": 70
+      },
+      "impermanentLoss": {
+        "description": "Moderate risk; some vaults use AMMs, exposing users to IL depending on strategy.",
+        "score": 75
+      },
+      "marketRisk": {
+        "description": "High risk; vault returns depend heavily on volatile DeFi markets.",
+        "score": 60
+      },
+      "liquidationRisk": {
+        "description": "Low risk; Yearn avoids direct lending, reducing liquidation exposure.",
+        "score": 85
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; YFI’s limited supply and governance concentration pose stability questions.",
+        "score": 70
+      },
+      "safetyScore": 72
+    }
+  },
+  {
+    "id": "curve-finance",
+    "name": "Curve Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12124/large/Curve.png",
+    "description": "A DEX designed for efficient stablecoin trading and yield generation.",
+    "website": "https://curve.fi",
+    "apy": {
+      "value": 4.2,
+      "explanation": "The 4.2% APY is your yearly return from providing liquidity to Curve pools. It’s made up of trading fees and CRV rewards, boosted by locking tokens for voting power."
+    },
+    "tvl": 18000000000,
+    "easeOfUseScore": 85,
+    "liquidity": 16000000000,
+    "vcBacking": ["a16z", "Polychain Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/CurveFinance",
+      "discord": "https://discord.com/invite/curvedao",
+      "github": "https://github.com/curvefi"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Arbitrum", "Optimism"],
+      "launchDate": "15_01_2020",
+      "token": "CRV",
+      "governance": "veCRV Voting"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/curve-finance#information",
+      "tokenData": "https://www.coingecko.com/en/coins/curve-dao-token"
+    },
+    "infoSources": {
+      "news": ["The Defiant", "CoinDesk"],
+      "security": "https://curve.fi/#/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Low risk; heavily audited and stable, though past issues require ongoing caution.",
+        "score": 85
+      },
+      "impermanentLoss": {
+        "description": "Low risk; stablecoin focus minimizes IL, except in rare pool imbalances.",
+        "score": 90
+      },
+      "marketRisk": {
+        "description": "Moderate risk; stablecoin depegging can disrupt pool stability.",
+        "score": 75
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; Curve doesn’t involve lending, so liquidation isn’t a factor.",
+        "score": 95
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; veCRV locking may limit liquidity and participation.",
+        "score": 70
+      },
+      "safetyScore": 83
+    }
+  },
+  {
+    "id": "uniswap",
+    "name": "Uniswap",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12504/large/uniswap-uni.png",
+    "description": "A leading AMM-based DEX providing yield via liquidity pools.",
+    "website": "https://uniswap.org",
+    "apy": {
+      "value": 4.8,
+      "explanation": "The 4.8% APY is your yearly earnings from providing liquidity on Uniswap. It comes from trading fees collected when people swap tokens in your pool."
+    },
+    "tvl": 9500000000,
+    "easeOfUseScore": 93,
+    "liquidity": 8100000000,
+    "vcBacking": ["a16z", "Paradigm"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/Uniswap",
+      "discord": "https://discord.com/invite/uniswap",
+      "github": "https://github.com/Uniswap"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Optimism", "Arbitrum"],
+      "launchDate": "02_11_2018",
+      "token": "UNI",
+      "governance": "UNI Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/uniswap#information",
+      "tokenData": "https://www.coingecko.com/en/coins/uniswap"
+    },
+    "infoSources": {
+      "news": ["CoinDesk", "The Block"],
+      "security": "https://uniswap.org/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Low risk; widely used and audited, with minor risks from complex features.",
+        "score": 85
+      },
+      "impermanentLoss": {
+        "description": "High risk; volatile pools can lead to significant IL for liquidity providers.",
+        "score": 60
+      },
+      "marketRisk": {
+        "description": "Moderate risk; pool balances are sensitive to asset price swings.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; Uniswap doesn’t involve lending or liquidation.",
+        "score": 95
+      },
+      "tokenomicDesignRisk": {
+        "description": "Low risk; UNI governance is decentralized, though fee debates persist.",
+        "score": 80
+      },
+      "safetyScore": 78
+    }
+  },
+  {
+    "id": "sushiswap",
+    "name": "SushiSwap",
+    "logoUrl": "https://imgs.search.brave.com/gu-oPak84vFkA5bce-jY8So7Zf55tC4kXbFpcJkiVHA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9sb2dv/dHlwLnVzL2ZpbGUv/c3VzaGlzd2FwLnN2/Zw",
+    "description": "A Uniswap fork expanding into yield farming and staking ecosystems.",
+    "website": "https://sushi.com",
+    "apy": {
+      "value": 7.0,
+      "explanation": "The 7.0% APY is your yearly return from SushiSwap liquidity pools. It’s earned from trading fees and SUSHI rewards for staking your funds."
+    },
+    "tvl": 2700000000,
+    "easeOfUseScore": 86,
+    "liquidity": 2300000000,
+    "vcBacking": ["Digital Currency Group", "Alameda Research"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/SushiSwap",
+      "discord": "https://discord.com/invite/sushiswap",
+      "github": "https://github.com/sushiswap"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "BSC", "Polygon", "Arbitrum"],
+      "launchDate": "28_08_2020",
+      "token": "SUSHI",
+      "governance": "SUSHI Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/sushiswap#information",
+      "tokenData": "https://www.coingecko.com/en/coins/sushi"
+    },
+    "infoSources": {
+      "news": ["Decrypt", "CoinTelegraph"],
+      "security": "https://docs.sushi.com/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; audited but past exploits and added features increase complexity.",
+        "score": 70
+      },
+      "impermanentLoss": {
+        "description": "High risk; volatile pools expose LPs to significant IL.",
+        "score": 60
+      },
+      "marketRisk": {
+        "description": "Moderate risk; asset volatility affects pool stability.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; no lending means no liquidation risk.",
+        "score": 95
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; SUSHI emissions and governance centralization pose challenges.",
+        "score": 65
+      },
+      "safetyScore": 72
+    }
+  },
+  {
+    "id": "pancakeswap",
+    "name": "PancakeSwap",
+    "logoUrl": "https://cryptologos.cc/logos/pancakeswap-cake-logo.svg?v=040",
+    "description": "Top BSC DEX offering yield through farming and staking pools.",
+    "website": "https://pancakeswap.finance",
+    "apy": {
+      "value": 10.5,
+      "explanation": "The 10.5% APY is your yearly profit from PancakeSwap pools. It’s earned from trading fees and CAKE rewards when you stake your liquidity."
+    },
+    "tvl": 6000000000,
+    "easeOfUseScore": 90,
+    "liquidity": 5400000000,
+    "vcBacking": ["Binance Labs"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/PancakeSwap",
+      "discord": "https://discord.com/invite/pancakeswap",
+      "github": "https://github.com/pancakeswap"
+    },
+    "metadata": {
+      "chains": ["BSC", "Ethereum", "Aptos"],
+      "launchDate": "20_09_2020",
+      "token": "CAKE",
+      "governance": "CAKE Voting"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/pancakeswap#information",
+      "tokenData": "https://www.coingecko.com/en/coins/pancakeswap-token"
+    },
+    "infoSources": {
+      "news": ["CoinTelegraph", "The Defiant"],
+      "security": "https://docs.pancakeswap.finance/docs/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Low risk; well-audited, though BSC centralization adds slight vulnerability.",
+        "score": 80
+      },
+      "impermanentLoss": {
+        "description": "High risk; volatile pools can lead to significant IL for LPs.",
+        "score": 60
+      },
+      "marketRisk": {
+        "description": "Moderate risk; BSC ecosystem volatility impacts stability.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; no lending, so no liquidation concerns.",
+        "score": 95
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; CAKE inflation and Binance reliance raise concerns.",
+        "score": 65
+      },
+      "safetyScore": 74
+    }
+  },
+  {
+    "id": "balancer",
+    "name": "Balancer",
+    "logoUrl": "https://cryptologos.cc/logos/balancer-bal-logo.svg?v=040",
+    "description": "A customizable AMM for creating liquidity pools and earning yield.",
+    "website": "https://balancer.fi",
+    "apy": {
+      "value": 6.2,
+      "explanation": "The 6.2% APY is your yearly return from Balancer pools. It’s based on trading fees and BAL rewards for providing liquidity."
+    },
+    "tvl": 3700000000,
+    "easeOfUseScore": 87,
+    "liquidity": 3200000000,
+    "vcBacking": ["a16z", "Placeholder"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/BalancerLabs",
+      "discord": "https://discord.com/invite/balancer",
+      "github": "https://github.com/balancer-labs"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Arbitrum"],
+      "launchDate": "20_06_2020",
+      "token": "BAL",
+      "governance": "veBAL Voting"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/balancer#information",
+      "tokenData": "https://www.coingecko.com/en/coins/balancer"
+    },
+    "infoSources": {
+      "news": ["CoinDesk", "The Block"],
+      "security": "https://docs.balancer.fi/resources/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Low risk; robust audits and upgrades reduce vulnerabilities.",
+        "score": 85
+      },
+      "impermanentLoss": {
+        "description": "Moderate risk; customizable pools can increase IL in volatile markets.",
+        "score": 70
+      },
+      "marketRisk": {
+        "description": "Moderate risk; asset price swings affect pool balances.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; no lending means no liquidation risk.",
+        "score": 95
+      },
+      "tokenomicDesignRisk": {
+        "description": "Low risk; veBAL encourages commitment, though governance centralization is a concern.",
+        "score": 80
+      },
+      "safetyScore": 80
+    }
+  },
+  {
+    "id": "pendle",
+    "name": "Pendle",
+    "logoUrl": "https://cryptologos.cc/logos/pendle-pendle-logo.svg?v=040",
+    "description": "Tokenizes yield, allowing trading of principal and yield components.",
+    "website": "https://pendle.finance",
+    "apy": {
+      "value": 15.2,
+      "explanation": "The 15.2% APY is your yearly profit from staking with Pendle. It’s earned by locking tokens to get PENDLE rewards and trading future yield."
+    },
+    "tvl": 1400000000,
+    "easeOfUseScore": 75,
+    "liquidity": 1100000000,
+    "vcBacking": ["Spartan Group", "HashKey Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/pendle_fi",
+      "discord": "https://discord.com/invite/pendle",
+      "github": "https://github.com/pendle-finance"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Arbitrum", "BSC"],
+      "launchDate": "27_04_2021",
+      "token": "PENDLE",
+      "governance": "PENDLE Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/pendle#information",
+      "tokenData": "https://www.coingecko.com/en/coins/pendle"
+    },
+    "infoSources": {
+      "news": ["The Defiant", "CoinTelegraph"],
+      "security": "https://docs.pendle.finance/resources/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; innovative design is audited but complex.",
+        "score": 70
+      },
+      "impermanentLoss": {
+        "description": "Low risk; yield tokenization avoids traditional AMM IL.",
+        "score": 85
+      },
+      "marketRisk": {
+        "description": "High risk; yield trading is sensitive to market and rate changes.",
+        "score": 60
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; no lending involved.",
+        "score": 95
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; PENDLE rewards and governance may face scalability issues.",
+        "score": 70
+      },
+      "safetyScore": 76
+    }
+  },
+  {
+    "id": "convex-finance",
+    "name": "Convex Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/15585/large/convex.png",
+    "description": "Boosts Curve Finance yields for liquidity providers.",
+    "website": "https://www.convexfinance.com",
+    "apy": {
+      "value": 7.8,
+      "explanation": "The 7.8% APY is your yearly return from staking with Convex. It’s earned by boosting Curve rewards with locked CRV and adding CVX tokens."
+    },
+    "tvl": 7000000000,
+    "easeOfUseScore": 83,
+    "liquidity": 6400000000,
+    "vcBacking": [],
+    "communityLinks": {
+      "twitter": "https://twitter.com/ConvexEth",
+      "discord": "https://discord.com/invite/convexfinance",
+      "github": "https://github.com/convex-eth"
+    },
+    "metadata": {
+      "chains": ["Ethereum"],
+      "launchDate": "17_05_2021",
+      "token": "CVX",
+      "governance": "veCVX Voting"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/convex-finance#information",
+      "tokenData": "https://www.coingecko.com/en/coins/convex-finance"
+    },
+    "infoSources": {
+      "news": ["CoinDesk", "The Block"],
+      "security": "https://docs.convexfinance.com/convexfinance/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Low risk; tightly integrated with Curve and well-audited.",
+        "score": 85
+      },
+      "impermanentLoss": {
+        "description": "Low risk; relies on Curve’s stablecoin pools with minimal IL.",
+        "score": 90
+      },
+      "marketRisk": {
+        "description": "Moderate risk; tied to Curve’s ecosystem stability.",
+        "score": 75
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; no lending involved.",
+        "score": 95
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; veCVX locking may limit liquidity.",
+        "score": 70
+      },
+      "safetyScore": 83
+    }
+  },
+  {
+    "id": "aura-finance",
+    "name": "Aura Finance",
+    "logoUrl": "https://imgs.search.brave.com/NUgegkpXAJ7OL1TmSuDItIM1pjHbRX22gMOfJTfEv6c/rs:fit:40:40:1:0/g:ce/aHR0cHM6Ly9jb2lu/LWltYWdlcy5jb2lu/Z2Vja28uY29tL2Nv/aW5zL2ltYWdlcy8y/NTk0Mi9sYXJnZS9s/b2dvLnBuZz8xNjk2/NTI1MDIx",
+    "description": "Enhances Balancer yields with staking and governance features.",
+    "website": "https://aura.finance",
+    "apy": {
+      "value": 7.3,
+      "explanation": "The 7.3% APY is your yearly earnings from staking with Aura. It comes from rewards in BAL and AURA tokens, plus trading fees from Balancer pools."
+    },
+    "tvl": 1100000000,
+    "easeOfUseScore": 80,
+    "liquidity": 920000000,
+    "vcBacking": [],
+    "communityLinks": {
+      "twitter": "https://twitter.com/aurafinance",
+      "discord": "https://discord.com/invite/aura-finance",
+      "github": "https://github.com/aurafinance"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Arbitrum"],
+      "launchDate": "01_04_2022",
+      "token": "AURA",
+      "governance": "veBAL Boosting"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/aura-finance#information",
+      "tokenData": "https://www.coingecko.com/en/coins/aura-finance"
+    },
+    "infoSources": {
+      "news": ["The Defiant", "CoinTelegraph"],
+      "security": "https://docs.aura.finance/aura/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; newer protocol with audits, but Balancer dependency adds complexity.",
+        "score": 70
+      },
+      "impermanentLoss": {
+        "description": "Moderate risk; tied to Balancer pools with variable IL exposure.",
+        "score": 75
+      },
+      "marketRisk": {
+        "description": "Moderate risk; dependent on Balancer ecosystem stability.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; no lending involved.",
+        "score": 90
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; AURA’s reliance on veBAL may limit adoption.",
+        "score": 70
+      },
+      "safetyScore": 75
+    }
+  },
+  {
+    "id": "lido-finance",
+    "name": "Lido Finance",
+    "logoUrl": "https://cryptologos.cc/logos/lido-dao-ldo-logo.svg?v=040",
+    "description": "Liquid staking for assets like ETH and SOL with yield opportunities.",
+    "website": "https://lido.fi",
+    "apy": {
+      "value": 4.9,
+      "explanation": "The 4.9% APY is your yearly return from staking ETH or SOL with Lido. It’s based on staking rewards from the blockchain, shared with all stakers."
+    },
+    "tvl": 35000000000,
+    "easeOfUseScore": 92,
+    "liquidity": 32000000000,
+    "vcBacking": ["Paradigm", "a16z"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/LidoFinance",
+      "discord": "https://discord.com/invite/lidofinance",
+      "github": "https://github.com/lidofinance"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Solana", "Polygon"],
+      "launchDate": "17_12_2020",
+      "token": "LDO",
+      "governance": "LDO Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/lido-finance#information",
+      "tokenData": "https://www.coingecko.com/en/coins/lido-dao"
+    },
+    "infoSources": {
+      "news": ["CoinDesk", "The Block"],
+      "security": "https://lido.fi/static/files/security-audits.pdf"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Low risk; widely audited and used, though centralization risks exist.",
+        "score": 85
+      },
+      "impermanentLoss": {
+        "description": "Minimal risk; staking avoids AMM-related IL.",
+        "score": 95
+      },
+      "marketRisk": {
+        "description": "Moderate risk; staking rewards depend on network conditions.",
+        "score": 75
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; no lending or liquidation involved.",
+        "score": 95
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; LDO governance concentration could impact stability.",
+        "score": 70
+      },
+      "safetyScore": 84
+    }
+  },
+  {
+    "id": "makerdao",
+    "name": "MakerDAO",
+    "logoUrl": "https://cryptologos.cc/logos/maker-mkr-logo.svg?v=040",
+    "description": "Decentralized lending platform minting DAI with yield from stability fees.",
+    "website": "https://makerdao.com",
+    "apy": {
+      "value": 2.9,
+      "explanation": "The 2.9% APY is your yearly earnings from lending on MakerDAO. It comes from stability fees paid by borrowers to keep DAI stable."
+    },
+    "tvl": 9800000000,
+    "easeOfUseScore": 83,
+    "liquidity": 9000000000,
+    "vcBacking": ["a16z", "Polychain Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/MakerDAO",
+      "discord": "https://discord.com/invite/makerdao",
+      "github": "https://github.com/makerdao"
+    },
+    "metadata": {
+      "chains": ["Ethereum"],
+      "launchDate": "18_12_2017",
+      "token": "MKR",
+      "governance": "MKR Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/makerdao#information",
+      "tokenData": "https://www.coingecko.com/en/coins/maker"
+    },
+    "infoSources": {
+      "news": ["CoinDesk", "The Block"],
+      "security": "https://makerdao.com/en/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Low risk; mature protocol with extensive audits.",
+        "score": 90
+      },
+      "impermanentLoss": {
+        "description": "Minimal risk; lending focus avoids IL.",
+        "score": 95
+      },
+      "marketRisk": {
+        "description": "Moderate risk; collateral volatility affects DAI stability.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Moderate risk; borrowers face liquidation if collateral falls.",
+        "score": 75
+      },
+      "tokenomicDesignRisk": {
+        "description": "Low risk; MKR’s burn mechanism supports stability.",
+        "score": 85
+      },
+      "safetyScore": 83
+    }
+  },
+  {
+    "id": "alpaca-finance",
+    "name": "Alpaca Finance",
+    "logoUrl": "https://www.alpacafinance.org/static/alpaca-logo-f7fcf612582ebf134e0d118b5d62670f.svg",
+    "description": "Leveraged yield farming on BSC and other networks.",
+    "website": "https://www.alpacafinance.org",
+    "apy": {
+      "value": 18.0,
+      "explanation": "The 18.0% APY is your yearly profit from leveraged farming on Alpaca. It’s earned from boosted yields on staked assets plus ALPACA rewards."
+    },
+    "tvl": 600000000,
+    "easeOfUseScore": 78,
+    "liquidity": 480000000,
+    "vcBacking": ["Spartan Group", "Multicoin Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/AlpacaFinance",
+      "discord": "https://discord.com/invite/alpacafinance",
+      "github": "https://github.com/alpaca-finance"
+    },
+    "metadata": {
+      "chains": ["BSC", "Fantom"],
+      "launchDate": "15_02_2021",
+      "token": "ALPACA",
+      "governance": "ALPACA Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/alpaca-finance#information",
+      "tokenData": "https://www.coingecko.com/en/coins/alpaca-finance"
+    },
+    "infoSources": {
+      "news": ["CoinTelegraph", "The Defiant"],
+      "security": "https://docs.alpacafinance.org/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; audited but leverage adds complexity.",
+        "score": 70
+      },
+      "impermanentLoss": {
+        "description": "Moderate risk; farming pools may face IL with volatility.",
+        "score": 70
+      },
+      "marketRisk": {
+        "description": "High risk; leverage amplifies market volatility effects.",
+        "score": 60
+      },
+      "liquidationRisk": {
+        "description": "High risk; leveraged positions can be liquidated in downturns.",
+        "score": 60
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; ALPACA rewards may lead to inflation.",
+        "score": 65
+      },
+      "safetyScore": 65
+    }
+  },
+  {
+    "id": "beefy-finance",
+    "name": "Beefy Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12704/large/beefy_finance.png",
+    "description": "A multi-chain yield optimizer enhancing returns across various DeFi protocols.",
+    "website": "https://beefy.finance",
+    "apy": {
+      "value": 8.9,
+      "explanation": "The 8.9% APY is your yearly earnings from Beefy vaults. It’s earned by optimizing your funds across DeFi platforms for the best returns."
+    },
+    "tvl": 400000000,
+    "easeOfUseScore": 86,
+    "liquidity": 340000000,
+    "vcBacking": ["Framework Ventures", "Alameda Research"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/beefyfinance",
+      "discord": "https://discord.com/invite/beefyfinance",
+      "github": "https://github.com/beefyfinance"
+    },
+    "metadata": {
+      "chains": ["BSC", "Polygon", "Fantom", "Avalanche", "Arbitrum"],
+      "launchDate": "08_10_2020",
+      "token": "BIFI",
+      "governance": "BIFI Voting"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/beefy-finance#information",
+      "tokenData": "https://www.coingecko.com/en/coins/beefy-finance"
+    },
+    "infoSources": {
+      "news": ["CoinTelegraph", "The Defiant"],
+      "security": "https://docs.beefy.finance/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; audited but multi-chain complexity increases exposure.",
+        "score": 70
+      },
+      "impermanentLoss": {
+        "description": "Moderate risk; some vaults use AMMs with IL potential.",
+        "score": 75
+      },
+      "marketRisk": {
+        "description": "High risk; returns depend on volatile DeFi markets.",
+        "score": 60
+      },
+      "liquidationRisk": {
+        "description": "Low risk; no direct lending reduces liquidation risk.",
+        "score": 85
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; BIFI’s governance and rewards may face scalability issues.",
+        "score": 70
+      },
+      "safetyScore": 72
+    }
+  },
+  {
+    "id": "frax-finance",
+    "name": "Frax Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/13422/large/FRAX_icon.png",
+    "description": "A fractional-algorithmic stablecoin protocol with yield-bearing products.",
+    "website": "https://frax.finance",
+    "apy": {
+      "value": 5.3,
+      "explanation": "The 5.3% APY is your yearly return from staking with Frax. It’s earned from stability fees and FXS rewards tied to the FRAX stablecoin."
+    },
+    "tvl": 3100000000,
+    "easeOfUseScore": 80,
+    "liquidity": 2700000000,
+    "vcBacking": ["Dragonfly Capital", "Electric Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/fraxfinance",
+      "discord": "https://discord.com/invite/fraxfinance",
+      "github": "https://github.com/FraxFinance"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "BSC", "Polygon", "Arbitrum"],
+      "launchDate": "20_12_2020",
+      "token": "FRAX",
+      "governance": "FXS Voting"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/frax-finance#information",
+      "tokenData": "https://www.coingecko.com/en/coins/frax"
+    },
+    "infoSources": {
+      "news": ["CoinDesk", "The Block"],
+      "security": "https://docs.frax.finance/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; audited but algorithmic stability adds complexity.",
+        "score": 75
+      },
+      "impermanentLoss": {
+        "description": "Low risk; stablecoin focus minimizes IL.",
+        "score": 90
+      },
+      "marketRisk": {
+        "description": "Moderate risk; FRAX stability depends on market conditions.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Moderate risk; collateralized positions may face liquidation.",
+        "score": 75
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; FXS governance and peg mechanics pose challenges.",
+        "score": 70
+      },
+      "safetyScore": 76
+    }
+  },
+  {
+    "id": "harvest-finance",
+    "name": "Harvest Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12304/large/harvestfinance.png",
+    "description": "An automated yield farming protocol maximizing returns for users.",
+    "website": "https://harvest.finance",
+    "apy": {
+      "value": 10.0,
+      "explanation": "The 10.0% APY is your yearly profit from Harvest vaults. It’s earned by auto-compounding your funds into high-yield DeFi opportunities."
+    },
+    "tvl": 280000000,
+    "easeOfUseScore": 76,
+    "liquidity": 230000000,
+    "vcBacking": ["Three Arrows Capital", "Multicoin Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/harvest_finance",
+      "discord": "https://discord.com/invite/harvestfinance",
+      "github": "https://github.com/harvest-finance"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "BSC", "Polygon"],
+      "launchDate": "01_09_2020",
+      "token": "FARM",
+      "governance": "FARM Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/harvest-finance#information",
+      "tokenData": "https://www.coingecko.com/en/coins/harvest-finance"
+    },
+    "infoSources": {
+      "news": ["Decrypt", "CoinTelegraph"],
+      "security": "https://docs.harvest.finance/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; audited but past exploits raise concerns.",
+        "score": 65
+      },
+      "impermanentLoss": {
+        "description": "Moderate risk; some strategies involve IL-prone pools.",
+        "score": 70
+      },
+      "marketRisk": {
+        "description": "High risk; returns tied to volatile DeFi markets.",
+        "score": 60
+      },
+      "liquidationRisk": {
+        "description": "Low risk; no lending reduces liquidation exposure.",
+        "score": 85
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; FARM rewards may lead to inflation.",
+        "score": 65
+      },
+      "safetyScore": 69
+    }
+  },
+  {
+    "id": "stake-dao",
+    "name": "Stake DAO",
+    "logoUrl": "https://assets.coingecko.com/coins/images/13724/large/stakedao_logo.jpg",
+    "description": "A platform for staking and yield strategies with governance features.",
+    "website": "https://stakedao.org",
+    "apy": {
+      "value": 7.1,
+      "explanation": "The 7.1% APY is your yearly return from staking with Stake DAO. It’s earned from rewards across various DeFi protocols plus SDT tokens."
+    },
+    "tvl": 480000000,
+    "easeOfUseScore": 82,
+    "liquidity": 420000000,
+    "vcBacking": ["Delphi Digital", "Lemniscap"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/StakeDAOHQ",
+      "discord": "https://discord.com/invite/stakedao",
+      "github": "https://github.com/stakedao"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon"],
+      "launchDate": "20_01_2021",
+      "token": "SDT",
+      "governance": "SDT Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/stake-dao#information",
+      "tokenData": "https://www.coingecko.com/en/coins/stake-dao"
+    },
+    "infoSources": {
+      "news": ["The Defiant", "CoinDesk"],
+      "security": "https://docs.stakedao.org/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; audited but multi-protocol reliance adds complexity.",
+        "score": 70
+      },
+      "impermanentLoss": {
+        "description": "Moderate risk; some strategies expose users to IL.",
+        "score": 75
+      },
+      "marketRisk": {
+        "description": "Moderate risk; tied to underlying DeFi market performance.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Low risk; no direct lending reduces liquidation risk.",
+        "score": 85
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; SDT governance and rewards may face adoption hurdles.",
+        "score": 70
+      },
+      "safetyScore": 74
+    }
+  },
+  {
+    "id": "eigenlayer",
+    "name": "EigenLayer",
+    "logoUrl": "https://assets.coingecko.com/coins/images/34887/large/eigenlayer.png",
+    "description": "A restaking protocol enhancing Ethereum security and yield opportunities.",
+    "website": "https://eigenlayer.xyz",
+    "apy": {
+      "value": 5.0,
+      "explanation": "The 5.0% APY is your yearly return from restaking with EigenLayer. It’s earned by reusing staked ETH to secure additional networks and getting rewards."
+    },
+    "tvl": 2000000000,
+    "easeOfUseScore": 89,
+    "liquidity": 1700000000,
+    "vcBacking": ["a16z", "Polychain Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/eigenlayer",
+      "discord": "https://discord.com/invite/eigenlayer",
+      "github": "https://github.com/Layr-Labs"
+    },
+    "metadata": {
+      "chains": ["Ethereum"],
+      "launchDate": "14_06_2023",
+      "token": "EIGEN",
+      "governance": "EIGEN Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/eigenlayer#information",
+      "tokenData": "https://www.coingecko.com/en/coins/eigenlayer"
+    },
+    "infoSources": {
+      "news": ["CoinDesk", "The Block"],
+      "security": "https://docs.eigenlayer.xyz/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; newer protocol with audits, but restaking complexity adds exposure.",
+        "score": 75
+      },
+      "impermanentLoss": {
+        "description": "Minimal risk; restaking avoids AMM-related IL.",
+        "score": 95
+      },
+      "marketRisk": {
+        "description": "Moderate risk; rewards depend on Ethereum and network stability.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; no lending involved.",
+        "score": 95
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; EIGEN’s early governance may face centralization risks.",
+        "score": 70
+      },
+      "safetyScore": 81
+    }
+  },
+  {
+    "id": "jito",
+    "name": "Jito",
+    "logoUrl": "https://assets.coingecko.com/coins/images/33298/large/jito.jpg",
+    "description": "A Solana-based staking and MEV optimization protocol offering yield.",
+    "website": "https://jito.network",
+    "apy": {
+      "value": 7.8,
+      "explanation": "The 7.8% APY is your yearly return from staking with Jito. It’s earned from Solana staking rewards plus extra profits from optimizing transactions."
+    },
+    "tvl": 1500000000,
+    "easeOfUseScore": 87,
+    "liquidity": 1300000000,
+    "vcBacking": ["Multicoin Capital", "Framework Ventures"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/jito_labs",
+      "discord": "https://discord.com/invite/jito",
+      "github": "https://github.com/jito-labs"
+    },
+    "metadata": {
+      "chains": ["Solana"],
+      "launchDate": "01_11_2022",
+      "token": "JTO",
+      "governance": "JTO Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/jito#information",
+      "tokenData": "https://www.coingecko.com/en/coins/jito"
+    },
+    "infoSources": {
+      "news": ["CoinTelegraph", "The Defiant"],
+      "security": "https://docs.jito.network/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; audited but Solana dependency adds some exposure.",
+        "score": 75
+      },
+      "impermanentLoss": {
+        "description": "Minimal risk; staking focus avoids IL.",
+        "score": 95
+      },
+      "marketRisk": {
+        "description": "Moderate risk; tied to Solana’s market performance.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; no lending involved.",
+        "score": 95
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; JTO governance and MEV reliance may pose challenges.",
+        "score": 70
+      },
+      "safetyScore": 81
+    }
+  }
+]

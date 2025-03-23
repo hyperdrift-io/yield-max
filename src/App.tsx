@@ -7,6 +7,9 @@ import HomePage from './pages/Home'
 import ProtocolPage from './pages/Protocol'
 import ComparePage from './pages/Compare'
 import SimulatorPage from './pages/Simulator'
+import FAQPage from './pages/FAQ'
+import BeginnerGuidePage from './pages/BeginnerGuide'
+import CompareRisksPage from './pages/CompareRisks'
 
 // Layout
 import MainLayout from './layouts/MainLayout'
@@ -25,6 +28,9 @@ function App() {
               <Route path="/protocol/:id" element={<ProtocolPage />} />
               <Route path="/compare" element={<ComparePage />} />
               <Route path="/simulator" element={<SimulatorPage />} />
+              <Route path="/faq" element={<FAQPage />} />
+              <Route path="/guide" element={<BeginnerGuidePage />} />
+              <Route path="/risks" element={<CompareRisksPage />} />
             </Route>
           </Routes>
         </Router>

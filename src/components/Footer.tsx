@@ -1,4 +1,5 @@
 import styles from './Footer.module.css'
+import { Link } from 'react-router-dom'
 import { useThemeDetection } from '../hooks/useThemeDetection'
 
 // Define logo paths - now only for the emblem
@@ -21,7 +22,7 @@ const Footer = () => {
                 <div className={styles.logoWrapper}>
                   <img src={logoPath} alt="YM Logo" className={styles.logoEmblem} />
                 </div>
-                <span className={styles.logoText}>YIELDMAX</span>
+                <span className={styles.logoText}>YieldMax</span>
               </div>
             </div>
             <p className={styles.footerDescription}>
@@ -47,12 +48,22 @@ const Footer = () => {
           </div>
 
           <div className={styles.footerNav}>
-            <h4 className={styles.footerHeading}>Resources</h4>
+            <h4 className={styles.footerHeading}>Features</h4>
             <ul className={styles.footerLinks}>
-              <li><a href="#" className={styles.footerLink}>Documentation</a></li>
-              <li><a href="#" className={styles.footerLink}>API</a></li>
-              <li><a href="#" className={styles.footerLink}>FAQs</a></li>
+              <li><Link to="/" className={styles.footerLink}>Home</Link></li>
+              <li><Link to="/compare" className={styles.footerLink}>Compare Protocols</Link></li>
+              <li><Link to="/simulator" className={styles.footerLink}>Yield Simulator</Link></li>
+              <li><Link to="/risks" className={styles.footerLink}>Risk Analysis</Link></li>
+            </ul>
+          </div>
+
+          <div className={styles.footerNav}>
+            <h4 className={styles.footerHeading}>Learn</h4>
+            <ul className={styles.footerLinks}>
+              <li><Link to="/guide" className={styles.footerLink}>Beginner's Guide</Link></li>
+              <li><Link to="/faq" className={styles.footerLink}>FAQs</Link></li>
               <li><a href="#" className={styles.footerLink}>Blog</a></li>
+              <li><a href="#" className={styles.footerLink}>Documentation</a></li>
             </ul>
           </div>
 

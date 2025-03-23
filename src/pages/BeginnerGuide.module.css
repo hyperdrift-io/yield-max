@@ -1,0 +1,478 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.heroSection {
+  padding: 80px 0 50px;
+  background: linear-gradient(to right, var(--color-bg-dark), var(--color-bg));
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0 0 15px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Content Section */
+.contentSection {
+  padding: 50px 0;
+  background: var(--color-bg-light);
+}
+
+.contentSection .container {
+  display: flex;
+  gap: 40px;
+}
+
+/* Table of Contents */
+.tableOfContents {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 30px;
+  align-self: flex-start;
+  background: var(--color-card-bg);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.tocTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 15px;
+  color: var(--color-text);
+}
+
+.tocList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tocList li {
+  margin-bottom: 12px;
+}
+
+.tocList a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 5px 0;
+  font-size: 0.95rem;
+}
+
+.tocList a:hover {
+  color: var(--color-primary);
+}
+
+/* Main Content */
+.mainContent {
+  flex-grow: 1;
+}
+
+.guideSection {
+  margin-bottom: 50px;
+  scroll-margin-top: 50px;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 20px;
+  color: var(--color-text);
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.subSectionTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 30px 0 15px;
+  color: var(--color-text);
+}
+
+.sectionContent {
+  color: var(--color-text-light);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.sectionContent p {
+  margin: 0 0 20px;
+}
+
+.sectionContent ul,
+.sectionContent ol {
+  margin: 0 0 20px;
+  padding-left: 20px;
+}
+
+.sectionContent li {
+  margin-bottom: 8px;
+}
+
+.sectionContent a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.sectionContent a:hover {
+  color: var(--color-secondary);
+}
+
+/* Info Box */
+.infoBox {
+  background: rgba(var(--color-primary-rgb), 0.05);
+  border-left: 4px solid var(--color-primary);
+  padding: 20px;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.infoBox h4 {
+  margin: 0 0 10px;
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.infoBox ul {
+  margin-bottom: 0;
+}
+
+/* Comparison Box */
+.comparisonBox {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.comparisonCol {
+  flex: 1;
+  background: var(--color-card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.comparisonCol h4 {
+  margin: 0 0 15px;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.comparisonCol ul {
+  margin-bottom: 0;
+}
+
+/* Example Box */
+.exampleBox {
+  background: var(--color-card-bg);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.exampleBox h4 {
+  margin: 0 0 15px;
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.exampleBox ol {
+  margin-bottom: 0;
+}
+
+/* Alert Box */
+.alertBox {
+  background: rgba(255, 192, 0, 0.1);
+  border-left: 4px solid #FFC000;
+  padding: 20px;
+  border-radius: 4px;
+  margin: 20px 0;
+  color: #edae02;
+}
+
+.alertBox h4 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.alertBox p {
+  margin-bottom: 0;
+}
+
+/* Step Box */
+.stepBox {
+  display: flex;
+  gap: 20px;
+  margin: 25px 0;
+  align-items: flex-start;
+}
+
+.stepNumber {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.stepContent {
+  flex-grow: 1;
+}
+
+.stepContent h4 {
+  margin: 0 0 10px;
+  color: var(--color-text);
+  font-size: 1.2rem;
+}
+
+.stepContent p {
+  margin: 0 0 10px;
+}
+
+.stepContent ul {
+  margin-bottom: 0;
+}
+
+/* Strategy Card */
+.strategyCard {
+  background: var(--color-card-bg);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.strategyCard h4 {
+  margin: 0 0 10px;
+  color: var(--color-text);
+  font-size: 1.2rem;
+}
+
+.strategyCard p {
+  margin: 0 0 10px;
+}
+
+.strategyCard p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tip Box */
+.tipBox {
+  background: rgba(var(--color-secondary-rgb), 0.05);
+  border-left: 4px solid var(--color-secondary);
+  padding: 20px;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.tipBox h4 {
+  margin: 0 0 10px;
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+}
+
+.tipBox p {
+  margin: 0 0 10px;
+}
+
+.tipBox ul {
+  margin-bottom: 0;
+}
+
+/* Risk Box */
+.riskBox {
+  background: var(--color-card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.riskBox h4 {
+  margin: 0 0 10px;
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.riskBox p {
+  margin: 0 0 10px;
+}
+
+.riskBox p:last-child {
+  margin-bottom: 0;
+}
+
+/* Checklist Box */
+.checklistBox {
+  margin: 20px 0;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  background: var(--color-card-bg);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--color-border);
+}
+
+.checklistCheckbox {
+  margin-top: 3px;
+  margin-right: 15px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+}
+
+.checklistText {
+  flex-grow: 1;
+}
+
+/* Resources Grid */
+.resourcesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.resourceCard {
+  background: var(--color-card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.resourceCard h4 {
+  margin: 0 0 15px;
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.resourceCard ul {
+  margin: 0 0 15px;
+}
+
+.resourceCard p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Call to Action */
+.callToAction {
+  margin: 30px 0;
+  text-align: center;
+}
+
+/* Conclusion Section */
+.conclusionSection {
+  margin-top: 60px;
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.1), rgba(var(--color-secondary-rgb), 0.1));
+  border-radius: 16px;
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+  text-align: center;
+}
+
+.conclusionSection h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 20px;
+  color: var(--color-text);
+}
+
+.conclusionSection p {
+  margin: 0 0 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.finalCta {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contentSection .container {
+    flex-direction: column;
+  }
+
+  .tableOfContents {
+    width: 100%;
+    position: static;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .comparisonBox {
+    flex-direction: column;
+  }
+
+  .resourcesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepBox {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stepNumber {
+    margin-bottom: 10px;
+  }
+}

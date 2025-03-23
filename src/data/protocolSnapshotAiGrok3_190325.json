@@ -22,8 +22,8 @@
       "realTimeData": true
     },
     "apiSources": {
-      "tvlAndApy": "https://api.llama.fi/protocols",
-      "tokenData": "https://api.coingecko.com/api/v3/coins/aave",
+      "tvlAndApy": "https://defillama.com/protocol/aave#information",
+      "tokenData": "https://www.coingecko.com/en/coins/aave",
       "onChainData": "https://api.thegraph.com/subgraphs/name/aave/protocol-v3-ethereum"
     },
     "newsAndDataSources": {
