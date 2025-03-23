@@ -72,6 +72,7 @@ export default function RootLayout({
                 <div className={styles['footer-section']}>
                   <h3>Learn</h3>
                   <Link href="/beginner-guide">Beginner's Guide</Link>
+                  <Link href="/journey">Dev Journey</Link>
                   <Link href="/faq">FAQs</Link>
                   <Link href="/blog">Blog</Link>
                   <Link href="/docs">Documentation</Link>

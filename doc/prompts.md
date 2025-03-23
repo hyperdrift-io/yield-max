@@ -1,5 +1,3 @@
 # Journey
-Generate a dev journey by going through the git logs
-Create a journey route to access the result
-use a direct tone and highlight the pros and cons
-add a lesson learned section
+
+create a journey html file in journey that summarize the journey using key events  from the git history. Look at things that got refactored and why. For each step. Work out the lession learned. Summarize each meaningfull steps with lesson learned. When generating content, compare each step from one commit to other commit. Skip commit that are related to deployment. Only consider meaning ful commit.

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keep Alive Protocol - Development Journey</title>
+  <style>
+    :root {
+      --primary: #00ccff;
+      --secondary: #33ffcc;
+      --warning: #ffdd57;
+      --danger: #ff5252;
+      --background: #121212;
+      --card-bg: #1e1e1e;
+      --text: #e0e0e0;
+      --text-muted: rgba(255, 255, 255, 0.7);
+      --text-light: rgba(255, 255, 255, 0.5);
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--background);
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin: 0 0 0.8rem;
+      font-weight: 500;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      color: var(--secondary);
+      margin: 1rem 0 0.5rem;
+      font-weight: 500;
+    }
+
+    h4 {
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    p {
+      margin-bottom: 0.8rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.75rem;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: var(--primary);
+    }
+
+    .journey-stage {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+    }
+
+    .journey-stage::before {
+      content: '';
+      position: absolute;
+      left: -1.7rem;
+      top: 1.5rem;
+      width: 0.9rem;
+      height: 0.9rem;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+    }
+
+    .commit-hash {
+      font-family: 'SF Mono', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+      font-size: 0.7rem;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .changes-list {
+      margin: 0.5rem 0;
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .changes-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .pros-cons {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .pros, .cons {
+      flex: 1;
+      padding: 0.7rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+    }
+
+    .pros {
+      background-color: rgba(51, 255, 204, 0.1);
+      border-left: 3px solid var(--secondary);
+    }
+
+    .cons {
+      background-color: rgba(255, 82, 82, 0.1);
+      border-left: 3px solid var(--danger);
+    }
+
+    .pros h4 {
+      color: var(--secondary);
+    }
+
+    .cons h4 {
+      color: var(--danger);
+    }
+
+    .pros ul, .cons ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .pros li, .cons li {
+      margin-bottom: 0.3rem;
+    }
+
+    .lesson-learned {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 0.8rem;
+      border-radius: 6px;
+      margin: 1rem 0;
+      border-left: 3px solid var(--warning);
+      font-size: 0.85rem;
+    }
+
+    .lesson-learned h4 {
+      color: var(--warning);
+    }
+
+    .comparison {
+      margin: 1rem 0;
+      padding: 0.7rem;
+      background-color: rgba(0, 204, 255, 0.1);
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    .comparison h4 {
+      color: var(--primary);
+    }
+
+    .summary-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+    }
+
+    .summary-section h2 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .summary-item {
+      margin-bottom: 1.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .summary-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem 0;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .pros-cons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Keep Alive Protocol - Development Journey</h1>
+      <p class="subtitle">A timeline of the evolution from "concept" to "live" ready-to-use product</p>
+    </header>
+
+    <main class="timeline">
+      <section class="journey-stage">
+        <div class="commit-hash">a1be2b2</div>
+        <h2>Project Initialization - "setup&config"</h2>
+        <p>The Keep Alive project started as "Keep Alive" - a simple protocol comparing tool built with React and TypeScript.</p>
+
+        <h3>Key Components Established:</h3>
+        <ul class="changes-list">
+          <li>Basic application structure with React, TypeScript, and Vite</li>
+          <li>Core components for protocol visualization and comparison</li>
+          <li>Initial protocols data integration</li>
+          <li>Simple protocol data API implementation</li>
+        </ul>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>Advantages</h4>
+            <ul>
+              <li>Fast setup with modern technologies</li>
+              <li>Type safety through TypeScript</li>
+              <li>Clear component organization from day one</li>
+              <li>Strong focus on user-centered design</li>
+            </ul>
+          </div>
+
+          <div class="cons">
+            <h4>Challenges</h4>
+            <ul>
+              <li>Limited data sources for protocols</li>
+              <li>No error handling strategy</li>
+              <li>Performance concerns with complex calculations</li>
+              <li>No testing infrastructure initially</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lesson-learned">
+          <h4>Lesson Learned</h4>
+          <p>Starting with a strong type system and clear component architecture set a solid foundation, but project requirements should be more thoroughly evaluated to prevent future framework migrations.</p>
+        </div>
+      </section>
+
+      <section class="journey-stage">
+        <div class="commit-hash">283a21a, cbc8653</div>
+        <h2>Testing Infrastructure</h2>
+        <p>Added critical testing capabilities to the project, laying a foundation for reliable development.</p>
+
+        <h3>Key Developments:</h3>
+        <ul class="changes-list">
+          <li>Created test environment setup and configuration</li>
+          <li>Added core component tests</li>
+          <li>Implemented tests for data handling functions</li>
+          <li>Set up continuous integration for testing</li>
+        </ul>
+
+        <div class="comparison">
+          <h4>Before vs After Testing</h4>
+          <p>Prior to implementing tests, code changes often introduced regressions and unexpected behaviors. After adopting comprehensive testing practices, the team gained confidence in refactoring and adding new features.</p>
+        </div>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>Advantages</h4>
+            <ul>
+              <li>Better code quality and confidence</li>
+              <li>Easier discovery of regressions</li>
+              <li>Improved development velocity over time</li>
+            </ul>
+          </div>
+
+          <div class="cons">
+            <h4>Challenges</h4>
+            <ul>
+              <li>Initial time investment setting up tests</li>
+              <li>Learning curve for effective test writing</li>
+              <li>Some components were difficult to test properly</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lesson-learned">
+          <h4>Lesson Learned</h4>
+          <p>Early testing implementation is invaluable for sustainable development. The upfront cost in time and effort was quickly repaid through improved code quality and development confidence.</p>
+        </div>
+      </section>
+
+      <section class="journey-stage">
+        <div class="commit-hash">7ea1143</div>
+        <h2>Error Handling Improvements</h2>
+        <p>Enhanced error management to provide a more resilient and user-friendly experience.</p>
+
+        <h3>Key Improvements:</h3>
+        <ul class="changes-list">
+          <li>Implemented consistent error handling patterns</li>
+          <li>Added user-friendly error messages</li>
+          <li>Created fallback UI states for data loading failures</li>
+          <li>Enhanced error recovery mechanisms</li>
+        </ul>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>Advantages</h4>
+            <ul>
+              <li>Improved application stability</li>
+              <li>Better user experience during error states</li>
+              <li>More predictable error behavior</li>
+              <li>Easier debugging of issues</li>
+            </ul>
+          </div>
+
+          <div class="cons">
+            <h4>Challenges</h4>
+            <ul>
+              <li>Complex error pathways to handle</li>
+              <li>Balancing technical vs. user-friendly error messages</li>
+              <li>Managing edge cases across components</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lesson-learned">
+          <h4>Lesson Learned</h4>
+          <p>Error handling is not an afterthought but a crucial part of the user experience. A systematic approach to error management significantly improves application resilience and user satisfaction.</p>
+        </div>
+      </section>
+
+      <section class="journey-stage">
+        <div class="commit-hash">08adcc3</div>
+        <h2>Component Refactoring & Code Reuse</h2>
+        <p>Major refactoring to improve component structure, code reuse, and overall architecture.</p>
+
+        <h3>Refactoring Highlights:</h3>
+        <ul class="changes-list">
+          <li>Extracted shared functionality into reusable hooks</li>
+          <li>Implemented consistent component patterns</li>
+          <li>Optimized performance of rendering cycles</li>
+          <li>Reduced redundancy in visualization components</li>
+        </ul>
+
+        <div class="comparison">
+          <h4>Before vs After Refactoring</h4>
+          <p>The codebase initially contained significant duplication and inconsistent patterns. After refactoring, components followed consistent patterns, shared logic was extracted into reusable utilities, and overall maintainability improved dramatically.</p>
+        </div>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>Advantages</h4>
+            <ul>
+              <li>Improved maintainability and readability</li>
+              <li>Reduced code duplication</li>
+              <li>More consistent API across components</li>
+              <li>Better performance through optimized rendering</li>
+            </ul>
+          </div>
+
+          <div class="cons">
+            <h4>Challenges</h4>
+            <ul>
+              <li>Significant time investment for widespread changes</li>
+              <li>Risk of introducing regressions during refactoring</li>
+              <li>Integrating new patterns with existing code</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lesson-learned">
+          <h4>Lesson Learned</h4>
+          <p>Investing in a comprehensive refactoring early pays dividends throughout the project lifecycle. A clean architecture and consistent patterns make future development faster and more reliable.</p>
+        </div>
+      </section>
+
+      <section class="journey-stage">
+        <div class="commit-hash">dc7c2b1</div>
+        <h2>Framework Migration & Design System</h2>
+        <p>Converted the application to Next.js and implemented a comprehensive design system for better consistency.</p>
+
+        <h3>Migration Highlights:</h3>
+        <ul class="changes-list">
+          <li>Migrated from Vite to Next.js for improved SEO and performance</li>
+          <li>Implemented server-side rendering for critical pages</li>
+          <li>Created a unified design system with consistent components</li>
+          <li>Enhanced asset optimization and loading strategies</li>
+          <li>Improved routing and page structure</li>
+        </ul>
+
+        <div class="comparison">
+          <h4>Client-Side vs Server-Side Rendering</h4>
+          <p>The original implementation relied exclusively on client-side rendering, limiting SEO potential and initial load performance. Moving to Next.js with server-side rendering significantly improved both metrics while maintaining interactive functionality.</p>
+        </div>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>Advantages</h4>
+            <ul>
+              <li>Improved SEO capabilities</li>
+              <li>Better initial page load performance</li>
+              <li>Enhanced developer experience</li>
+              <li>More robust routing system</li>
+              <li>Consistent design patterns</li>
+            </ul>
+          </div>
+
+          <div class="cons">
+            <h4>Challenges</h4>
+            <ul>
+              <li>Complex migration process</li>
+              <li>Learning curve for new framework concepts</li>
+              <li>Adapting existing components to new patterns</li>
+              <li>Temporary performance regressions during transition</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lesson-learned">
+          <h4>Lesson Learned</h4>
+          <p>Framework selection should be based on long-term requirements rather than immediate convenience. While the migration was challenging, the improved capabilities justified the effort and positioned the application for better scalability.</p>
+        </div>
+      </section>
+
+      <section class="journey-stage">
+        <div class="commit-hash">faceffe</div>
+        <h2>Documentation Refinement & Feature Enhancement</h2>
+        <p>Major focus on enhancing documentation and improving key features based on user feedback.</p>
+
+        <h3>Key Improvements:</h3>
+        <ul class="changes-list">
+          <li>Enhanced protocol comparison capabilities</li>
+          <li>Improved data visualization components</li>
+          <li>Updated documentation with detailed usage guides</li>
+          <li>Refined user interface based on usability testing</li>
+          <li>Added performance optimizations for large datasets</li>
+        </ul>
+
+        <div class="comparison">
+          <h4>Before vs After Refinement</h4>
+          <p>The initial documentation was minimal and developer-focused. After refinement, comprehensive guides covered both developer and user perspectives, making the platform more accessible to users with varying levels of DeFi knowledge.</p>
+        </div>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>Advantages</h4>
+            <ul>
+              <li>Better user onboarding experience</li>
+              <li>More consistent documentation</li>
+              <li>Improved feature discoverability</li>
+              <li>Enhanced developer contribution process</li>
+            </ul>
+          </div>
+
+          <div class="cons">
+            <h4>Challenges</h4>
+            <ul>
+              <li>Maintaining documentation alongside rapid development</li>
+              <li>Balancing technical detail with accessibility</li>
+              <li>Supporting users with different levels of expertise</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lesson-learned">
+          <h4>Lesson Learned</h4>
+          <p>Quality documentation is not separate from product development but an integral part of it. Investing in clear, comprehensive guides significantly improves both user satisfaction and development team efficiency.</p>
+        </div>
+      </section>
+
+      <section class="journey-stage">
+        <div class="commit-hash">3cc3760</div>
+        <h2>Platform-specific Guides & Global Settings</h2>
+        <p>Added customized protocol guides and global application settings to improve user experience and flexibility.</p>
+
+        <h3>Final Enhancements:</h3>
+        <ul class="changes-list">
+          <li>Created protocol-specific guides for different platforms</li>
+          <li>Implemented global settings for user preferences</li>
+          <li>Enhanced dark/light theme support for better accessibility</li>
+          <li>Added localization capabilities for international users</li>
+          <li>Implemented advanced filtering and sorting options</li>
+        </ul>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>Advantages</h4>
+            <ul>
+              <li>More personalized user experience</li>
+              <li>Better accessibility across devices and preferences</li>
+              <li>More targeted protocol documentation</li>
+              <li>Higher user engagement with customizable interface</li>
+            </ul>
+          </div>
+
+          <div class="cons">
+            <h4>Challenges</h4>
+            <ul>
+              <li>Managing increased complexity of settings</li>
+              <li>Maintaining consistent experience across configurations</li>
+              <li>Creating specialized content for many different protocols</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lesson-learned">
+          <h4>Lesson Learned</h4>
+          <p>Advanced customization options significantly improve user satisfaction and retention when implemented thoughtfully. Balancing flexibility with simplicity is key to creating a powerful yet accessible platform.</p>
+        </div>
+      </section>
+    </main>
+
+    <section class="summary-section">
+      <h2>Key Transformations</h2>
+
+      <div class="summary-item">
+        <h3>Technical Evolution</h3>
+        <ul class="changes-list">
+          <li>From basic React application to comprehensive Next.js platform</li>
+          <li>From simple state management to sophisticated data handling</li>
+          <li>From minimal testing to comprehensive test coverage</li>
+          <li>From basic styling to a complete design system</li>
+        </ul>
+      </div>
+
+      <div class="summary-item">
+        <h3>Design Evolution</h3>
+        <ul class="changes-list">
+          <li>From basic UI elements to a polished design system with cohesive themes</li>
+          <li>From generic layout to context-optimized user experiences</li>
+          <li>From static design to responsive and adaptive interfaces</li>
+          <li>From simple tables to advanced data visualization components</li>
+        </ul>
+      </div>
+
+      <div class="summary-item">
+        <h3>User Experience Evolution</h3>
+        <ul class="changes-list">
+          <li>From developer-focused application to accessible user platform</li>
+          <li>From fixed interfaces to customizable experiences</li>
+          <li>From basic state feedback to comprehensive user guidance</li>
+          <li>From English-only to multi-language capabilities</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="summary-section">
+      <h2>Overarching Lessons Learned</h2>
+
+      <div class="summary-item">
+        <h3>Framework Selection</h3>
+        <p>Selecting the right framework based on long-term requirements is crucial to avoid expensive migrations. The shift to Next.js, while challenging, ultimately provided significant benefits for both users and developers.</p>
+      </div>
+
+      <div class="summary-item">
+        <h3>Testing Investment</h3>
+        <p>Robust testing infrastructure is essential for maintaining code quality and enabling confident refactoring. Early investment in testing pays exponential dividends throughout the project lifecycle.</p>
+      </div>
+
+      <div class="summary-item">
+        <h3>Error Handling Strategy</h3>
+        <p>Comprehensive error handling significantly improves user experience and developer confidence. A systematic approach to errors with clear messaging and recovery paths is essential in a production application.</p>
+      </div>
+
+      <div class="summary-item">
+        <h3>Code Organization</h3>
+        <p>A modular, component-based architecture provides tremendous flexibility and maintainability. Consistent patterns and clear boundaries between components make ongoing development significantly easier.</p>
+      </div>
+
+      <div class="summary-item">
+        <h3>Design System Approach</h3>
+        <p>Implementing a unified design system improves both user experience and development efficiency. Consistent components with well-defined behavior create a cohesive product that users can navigate intuitively.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Keep Alive Protocol • Created by Keep Alive Team</p>
+    </footer>
+  </div>
+</body>
+</html>
