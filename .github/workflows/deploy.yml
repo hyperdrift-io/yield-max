@@ -32,17 +32,3 @@ jobs:
           source: "out/,public/,package.json"
           target: "~/hyperdrift/yieldmax"
           strip_components: 0
-
-      - name: SSH into server and restart application
-        uses: appleboy/ssh-action@master
-        with:
-          host: 69.62.124.138
-          username: yannvr
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd ~/hyperdrift/yieldmax
-            bun install --production
-            # Make sure serve is installed
-            bun add serve
-            # Restart or start the application using PM2
-            pm2 restart yieldmax || pm2 start "bun run start" --name "yieldmax" --env production

@@ -14,8 +14,6 @@ const nextConfig = {
       },
     ],
   },
-  // Configure asset prefix for production
-  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://yieldmax.xyz' : '',
   // Skip type checking during build
   typescript: {
     ignoreBuildErrors: true,
@@ -24,7 +22,6 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   // Enable trailing slash to prevent mismatches in exported static files
-
   trailingSlash: true,
 };
 
