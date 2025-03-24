@@ -28,7 +28,7 @@ const getChainDisplayName = (chain: string): string => {
   return chain;
 }
 
-const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
+const ProtocolTable = ({ filters = {}, limit = undefined }: ProtocolTableProps) => {
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   const {
@@ -66,6 +66,7 @@ const ProtocolTable = ({ filters = {}, limit }: ProtocolTableProps) => {
       </div>
     )
   }
+console.log("🚀 ~ ProtocolTable ~ limit:", limit)
 
   return (
     <div>

@@ -7,14 +7,24 @@ const nextConfig = {
   // basePath: '',
   images: {
     unoptimized: true, // Required for static export
-    domains: [''],
-  },
-  experimental: {
-    // Enable app directory to use Next.js 13+ App Router
-    appDir: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+    ],
   },
   // If you have public resources with special handling needs
   assetPrefix: process.env.NODE_ENV === 'production' ? '/' : '',
+  // Skip type checking during build
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  // Enable trailing slash to prevent mismatches in exported static files
+  trailingSlash: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;

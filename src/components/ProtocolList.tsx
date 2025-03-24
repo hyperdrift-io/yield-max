@@ -10,7 +10,7 @@ type ProtocolListProps = {
   limit?: number;
 };
 
-export default function ProtocolList({ protocols, limit = 5 }: ProtocolListProps) {
+export default function ProtocolList({ protocols, limit }: ProtocolListProps) {
   const displayProtocols = limit ? protocols.slice(0, limit) : protocols;
 
   return (
