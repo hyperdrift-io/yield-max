@@ -1,7 +1,10 @@
+import type { FC } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useProtocolsStore, FilterState } from '../hooks/useProtocolsStore'
+import { Protocol } from '../types/protocol'
 import styles from './ProtocolTable.module.css'
+import ProtocolRiskAssessment from './ProtocolRiskAssessment'
 
 type ProtocolTableProps = {
   filters?: Partial<FilterState>
@@ -28,8 +31,10 @@ const getChainDisplayName = (chain: string): string => {
   return chain;
 }
 
-const ProtocolTable = ({ filters = {}, limit = undefined }: ProtocolTableProps) => {
+const ProtocolTable: FC<ProtocolTableProps> = ({ filters = {}, limit = undefined }) => {
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+  const [selectedProtocol, setSelectedProtocol] = useState<Protocol | null>(null);
+  const [showRiskModal, setShowRiskModal] = useState(false);
 
   const {
     protocols,
@@ -46,6 +51,11 @@ const ProtocolTable = ({ filters = {}, limit = undefined }: ProtocolTableProps) 
   const displayProtocols = limit && protocols.length > limit
     ? protocols.slice(0, limit)
     : protocols
+
+  const handleShowRiskAssessment = (protocol: Protocol) => {
+    setSelectedProtocol(protocol);
+    setShowRiskModal(true);
+  };
 
   if (isLoading) {
     return (
@@ -83,7 +93,7 @@ console.log("🚀 ~ ProtocolTable ~ limit:", limit)
             <div className={styles.filterSection}>
               <h3 className={styles.filterHeading}>Chain Filters</h3>
               <div className={styles.chainFilters}>
-                {availableChains.map(chain => (
+                {availableChains.map((chain: string) => (
                   <label key={chain} className={styles.chainFilterItem}>
                     <input
                       type="checkbox"
@@ -181,13 +191,13 @@ console.log("🚀 ~ ProtocolTable ~ limit:", limit)
                 </div>
               </th>
               <th className={`${styles.tableHeader} ${styles.tableHeaderRight}`}>
-                Action
+                Actions
               </th>
             </tr>
           </thead>
           <tbody>
             {displayProtocols.length > 0 ? (
-              displayProtocols.map(protocol => (
+              displayProtocols.map((protocol: Protocol) => (
                 <tr key={protocol.id} className={styles.protocolRow}>
                   <td className={styles.tableCell}>
                     <div className={styles.protocolCell}>
@@ -227,7 +237,7 @@ console.log("🚀 ~ ProtocolTable ~ limit:", limit)
                   </td>
                   <td className={styles.tableCell}>
                     <div className={styles.chainIconsContainer}>
-                      {protocol.metadata?.chains?.slice(0, 5).map((chain, index) => (
+                      {protocol.metadata?.chains?.slice(0, 5).map((chain: string, index: number) => (
                         <div key={index} className={styles.chainIconWrapper} title={chain}>
                           {chainIconMap[chain] && (
                             <img
@@ -246,18 +256,26 @@ console.log("🚀 ~ ProtocolTable ~ limit:", limit)
                     </div>
                   </td>
                   <td className={`${styles.tableCell} ${styles.tableCellRight}`}>
-                    <Link
-                      to={`/protocol/${protocol.id}`}
-                      className={styles.detailsButton}
-                    >
-                      View Details
-                    </Link>
+                    <div className={styles.actionButtons}>
+                      <button
+                        onClick={() => handleShowRiskAssessment(protocol)}
+                        className={styles.riskButton}
+                      >
+                        Risk Assessment
+                      </button>
+                      <Link
+                        to={`/protocol/${protocol.id}`}
+                        className={styles.detailsButton}
+                      >
+                        View Details
+                      </Link>
+                    </div>
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan={6} className={styles.emptyState}>
+                <td colSpan={7} className={styles.emptyState}>
                   <svg className={styles.emptyStateIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
@@ -268,6 +286,20 @@ console.log("🚀 ~ ProtocolTable ~ limit:", limit)
           </tbody>
         </table>
       </div>
+
+      {/* Risk Assessment Modal */}
+      {showRiskModal && selectedProtocol && (
+        <div className={styles.modalOverlay} onClick={() => setShowRiskModal(false)}>
+          <div className={styles.modal} onClick={e => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={() => setShowRiskModal(false)}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <ProtocolRiskAssessment protocol={selectedProtocol} />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

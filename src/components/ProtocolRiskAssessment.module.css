@@ -129,3 +129,192 @@
     width: 80px;
   }
 }
+
+.riskAssessment {
+  background-color: var(--color-background-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+
+/* Score Section */
+.scoreSection {
+  margin-bottom: 2rem;
+}
+
+.scoreSection h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.scoreBar {
+  width: 100%;
+  height: 0.75rem;
+  background-color: var(--color-background);
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+.scoreFill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+/* Protocol Type Section */
+.typeSection {
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-md);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.typeSection h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.riskLevel {
+  margin-bottom: 1rem;
+  color: var(--color-text-muted);
+}
+
+.highlight {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.riskFactors {
+  margin-top: 1rem;
+}
+
+.riskFactors h4 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+}
+
+.riskFactors ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.riskFactor {
+  padding: 0.5rem 0;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+}
+
+.riskFactor::before {
+  content: "•";
+  color: var(--color-primary);
+  margin-right: 0.5rem;
+}
+
+/* Security Metrics */
+.securityMetrics {
+  margin-bottom: 2rem;
+}
+
+.securityMetrics h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.metric {
+  background-color: var(--color-background);
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metricLabel {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.metricValue {
+  color: var(--color-text);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Detailed Risks */
+.detailedRisks {
+  margin-top: 2rem;
+}
+
+.detailedRisks h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.riskFactor {
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.riskFactor h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.riskScore {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.scoreValue {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.riskDescription {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .riskAssessment {
+    padding: 1.5rem;
+  }
+
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .typeSection {
+    padding: 1rem;
+  }
+
+  .riskFactor {
+    padding: 1rem;
+  }
+}

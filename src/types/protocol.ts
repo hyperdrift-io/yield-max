@@ -14,10 +14,14 @@ export type Protocol = {
   unbondingPeriod: number // Days
   vcBacking: string[] // Venture capital firms
   risk?: string // Risk level (low, medium, high)
-  engagement: {
-    twitter: number // Followers
-    discord: number // Members
-    github: number // Stars or contributors
+  communityLinks?: {
+    twitter?: string
+    discord?: string
+    github?: string
+    telegram?: string
+    forum?: string
+    blog?: string
+    custom?: string[]
   }
   metadata?: {
     chains: string[] // Supported blockchains
@@ -41,4 +45,19 @@ export type Protocol = {
     date: string
     url?: string
   }[]
+  riskAssessment?: {
+    [key: string]: any; // Using any type for flexibility
+    smartContractRisk?: number;
+    smartContractRiskDescription?: string;
+    impermanentLoss?: number;
+    impermanentLossDescription?: string;
+    marketRisk?: number;
+    marketRiskDescription?: string;
+    liquidationRisk?: number;
+    liquidationRiskDescription?: string;
+    tokenomicDesignRisk?: number;
+    tokenomicDesignRiskDescription?: string;
+    safetyScore?: number;
+  }
+  type?: string; // Protocol type (e.g., 'Lending Platform', 'DEX', etc.)
 }

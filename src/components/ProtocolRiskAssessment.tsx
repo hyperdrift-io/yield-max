@@ -1,4 +1,5 @@
 import styles from './ProtocolRiskAssessment.module.css';
+import { protocolTypeMap, protocolTypes } from '../data/protocolTypeMapping';
 
 type RiskData = {
   score: number;
@@ -18,76 +19,152 @@ type Protocol = {
   id: string;
   name: string;
   riskAssessment?: RiskAssessment;
+  safetyScore: number;
+  tvl: number;
+  audits: number;
+  metadata?: {
+    chains: string[];
+  };
 };
 
 type ProtocolRiskAssessmentProps = {
   protocol: Protocol;
+};
+
+export default function ProtocolRiskAssessment({ protocol }: ProtocolRiskAssessmentProps) {
+  const protocolType = protocolTypeMap[protocol.id];
+  const typeDetails = protocolTypes.find(type => type.name === protocolType);
+
+    return (
+    <div className={styles.riskAssessment}>
+      <h2 className={styles.title}>Risk Assessment</h2>
+
+      {/* Overall Safety Score */}
+      <div className={styles.scoreSection}>
+        <h3>Overall Safety Score: {protocol.safetyScore}/100</h3>
+        <div className={styles.scoreBar}>
+          <div
+            className={styles.scoreFill}
+            style={{
+              width: `${protocol.safetyScore}%`,
+              backgroundColor: getScoreColor(protocol.safetyScore)
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Protocol Type Risks */}
+      {typeDetails && (
+        <div className={styles.typeSection}>
+          <h3>Protocol Type: {typeDetails.name}</h3>
+          <div className={styles.riskLevel}>
+            Risk Level: <span className={styles.highlight}>{typeDetails.riskLevel}</span>
+          </div>
+
+          <div className={styles.riskFactors}>
+            <h4>Risk Factors:</h4>
+            <ul>
+              {typeDetails.risks.map((risk, index) => (
+                <li key={index} className={styles.riskFactor}>{risk}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {/* Security Metrics */}
+      <div className={styles.securityMetrics}>
+        <h3>Security Metrics</h3>
+        <div className={styles.metricsGrid}>
+          <div className={styles.metric}>
+            <span className={styles.metricLabel}>Audits</span>
+            <span className={styles.metricValue}>{protocol.audits}</span>
+          </div>
+          <div className={styles.metric}>
+            <span className={styles.metricLabel}>TVL</span>
+            <span className={styles.metricValue}>${formatTVL(protocol.tvl)}</span>
+          </div>
+          <div className={styles.metric}>
+            <span className={styles.metricLabel}>Chains</span>
+            <span className={styles.metricValue}>{protocol.metadata?.chains?.length || 0}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Detailed Risk Assessment */}
+      {protocol.riskAssessment && (
+        <div className={styles.detailedRisks}>
+          <h3>Detailed Risk Analysis</h3>
+
+          {protocol.riskAssessment.smartContractRisk && (
+            <RiskFactor
+              title="Smart Contract Risk"
+              data={protocol.riskAssessment.smartContractRisk}
+            />
+          )}
+
+          {protocol.riskAssessment.impermanentLoss && (
+            <RiskFactor
+              title="Impermanent Loss Risk"
+              data={protocol.riskAssessment.impermanentLoss}
+            />
+          )}
+
+          {protocol.riskAssessment.marketRisk && (
+            <RiskFactor
+              title="Market Risk"
+              data={protocol.riskAssessment.marketRisk}
+            />
+          )}
+
+          {protocol.riskAssessment.liquidationRisk && (
+            <RiskFactor
+              title="Liquidation Risk"
+              data={protocol.riskAssessment.liquidationRisk}
+            />
+          )}
+
+          {protocol.riskAssessment.tokenomicDesignRisk && (
+            <RiskFactor
+              title="Tokenomic Design Risk"
+              data={protocol.riskAssessment.tokenomicDesignRisk}
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
 }
 
-const ProtocolRiskAssessment = ({ protocol }: ProtocolRiskAssessmentProps) => {
-  if (!protocol.riskAssessment) {
-    return (
-      <div className={styles.noDataContainer}>
-        <p>Detailed risk assessment is not available for this protocol.</p>
-      </div>
-    );
-  }
-
-  const { riskAssessment } = protocol;
-
-  // Risk categories from the data
-  const riskCategories = [
-    { key: 'smartContractRisk', name: 'Smart Contract Risk' },
-    { key: 'impermanentLoss', name: 'Impermanent Loss Risk' },
-    { key: 'marketRisk', name: 'Market Risk' },
-    { key: 'liquidationRisk', name: 'Liquidation Risk' },
-    { key: 'tokenomicDesignRisk', name: 'Tokenomic Design Risk' }
-  ] as const;
-
-  return (
-    <div className={styles.riskAssessmentContainer}>
-      <div className={styles.overallRisk}>
-        <div className={styles.scoreCircle}>
-          <div className={styles.scoreNumber}>{riskAssessment.safetyScore / 10}</div>
-          <div className={styles.scoreMax}>/10</div>
-        </div>
-        <div className={styles.scoreLabel}>Overall Safety</div>
-      </div>
-
-      <div className={styles.riskCategories}>
-        {riskCategories.map(category => {
-          const categoryKey = category.key as keyof RiskAssessment;
-          const riskData = riskAssessment[categoryKey];
-
-          if (!riskData) return null;
-
+function RiskFactor({ title, data }: { title: string, data: RiskData }) {
           return (
-            <div key={category.key} className={styles.riskCategory}>
-              <div className={styles.riskHeader}>
-                <h3 className={styles.riskTitle}>{category.name}</h3>
+    <div className={styles.riskFactor}>
+      <h4>{title}</h4>
                 <div className={styles.riskScore}>
                   <div className={styles.scoreBar}>
                     <div
-                      className={styles.scoreBarFill}
+            className={styles.scoreFill}
                       style={{
-                        width: `${riskData.score}%`,
-                        backgroundColor:
-                          riskData.score >= 80 ? 'var(--color-success)' :
-                          riskData.score >= 70 ? 'var(--color-warning)' :
-                          'var(--color-danger)'
+              width: `${data.score}%`,
+              backgroundColor: getScoreColor(data.score)
                       }}
-                    ></div>
+          />
                   </div>
-                  <span className={styles.scoreValue}>{riskData.score}/100</span>
-                </div>
-              </div>
-              <p className={styles.riskDescription}>{riskData.description}</p>
-            </div>
-          );
-        })}
+        <span className={styles.scoreValue}>{data.score}/100</span>
       </div>
+      <p className={styles.riskDescription}>{data.description}</p>
     </div>
   );
-};
+}
 
-export default ProtocolRiskAssessment;
+function getScoreColor(score: number): string {
+  if (score >= 80) return 'var(--color-success)';
+  if (score >= 60) return 'var(--color-warning)';
+  return 'var(--color-danger)';
+}
+
+function formatTVL(tvl: number): string {
+  if (tvl >= 1e9) return `${(tvl / 1e9).toFixed(2)}B`;
+  if (tvl >= 1e6) return `${(tvl / 1e6).toFixed(2)}M`;
+  return tvl.toLocaleString();
+}

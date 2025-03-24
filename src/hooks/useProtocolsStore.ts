@@ -90,7 +90,6 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
         return false
       }
       if (filters.chains && filters.chains.length > 0) {
-        // Check if protocol has at least one of the specified chains
         const protocolChains = protocol.metadata?.chains || []
         return filters.chains.some(chain =>
           protocolChains.includes(chain) ||
@@ -102,14 +101,16 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
 
     // Then apply sorting
     result = [...result].sort((a, b) => {
-      // Handle special case for unbonding period (lower is better)
+      const aValue = a[sortConfig.field]
+      const bValue = b[sortConfig.field]
+
+      // Handle special cases
       if (sortConfig.field === 'unbondingPeriod') {
         return sortConfig.order === 'desc'
-          ? a[sortConfig.field] - b[sortConfig.field]
-          : b[sortConfig.field] - a[sortConfig.field]
+          ? bValue - aValue  // Higher unbonding period first
+          : aValue - bValue  // Lower unbonding period first
       }
 
-      // Handle chains sorting (count of chains)
       if (sortConfig.field === 'chains') {
         const aChainsCount = a.metadata?.chains?.length || 0
         const bChainsCount = b.metadata?.chains?.length || 0
@@ -118,10 +119,15 @@ export function useProtocolsStore(initialFilters?: Partial<FilterState>) {
           : aChainsCount - bChainsCount
       }
 
-      // Regular sorting (higher is better for most metrics)
-      return sortConfig.order === 'desc'
-        ? b[sortConfig.field] - a[sortConfig.field]
-        : a[sortConfig.field] - b[sortConfig.field]
+      // For APY and other numeric fields
+      if (typeof aValue === 'number' && typeof bValue === 'number') {
+        return sortConfig.order === 'desc'
+          ? bValue - aValue  // Higher values first
+          : aValue - bValue  // Lower values first
+      }
+
+      // Fallback for non-numeric fields
+      return 0
     })
 
     return result

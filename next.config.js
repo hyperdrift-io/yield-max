@@ -14,6 +14,8 @@ const nextConfig = {
       },
     ],
   },
+  // If you have public resources with special handling needs
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/' : '',
   // Skip type checking during build
   typescript: {
     ignoreBuildErrors: true,

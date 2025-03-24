@@ -41,12 +41,16 @@ const mockProtocols: Protocol[] = protocolsRawData.map(p => ({
   risk: p.riskAssessment ?
     (p.riskAssessment.safetyScore >= 80 ? 'low' :
      p.riskAssessment.safetyScore >= 70 ? 'medium' : 'high') : 'medium',
-  // Map social engagement metrics
-  engagement: {
-    twitter: 0, // These would come from communityLinks in real data
-    discord: 0,
-    github: 0
-  },
+  // Map community links
+  communityLinks: p.communityLinks ? {
+    twitter: p.communityLinks.twitter || undefined,
+    discord: p.communityLinks.discord || undefined,
+    github: p.communityLinks.github || undefined,
+    telegram: p.communityLinks.telegram || undefined,
+    forum: p.communityLinks.forum || undefined,
+    blog: p.communityLinks.blog || undefined,
+    custom: p.communityLinks.custom || undefined
+  } : undefined,
   // Map metadata
   metadata: {
     chains: p.metadata?.chains || [],
