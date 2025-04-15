@@ -1,17 +1,17 @@
 # YieldMax
 
-YieldMax is a platform that helps you compare and analyze different yield opportunities in the DeFi ecosystem. 
-We aggregate data from various protocols to provide you with transparent information to make informed decisions.
+Compare and optimize DeFi yield opportunities with transparent protocol analysis and risk assessment.
 
-## Tech Stack
+[![Deploy to Production](https://github.com/yourusername/yieldmax/actions/workflows/deploy.yml/badge.svg)](https://github.com/yourusername/yieldmax/actions/workflows/deploy.yml)
 
-- **Next.js** - React framework with SSR and static site generation capabilities
-- **TypeScript** - For type safety and better developer experience
-- **Bun** - JavaScript runtime and package manager
+## Features
 
-## Getting Started
+- **Protocol Comparison** - Compare yields across multiple protocols
+- **Risk Assessment** - Understand the risks associated with each protocol
+- **Yield Simulation** - Project potential earnings based on investment amount and time
+- **Beginner Guides** - Learn about DeFi yield strategies
 
-Make sure you have [Bun](https://bun.sh) installed on your machine.
+## Quick Start
 
 ```bash
 # Install dependencies
@@ -23,68 +23,68 @@ bun run dev
 # Build for production
 bun run build
 
-# Start production server
-bun run start
+# Run tests
+bun run test
 ```
 
-## Static Site Generation
+## Tech Stack
 
-Next.js generates static HTML files for all pages during the build process, which enables faster loading times and SEO benefits. The output is saved to the `/out` directory.
+- **Next.js** - React framework with SSR and static site generation
+- **TypeScript** - Type-safe JavaScript
+- **Bun** - Fast JavaScript runtime and package manager
+- **React Query** - Data fetching and state management
+- **CSS Modules** - Scoped styling
+
+## Development
+
+### Testing
+
+We use Bun's built-in test runner with React Testing Library:
+
+```bash
+# Run all tests
+bun test
+
+# Run tests in watch mode
+bun test --watch
+```
+
+### Linting
+
+```bash
+# Lint codebase
+bun run lint
+
+# Verify CSS styles
+bun run verify-styles
+```
 
 ## Deployment
 
-This repository is configured with GitHub Actions for automatic deployment to the production server. We use Bun for all build and deployment processes.
+Deployment is automated via GitHub Actions. When code is pushed to the main branch, it's automatically:
 
-### Setting up SSH Deployment
-
-1. Generate an SSH key pair if you don't already have one:
-   ```bash
-   ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f ~/.ssh/yieldmax_deploy
-   ```
-
-2. Add the public key to the authorized_keys file on the server:
-   ```bash
-   ssh-copy-id -i ~/.ssh/yieldmax_deploy.pub yannvr@69.62.124.138
-   ```
-   Or manually add the content of `yieldmax_deploy.pub` to `~/.ssh/authorized_keys` on the server.
-
-3. Add the private key as a GitHub secret:
-   - Go to your GitHub repository
-   - Navigate to Settings > Secrets and variables > Actions
-   - Click "New repository secret"
-   - Name: `SSH_PRIVATE_KEY`
-   - Value: Copy the entire contents of your private key file (~/.ssh/yieldmax_deploy)
-   - Click "Add secret"
-
-4. The GitHub workflow will now be able to deploy directly to the server whenever code is pushed to the main branch.
-
-### Manual Deployment
-
-You can also trigger a deployment manually:
-1. Go to the "Actions" tab in your GitHub repository
-2. Select the "Deploy to Production" workflow
-3. Click "Run workflow"
-4. Select the branch you want to deploy
-5. Click "Run workflow"
-
-### Server Requirements
-
-Make sure your server has the following:
-1. Bun installed: `curl -fsSL https://bun.sh/install | bash`
-2. PM2 for process management: `bun install -g pm2`
+1. Tested
+2. Linted
+3. Built
+4. Deployed to the production server
 
 ## Project Structure
 
 - `/app` - Next.js app directory (Pages and layouts)
-- `/src` - Source code
-  - `/api` - API functions for data fetching
-  - `/components` - React components
-  - `/data` - Data files and types
-- `/out` - Static build output (generated after build)
+- `/src` - Core source code
+  - `/api` - API functions and services
+  - `/components` - Reusable UI components
+  - `/hooks` - Custom React hooks
+  - `/types` - TypeScript type definitions
+  - `/__tests__` - Test files
 
-## Features
+## Contributing
 
-- Protocol comparison
-- Yield simulation
-- Risk assessment
-- Protocol details
+1. Create a feature branch (`git checkout -b feature/amazing-feature`)
+2. Commit your changes (`git commit -m 'Add some amazing feature'`)
+3. Push to the branch (`git push origin feature/amazing-feature`)
+4. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
