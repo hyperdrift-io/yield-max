@@ -1,0 +1,12 @@
+---
+description: "YieldMax Style Guide for React components"
+globs: ["*.tsx", "*.jsx", "*.css", "*.scss"]
+alwaysApply: false
+---
+
+# YieldMax Style Guide
+
+- Use functional components with hooks instead of class components
+- Follow TypeScript best practices with proper interface definitions
+- Keep components small and focused on a single responsibility
+- Use CSS modules for component styling

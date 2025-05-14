@@ -1,0 +1,18 @@
+---
+description: "YieldMax Dependencies"
+globs: ["*"]
+alwaysApply: false
+---
+key_dependencies:
+  - name: Next.js
+    purpose: Framework for SSR and static site generation
+  - name: React & React DOM
+    purpose: Core UI library
+  - name: TypeScript
+    purpose: For type safety
+  - name: Bun
+    purpose: JavaScript runtime and package manager for fast development
+  - name: "@tanstack/react-query"
+    purpose: For data fetching and state management
+  - name: wagmi
+    purpose: For Web3 and Ethereum interactions

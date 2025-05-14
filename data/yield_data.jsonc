@@ -1,0 +1,287 @@
+[
+  {
+    "id": "aave",
+    "name": "Aave",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12645/large/AAVE.png",
+    "description": "A decentralized lending platform enabling users to earn interest or borrow assets with flexible rates.",
+    "website": "https://aave.com",
+    "apy": {
+      "value": 7.2,
+      "explanation": "The 7.2% APY represents your annual earnings from lending assets on Aave. It's derived from interest paid by borrowers, fluctuating based on market demand across all supported networks."
+    },
+    "tvl": 13600000000,
+    "easeOfUseScore": 92,
+    "liquidity": 11800000000,
+    "vcBacking": ["ParaFi Capital", "Framework Ventures", "Blockchain Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/AaveAave",
+      "discord": "https://discord.com/invite/aave",
+      "github": "https://github.com/aave"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Avalanche", "Optimism", "Arbitrum", "Base"],
+      "launchDate": "15_04_2025",
+      "token": "AAVE",
+      "governance": "Aave Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/aave#information",
+      "tokenData": "https://www.coingecko.com/en/coins/aave"
+    },
+    "infoSources": {
+      "news": ["CoinDesk", "The Block", "Decrypt"],
+      "security": "https://docs.aave.com/developers/security-and-audits"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Low risk; extensively audited and battle-tested, with continued protocol improvements enhancing security.",
+        "score": 88
+      },
+      "impermanentLoss": {
+        "description": "Minimal risk; Aave focuses on lending, not AMM pools, so impermanent loss is not a significant concern.",
+        "score": 97
+      },
+      "marketRisk": {
+        "description": "Moderate risk; volatile markets can affect collateral values and borrowing stability, though multiple safeguards exist.",
+        "score": 75
+      },
+      "liquidationRisk": {
+        "description": "Moderate risk; borrowers face liquidation if collateral drops, mitigated by conservative loan-to-value ratios.",
+        "score": 78
+      },
+      "tokenomicDesignRisk": {
+        "description": "Low risk; AAVE's governance and staking model has proven robust, with minimal centralization concerns.",
+        "score": 84
+      },
+      "safetyScore": 84
+    }
+  },
+  {
+    "id": "yearn-finance",
+    "name": "Yearn Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/11849/large/yearn-finance.png",
+    "description": "Automates yield farming by maximizing returns through optimized vaults across DeFi.",
+    "website": "https://yearn.finance",
+    "apy": {
+      "value": 10.3,
+      "explanation": "The 10.3% APY is your annual return from Yearn vaults, achieved by automatically shifting your assets between DeFi protocols to maximize yield based on market conditions."
+    },
+    "tvl": 1600000000,
+    "easeOfUseScore": 85,
+    "liquidity": 1350000000,
+    "vcBacking": ["Framework Ventures", "Polychain Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/iearnfinance",
+      "discord": "https://discord.com/invite/yearnfinance",
+      "github": "https://github.com/yearn"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Fantom", "Arbitrum", "Optimism"],
+      "launchDate": "15_04_2025",
+      "token": "YFI",
+      "governance": "YFI Voting"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/yearn-finance#information",
+      "tokenData": "https://www.coingecko.com/en/coins/yearn-finance"
+    },
+    "infoSources": {
+      "news": ["Decrypt", "CoinTelegraph", "The Defiant"],
+      "security": "https://docs.yearn.finance/resources/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; complex strategies are regularly audited, but the sophistication of vault mechanisms introduces some risk.",
+        "score": 72
+      },
+      "impermanentLoss": {
+        "description": "Moderate risk; some vaults interact with AMM pools, potentially exposing users to impermanent loss.",
+        "score": 76
+      },
+      "marketRisk": {
+        "description": "High risk; vault returns depend heavily on volatile DeFi market conditions and yield opportunities.",
+        "score": 63
+      },
+      "liquidationRisk": {
+        "description": "Low risk; Yearn vaults typically don't involve direct borrowing, reducing liquidation exposure.",
+        "score": 87
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; YFI's limited supply creates scarcity value, but governance concentration remains a consideration.",
+        "score": 73
+      },
+      "safetyScore": 74
+    }
+  },
+  {
+    "id": "curve-finance",
+    "name": "Curve Finance",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12124/large/Curve.png",
+    "description": "A DEX designed for efficient stablecoin trading and yield generation.",
+    "website": "https://curve.fi",
+    "apy": {
+      "value": 5.8,
+      "explanation": "The 5.8% APY comes from providing liquidity to Curve pools. It combines trading fees and CRV rewards, with potential boosts for users who lock CRV tokens for voting power."
+    },
+    "tvl": 2200000000,
+    "easeOfUseScore": 83,
+    "liquidity": 1950000000,
+    "vcBacking": ["Framework Ventures", "Polychain Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/CurveFinance",
+      "discord": "https://discord.com/invite/curvedao",
+      "github": "https://github.com/curvefi"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Arbitrum", "Optimism", "Base", "Avalanche"],
+      "launchDate": "15_04_2025",
+      "token": "CRV",
+      "governance": "veCRV Voting"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/curve-finance#information",
+      "tokenData": "https://www.coingecko.com/en/coins/curve-dao-token"
+    },
+    "infoSources": {
+      "news": ["The Defiant", "CoinDesk", "Decrypt"],
+      "security": "https://curve.fi/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Low risk; heavily audited and stable code, though past incidents highlight the need for ongoing vigilance.",
+        "score": 87
+      },
+      "impermanentLoss": {
+        "description": "Low risk; stablecoin focus minimizes impermanent loss, except during rare significant depeg events.",
+        "score": 92
+      },
+      "marketRisk": {
+        "description": "Moderate risk; stablecoin depegging can disrupt pool stability and affect returns.",
+        "score": 78
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; Curve doesn't involve direct lending, so liquidation isn't a primary concern.",
+        "score": 96
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; veCRV locking mechanism creates some governance concentration concerns.",
+        "score": 73
+      },
+      "safetyScore": 85
+    }
+  },
+  {
+    "id": "uniswap",
+    "name": "Uniswap",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12504/large/uniswap-uni.png",
+    "description": "A leading AMM-based DEX providing yield via liquidity pools.",
+    "website": "https://uniswap.org",
+    "apy": {
+      "value": 5.3,
+      "explanation": "The 5.3% APY represents your yearly earnings from providing liquidity on Uniswap. This return comes primarily from trading fees collected when users swap tokens through your liquidity pools."
+    },
+    "tvl": 5900000000,
+    "easeOfUseScore": 95,
+    "liquidity": 5200000000,
+    "vcBacking": ["a16z", "Paradigm", "USV"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/Uniswap",
+      "discord": "https://discord.com/invite/uniswap",
+      "github": "https://github.com/Uniswap"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Optimism", "Arbitrum", "Base", "Avalanche"],
+      "launchDate": "15_04_2025",
+      "token": "UNI",
+      "governance": "UNI Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/uniswap#information",
+      "tokenData": "https://www.coingecko.com/en/coins/uniswap"
+    },
+    "infoSources": {
+      "news": ["CoinDesk", "The Block", "Decrypt"],
+      "security": "https://uniswap.org/security"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Low risk; extensively audited and battle-tested contracts with widespread adoption and ongoing security improvements.",
+        "score": 87
+      },
+      "impermanentLoss": {
+        "description": "High risk; volatile trading pairs can lead to significant impermanent loss for liquidity providers.",
+        "score": 62
+      },
+      "marketRisk": {
+        "description": "Moderate risk; trading volume fluctuations and market sentiment directly impact fee generation.",
+        "score": 72
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; Uniswap doesn't involve direct lending or liquidation mechanisms.",
+        "score": 97
+      },
+      "tokenomicDesignRisk": {
+        "description": "Low risk; UNI has a well-established governance system with broad token distribution.",
+        "score": 83
+      },
+      "safetyScore": 80
+    }
+  },
+  {
+    "id": "sushiswap",
+    "name": "SushiSwap",
+    "logoUrl": "https://assets.coingecko.com/coins/images/12271/large/sushi.png",
+    "description": "A community-driven DEX with yield farming incentives and cross-chain support.",
+    "website": "https://sushi.com",
+    "apy": {
+      "value": 6.8,
+      "explanation": "The 6.8% APY represents your earnings from SushiSwap liquidity provision. This return combines trading fees and SUSHI rewards, which vary by pool and can be boosted by staking SUSHI."
+    },
+    "tvl": 1200000000,
+    "easeOfUseScore": 88,
+    "liquidity": 980000000,
+    "vcBacking": ["Samsung Next", "Coinbase Ventures", "Dragonfly Capital"],
+    "communityLinks": {
+      "twitter": "https://twitter.com/sushiswap",
+      "discord": "https://discord.com/invite/sushiswap",
+      "github": "https://github.com/sushiswap"
+    },
+    "metadata": {
+      "chains": ["Ethereum", "Polygon", "Arbitrum", "Optimism", "Base", "Avalanche", "Binance Smart Chain"],
+      "launchDate": "15_04_2025",
+      "token": "SUSHI",
+      "governance": "SUSHI Governance"
+    },
+    "tokenPages": {
+      "tvlAndApy": "https://defillama.com/protocol/sushiswap#information",
+      "tokenData": "https://www.coingecko.com/en/coins/sushi"
+    },
+    "infoSources": {
+      "news": ["Decrypt", "CoinTelegraph", "The Defiant"],
+      "security": "https://docs.sushi.com/docs/Security/Audits"
+    },
+    "riskAssessment": {
+      "smartContractRisk": {
+        "description": "Moderate risk; while audited regularly, SushiSwap's rapid development cycle and frequent upgrades introduce some risk.",
+        "score": 73
+      },
+      "impermanentLoss": {
+        "description": "High risk; volatile trading pairs can lead to significant impermanent loss for liquidity providers.",
+        "score": 64
+      },
+      "marketRisk": {
+        "description": "Moderate risk; trading volume fluctuations directly impact fee generation and SUSHI rewards.",
+        "score": 70
+      },
+      "liquidationRisk": {
+        "description": "Minimal risk; SushiSwap's primary functions don't involve direct lending or liquidation mechanisms.",
+        "score": 95
+      },
+      "tokenomicDesignRisk": {
+        "description": "Moderate risk; SUSHI tokenomics have evolved since launch, with ongoing adjustments to emission schedules.",
+        "score": 76
+      },
+      "safetyScore": 75
+    }
+  }
+]

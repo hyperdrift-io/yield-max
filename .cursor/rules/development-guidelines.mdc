@@ -1,0 +1,16 @@
+---
+description: "YieldMax Development Guidelines"
+globs: ["*.ts", "*.tsx", "*.js", "*.jsx"]
+alwaysApply: false
+---
+development_guidelines:
+  - guideline: TypeScript First
+    description: All code must be written in TypeScript with proper typing
+  - guideline: CSS Modules
+    description: Use CSS modules for component-scoped styling (e.g., Component.module.css)
+  - guideline: Testing
+    description: Write tests for critical components and API functions using Bun's test runner. Tests should be placed in src/__tests__
+  - guideline: Static Generation
+    description: Leverage Next.js static site generation for performance and SEO benefits
+  - guideline: React Best Practices
+    description: Follow React best practices, including proper use of hooks and component lifecycle management

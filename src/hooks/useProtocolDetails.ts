@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { getProtocolDetails } from '../api/protocols'
-import protocolsRawData from '../data/yieldmax_23_03_2025.json'
+import protocolsRawData from '../../data/yield_data.jsonc'
 
 export function useProtocolDetails(id: string | undefined) {
   // Fetch the processed protocol data

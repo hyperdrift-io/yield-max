@@ -1,5 +1,5 @@
 /**
- * This file maps protocols from yieldmax_23_03_2025.json to protocol types
+ * This file maps protocols from yield_data.jsonc to protocol types
  * for use in the CompareRisks page.
  */
 

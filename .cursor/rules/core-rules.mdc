@@ -1,0 +1,18 @@
+---
+description: "YieldMax Core Development Rules"
+globs: ["*"]
+alwaysApply: false
+---
+project_name: YieldMax
+description: A DeFi yield comparison platform built with Next.js, TypeScript, and Bun
+purpose: Helps users analyze and compare yield opportunities across various protocols with transparent data and risk assessments
+
+core_rules:
+  - rule: Use Bun
+    description: Utilize Bun for package management, testing, and running the app
+    examples:
+      - bun install
+      - bun run dev
+      - bun test
+  - rule: Keep Implementation Simple
+    description: Favor straightforward solutions over complex ones. Avoid over-engineering and prioritize readability and maintainability

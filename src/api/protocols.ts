@@ -1,5 +1,5 @@
 import { Protocol } from '../types/protocol'
-import protocolsRawData from '../data/yieldmax_23_03_2025.json'
+import protocolsRawData from '../data/yield_data.json'
 
 // Helper function to get a proper logo URL with fallbacks
 function getLogoUrl(protocol: any): string {

@@ -1,0 +1,10 @@
+---
+description: "YieldMax Ci Cd"
+globs: ["*"]
+alwaysApply: false
+---
+ci_cd:
+  - tool: GitHub Actions
+    purpose: Automated testing, linting, building, and deployment to production on push to main branch
+  - tool: Secrets Management
+    purpose: Sensitive data like server host and credentials are stored as GitHub secrets

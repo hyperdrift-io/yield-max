@@ -1,0 +1,16 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+task_preparation:
+  - step: Understand the Context
+    description: Review the specific component or API you're working on. Check related files in /src/components, /src/api, or /app
+  - step: Check Existing Patterns
+    description: Look at similar files to match coding style and structure
+  - step: Verify Dependencies
+    description: Ensure you're using the correct versions of libraries as specified in package.json
+  - step: Test Implications
+    description: Consider how changes affect existing tests or require new ones
+  - step: Deployment Impact
+    description: Assess if changes affect the CI/CD pipeline or deployment process

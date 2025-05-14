@@ -38,11 +38,10 @@
 }
 
 .tableRow {
-  border-bottom: 1px solid var(--color-border, rgba(71, 85, 105, 0.3));
   transition: background-color 0.2s ease;
 }
 
-.tableRow:last-child {
+.tableRow:last-child td {
   border-bottom: none;
 }
 
@@ -51,9 +50,6 @@
 }
 
 .protocolCell {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
   padding: 1rem;
   border-bottom: 1px solid var(--color-border);
 }
@@ -104,7 +100,7 @@
   transition: width 0.3s ease;
 }
 
-.viewDetails {
+.viewDetails, .viewProtocol {
   color: var(--color-primary, #3b82f6);
   text-decoration: none;
   padding: 0.375rem 0.75rem;
@@ -118,21 +114,9 @@
   min-width: 8rem;
 }
 
-.viewDetails:hover {
+.viewDetails:hover, .viewProtocol:hover {
   background-color: var(--color-primary, #3b82f6);
   color: white;
-}
-
-.viewProtocol {
-  color: var(--color-text);
-  border-color: var(--color-text-muted);
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.viewProtocol:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: var(--color-text);
-  border-color: var(--color-text);
 }
 
 @media (max-width: 1024px) {
@@ -154,7 +138,7 @@
     font-size: 0.875rem;
   }
 
-  .viewDetails {
+  .viewDetails, .viewProtocol {
     padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
   }

@@ -1,0 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+troubleshooting:
+  - issue: Bun Not Found
+    solution: Ensure Bun is installed and in your PATH. Run curl -fsSL https://bun.sh/install | bash if needed
+  - issue: Dependency Issues
+    solution: Clear node_modules and reinstall with bun install
+  - issue: Test Failures
+    solution: Check mock implementations in test files and ensure they match the updated code

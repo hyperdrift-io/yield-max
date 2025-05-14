@@ -1,0 +1,12 @@
+---
+description: "YieldMax Maintenance"
+globs: ["*"]
+alwaysApply: false
+---
+maintenance_priorities:
+  - priority: Security
+    description: Address vulnerabilities first, especially in deployment configurations and dependencies
+  - priority: Test Coverage
+    description: Ensure critical functionality is tested, especially API interactions and UI components
+  - priority: Documentation
+    description: Keep README and inline comments up-to-date with any significant changes

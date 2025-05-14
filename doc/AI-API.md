@@ -66,7 +66,7 @@ Break down the processing of the JSON values in 2 steps to avoid creating a quer
 
 
 --
-Update the JSON entries for the following list of DeFi protocols: ["aave", "yearn-finance", "curve-finance", "uniswap", "sushiswap", "pancakeswap", "balancer", "pendle", "convex-finance", "aura-finance", "lido-finance", "makerdao", "alpaca-finance", "beefy-finance", "frax-finance", "harvest-finance", "stake-dao", "eigenlayer", "jito"]. Use the current date, March 23, 2025, as the reference point. Apply the following transformations to each entry based on the provided initial JSON structure:
+Update the JSON entries for the following list of DeFi protocols: ["aave", "yearn-finance", "curve-finance", "uniswap", "sushiswap", "pancakeswap", "balancer", "pendle", "convex-finance", "aura-finance", "lido-finance", "makerdao", "alpaca-finance", "beefy-finance", "frax-finance", "harvest-finance", "stake-dao", "eigenlayer", "jito"]. Use the current date, as the reference point. Apply the following transformations to each entry based on the provided initial JSON structure:
 
 1. **Retain Core Fields:** Keep `id`, `name`, `logoUrl`, `description`, `website`, `tvl`, `liquidity`, `vcBacking`, `metadata` (with `chains`, `launchDate`, `token`, `governance`), and `tokenPages` (with `tvlAndApy` and `tokenData`).
 2. **Date Format:** Convert all dates (e.g., `launchDate`) to the format `%dd_%mm_%YYYY` (e.g., `23_03_2025`).
@@ -89,5 +89,15 @@ Update the JSON entries for the following list of DeFi protocols: ["aave", "year
 10. **Download Link:** Provide a simulated download link for the entire updated JSON array in the format `deFi_protocols_23_03_2025.json` (e.g., `https://example.com/download/deFi_protocols_23_03_2025.json`).
 
 For each protocol, tailor the `apy.explanation` and `riskAssessment` descriptions to its specific mechanics (e.g., lending for Aave, AMM for Uniswap, yield optimization for Yearn). Use the initial JSON provided earlier in the thread as the baseline for field values where applicable, updating them as specified. Output the complete updated JSON array and the download link.
+
+--
+
+actualise the content of yield_data.jsonc by gathering the most up to date data available regarding the protocol listed in PROTOCOL_LIST.
+the content should follow the same format as yield_data.jsonc
+The new data content should store in data/yield_data_DATE where date is in format dd/mm/yyyy
+the yield_data.jsonc should then point to that file with a comment on date generation on top
+
+actualisze the JSON entries for the following list of DeFi protocols: ["aave", "yearn-finance", "curve-finance", "uniswap", "sushiswap", "pancakeswap", "balancer", "pendle", "convex-finance", "aura-finance", "lido-finance", "makerdao", "alpaca-finance", "beefy-finance", "frax-finance", "harvest-finance", "stake-dao", "eigenlayer", "jito"]. Use the current date, as the reference point. Apply the following transformations to each entry based on the provided initial JSON structure:
+
 
 [JSON]

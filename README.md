@@ -1,5 +1,8 @@
 # YieldMax
 
+# TODO
+Use Defi Lama values and / or graph (no made up values)
+
 Compare and optimize DeFi yield opportunities with transparent protocol analysis and risk assessment.
 
 [![Deploy to Production](https://github.com/yourusername/yieldmax/actions/workflows/deploy.yml/badge.svg)](https://github.com/yourusername/yieldmax/actions/workflows/deploy.yml)

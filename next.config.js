@@ -25,6 +25,17 @@ const nextConfig = {
   },
   // Enable trailing slash to prevent mismatches in exported static files
   trailingSlash: true,
+
+  // Add webpack configuration for .jsonc files
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.jsonc$/,
+      type: 'json',
+      use: ['json-loader']
+    });
+
+    return config;
+  },
 };
 
 export default nextConfig;

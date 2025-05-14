@@ -1,0 +1,13 @@
+---
+description: "YieldMax Development Guidelines"
+globs: ["*.ts", "*.tsx", "*.js", "*.jsx"]
+alwaysApply: false
+---
+
+# YieldMax Development Guidelines
+
+- TypeScript First: All code must be written in TypeScript with proper typing
+- CSS Modules: Use CSS modules for component-scoped styling (e.g., Component.module.css)
+- Testing: Write tests for critical components and API functions
+- Static Generation: Leverage Next.js static site generation
+- React Best Practices: Follow React best practices

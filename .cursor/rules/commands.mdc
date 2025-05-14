@@ -1,0 +1,11 @@
+---
+description: "YieldMax Commands"
+globs: ["*"]
+alwaysApply: false
+---
+common_commands:
+  development: bun run dev
+  testing: bun test
+  linting: bun run lint
+  linting_fix: bun run lint:fix
+  build: bun run build
